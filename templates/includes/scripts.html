@@ -1,0 +1,41 @@
+{% load static %}
+
+<!-- 1. jQuery (first) -->
+<script src="{% static 'js/jquery.js' %}"></script>
+
+<!-- 2. jQuery UI -->
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+
+<!-- 3. Bootstrap JS -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+
+<!-- 4. Other Plugins -->
+<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/jquery.bootstrap-touchspin.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/owl.js' %}"></script>
+<script src="{% static 'js/appear.js' %}"></script>
+<script src="{% static 'js/mixitup.js' %}"></script>
+<script src="{% static 'js/isotope.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/validate.js' %}"></script>
+<script src="{% static 'js/map-script.js' %}"></script>
+<script src="{% static 'js/main-slider-script.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+
+<!-- 5. Custom Script -->
+<script src="{% static 'js/script.js' %}"></script>
+
+<!-- 6. Auto Slide Carousel -->
+<script>
+    $(document).ready(function(){
+        $('#minimal-bootstrap-carousel').carousel({
+            interval: 2000, // 4s auto next
+            pause: false    // hover par stop nahi hoga
+        });
+    });
+</script>
+
+
