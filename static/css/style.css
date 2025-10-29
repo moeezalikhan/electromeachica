@@ -328,7 +328,7 @@ li {
 img {
     display: inline-block;
     width: 50px;
-    height: 50px;
+    height: auto;
 }
 
 .preloader {
@@ -678,9 +678,8 @@ img {
 .main-header .header-upper .logo img {
     position: relative;
     display: inline-block;
-    padding-top: px;
-    padding-bottom: -16;
-    margin-top: 30px;
+    margin-top: 12px;
+    width: 95px;
 }
 
 .main-header .header-upper .upper-right {
@@ -12696,4 +12695,47 @@ li, ul, a {
 h1, h2, h3, h4, h5, h6, a, span {
   text-decoration: none !important;
   border: none !important;
+}
+
+.site-logo {
+    width: 87px;     
+    height: 95px;      
+    display: inline-block;
+}
+/* Header Logo Style */
+.header-logo img {
+    width: 100px;      
+    height: 95px;       
+    display: inline-block;
+}
+
+.header-logo {
+    padding-top: 5px;   
+}
+
+/* === Navbar Text Bottom Alignment Fix === */
+.main-header.style-two .main-menu .navigation > li > a {
+    display: flex;
+    align-items: flex-end; /* moves text to bottom */
+    height: 80px; /* match header height */
+    padding-top: 10px; /* remove top space */
+    padding-bottom: 5px; /* little bottom padding */
+}
+
+.main-header.style-two .main-menu .navigation > li > a h4 {
+    margin: 0;
+    line-height: 1;
+}
+
+/* Footer Logo Styling */
+.footer-logo img {
+    width: 100px;     
+    height: 100px;
+    display: inline-block;
+    opacity: 0.9;     
+}
+
+/* Footer*/ 
+.footer-logo {
+    margin-top: 10px;
 }

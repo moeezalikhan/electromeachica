@@ -5,40 +5,24 @@
         <!--Header-Upper-->
         <div class="header-upper">
             <div class="auto-container">
-                <div class="clearfix">
-                    
-                    <div class="pull-left logo-outer">
-                       <div class="logo">
-                    <a href="{% url 'home' %}">
-                    <img src="{% static 'images/logo.png' %}" alt="Logo" title="Machinery Logo">
-                    </a>
-                    </div>
-                    </div>
-                    
-                    <div class="pull-right upper-right clearfix">
-                        
-                        <!--Info Box-->
-                        {% comment %} <div class="upper-column info-box">
-                            <div class="icon-box"><span class="machinery-icon-map"></span></div>
-                            <ul>
-                                <li>13, Big Smart Str, 2nd Cross</li>
-                                <li><strong>Newyork, USA 1002.</strong></li>
-                            </ul>
+                <div class="clearfix">   
+                   <div class="pull-left logo-outer">
+                        <div class="logo">
+                            <a href="{% url 'home' %}">
+                            <img class="site-logo" src="{% static 'images/logo.png' %}" alt="Logo" title="Machinery Logo">
+                            </a>
                         </div>
-                         {% endcomment %}
-                        <!--Info Box-->
+                        </div>
+                    <div class="pull-right upper-right clearfix">
                         <div class="upper-column info-box">
                             <div class="icon-box"><span class="machinery-icon-contact"></span></div>
-                            <ul>
-                                <li>1-800-784-533 & 544</li>
-                                <li><strong>Machinery@Support.com</strong></li>
-                            </ul>
-                        </div> 
-                        
-                        <!--social Box-->
-                        <div class="upper-column info-box">
-                            <div class="social-icons">
-                                <a href="#"><i class="fa fa-facebook-f"></i></a><!--
+                                <ul><li>1-800-784-533 & 544</li>
+                            <li><strong>Machinery@Support.com</strong></li>
+                        </ul>
+                    </div> 
+                    <div class="upper-column info-box">
+                        <div class="social-icons">
+                            <a href="#"><i class="fa fa-facebook-f"></i></a><!--
                                 --><a href="#"><i class="fa fa-twitter"></i></a><!--
                                 --><a href="#"><i class="fa fa-linkedin"></i></a>
                             </div><!-- /.social-icons -->
@@ -116,12 +100,12 @@
         <!--Sticky Header-->
         <div class="sticky-header">
             <div class="auto-container clearfix">
-                <!--Logo-->
-                <div class="logo pull-left">
-                  <a href="{% url 'home' %}" class="img-responsive">
-                         <img src="{% static 'images/logo-small.png' %}" alt="Logo" title="Machinery Logo">
-                         </a>
-                   </div>
+               <!--Logo-->
+                <div class="logo pull-left header-logo">
+                <a href="{% url 'home' %}" class="img-responsive">
+                    <img src="{% static 'images/logo-small.png' %}" alt="Logo" title="Machinery Logo">
+                </a>
+                </div>
                   <!--Right Col-->
                   <div class="right-col pull-right">
                      <!-- Main Menu -->
@@ -137,16 +121,16 @@
                         
                         <div class="navbar-collapse collapse clearfix">
                              <ul class="navigation clearfix">
-                               <li><a href="{% url 'home' %}">Home</a></li>
+                               <li><a href="{% url 'home' %}"><h4>Home</h4></a></li>
                                <li class="dropdown">
-                                    <a href="{% url 'our_vision' %}">About Us</a>
+                                    <a href="{% url 'our_vision' %}"><h4>About Us</h4></a>
                                     <ul>
-                                        <li><a href="{% url 'our_vision' %}">Our Vision</a></li>
+                                        <li><a href="{% url 'our_vision' %}"><h4>Our Vision</a></li>
                                         <li><a href="{% url 'our_team' %}">Our Team</a></li>
                                         <li><a href="{% url 'our_mission' %}">Our Mission</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="{% url 'market_sector' %}">Market Sectors</a>
+                                <li class="dropdown"><a href="{% url 'market_sector' %}"><h4>Market Sectors</h4></a>
                                     <ul>
                                         <li><a href="{% url 'market_sector'%}">Market Sectors</a></li><li>
                                         <a href="{% url 'market_sector'%}">Construction Products</a></li>
@@ -158,16 +142,16 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown">
-                                <a href="{% url 'products' %}">Products</a>
+                                <a href="{% url 'products' %}"><h4>Products</h4></a>
                                 <ul>
-                                    <li><a href="{% url 'products' %}">All Products</a></li>
+                                    <li><a href="{% url 'products' %}"><h4>All Products</h4></a></li>
                                     <li><a href="{% url 'product_singal'%}">Product Detail</a></li>
                                 </ul>
                                 </li>
                                 </li>
-                                <li><a href="{% url 'projects' %}">Projects</a>
+                                <li><a href="{% url 'projects' %}"><h4>Projects</h4></a>
                                 </li> 
-                                <li><a href="{% url 'contact_us'%}">Contact Us</a>                                    
+                                <li><a href="{% url 'contact_us'%}"><h4>Contact Us</h4></a>                                    
                                 </li>
                             </ul>
                         </div>
