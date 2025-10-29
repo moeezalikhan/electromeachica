@@ -15,9 +15,34 @@ def projects(request):
 
 def products(request):
     return render(request, 'products/products.html')
+
+def product_singal(request):
+    return render(request, 'products/product-single.html')
+
 def our_mission(request):
     return render(request, 'about_us/our_mission.html')
 
-
 def our_team(request):
     return render(request, 'about_us/our_team.html')
+
+def market_sector(request):
+    return render(request, 'marketSectors/market-sectors.html')
+
+
+def construction_products(request):
+    return render(request, 'marketSectors/Construction-products.html')
+
+def aero_space_service(request):
+    return render(request, 'marketSectors/aero-space-services.html')
+
+def railway_infrastructure(request):
+    return render(request, 'marketSectors/railway-infrastructure.html')
+
+def ship_building_industry(request):
+    return render(request, 'marketSectors/ship-building-industry.html')
+
+def power_energy(request):
+    return render(request, 'marketSectors/power-and-energy.html')
+
+def automative_system(request):
+    return render(request, 'marketSectors/automative-system.html')

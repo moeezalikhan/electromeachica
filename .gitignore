@@ -6,4 +6,8 @@
 *.pot
 *.pyc
 __pycache__
-media
+media/
+
+# Git and Database #
+.git/
+db.sqlite3
