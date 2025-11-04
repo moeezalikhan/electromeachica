@@ -765,7 +765,8 @@ img {
 }
 
 .main-header.style-two .info-box .social-icons a:hover {
-    color: #016aac;
+    background: #016aac;
+    color: #fff;
 }
 
 .main-header.style-two .info-box .social-icons a+a {
@@ -3676,7 +3677,7 @@ img {
 
 .about-block h4:before {
     content: '';
-    background: #3505e4;
+    background: #016aac;
     width: 50px;
     height: 2px;
     position: absolute;
