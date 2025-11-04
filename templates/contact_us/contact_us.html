@@ -56,42 +56,46 @@
 
                 <!-- Form Column -->
                 <div class="form-column col-md-8 col-sm-12 col-xs-12">
-                    <div class="inner-column">
-                        <div class="sec-title">
-                            <h2>Send Message Us</h2>
-                            <div class="text">We have 74 branches in US and 145 branches in world wide, you can reach any branch at your desk,our experts will help you 24/7.</div>
-                        </div>
-                        <!--Contact Form-->
-                        <div class="contact-form style-three">
-                            <form method="post" action="sendemail.php" id="contact-form">
-                                <div class="row clearfix">
-                                    <div class="left-column col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text" name="username" value="" placeholder="Your Name" required>
-                                        </div>
+    <div class="inner-column">
+        <div class="sec-title">
+            <h2>Send Message Us</h2>
+            <div class="text">We have 74 branches in US and 145 branches in world wide, you can reach any branch at your desk, our experts will help you 24/7.</div>
+        </div>
 
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="email" name="email" value="" placeholder="Email Address" required>
-                                        </div>
-                                    </div>
-                                    <div class="column col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group border-left">
-                                            <label>Massage</label>
-                                            <textarea name="message" placeholder="Massage"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="column col-md-12 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <button type="submit" class="theme-btn">Submit Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
+        <div class="contact-form style-three">
+            <form method="post" action="{% url 'contact_us' %}">
+                {% csrf_token %}
+                <div class="row clearfix">
+                    <div class="left-column col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="username" placeholder="Your Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                    </div>
+
+                    <div class="column col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group border-left">
+                            <label>Message</label>
+                            <textarea name="message" placeholder="Write your message..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="column col-md-12 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <button type="submit" class="theme-btn">Submit Now</button>
                         </div>
                     </div>
                 </div>
+            </form>
+        </div>
+    </div>
+</div>
+
             </div>
         </div>
     </section>
