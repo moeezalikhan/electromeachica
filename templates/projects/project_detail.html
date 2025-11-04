@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+            
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url("{% static 'images/background/2.jpg'%}")">
+        <div class="auto-container">
+            <h1>Single Project</h1>
+            <ul class="page-breadcrumb">
+                <li><a href="{% url 'home'%}">Home</a></li>
+                <li><a href="{% url 'project_list'%}"></a>Projects</li>
+                <li>Single Project</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+<!-- Project Single Section -->
+<section class="project-single-section">
+    <div class="auto-container">
+        <div class="inner-container">
+            
+            <!-- Upper Box -->
+            <div class="upper-box">
+                <div class="single-item-carousel owl-carousel owl-theme">
+                    {% if project.images.all %}
+                        {% for image in project.images.all %}
+                            <div class="slide">
+                                <div class="image">
+                                    <img src="{{ image.image.url }}" alt="{{ project.name }}">
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <!-- Default placeholder if no images exist -->
+                        <div class="slide">
+                            <div class="image">
+                                <img src="{% static 'images/no-image.jpg' %}" alt="No image available">
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Title -->
+            <h2 class="title">{{ project.name }}</h2>
+
+            <div class="row clearfix">
+                <!-- Content Box -->
+                <div class="content-column col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                    <div class="inner-column">
+                        <div class="text">
+                            <p>{{ project.description }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Column -->
+                <div class="info-column col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                    <div class="inner-column">
+                        <ul>
+                            <li><span>Category : </span>{{ project.category|title }}</li>
+                            <li><span>Client : </span>{{ project.client|default:"N/A" }}</li>
+                            <li><span>Date : </span>{{ project.created_at|date:"d M, Y" }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+           <div class="load-more-option">
+  <ul class="clearfix">
+    <li class="prev pull-left">
+      {% if prev_project %}
+        <a href="{% url 'project_detail' prev_project.pk %}">
+          <span class="fa fa-angle-left"></span> Prev
+        </a>
+      {% else %}
+        <a href="#" class="disabled"><span class="fa fa-angle-left"></span> Prev</a>
+      {% endif %}
+    </li>
+
+    <li class="load-more">
+      <a href="{% url 'project_list' %}"><span class="fa fa-th"></span></a>
+    </li>
+
+    <li class="next pull-right">
+      {% if next_project %}
+        <a href="{% url 'project_detail' next_project.pk %}">
+          Next <span class="fa fa-angle-right"></span>
+        </a>
+      {% else %}
+        <a href="#" class="disabled">Next <span class="fa fa-angle-right"></span></a>
+      {% endif %}
+    </li>
+  </ul>
+</div>
+
+
+        </div>
+    </div>
+</section>
+<!-- End Project Single Section -->
+{%endblock %}

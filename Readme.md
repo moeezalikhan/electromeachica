@@ -1,0 +1,29 @@
+- ELECTROMEACHICA/
+    - apps/
+        - main/
+        - products/
+            - models.py
+            - views.py
+            - serializers.py
+        - projects/
+            - models.py
+            - views.py
+        - core/
+            - models.py
+            - utils.py
+        - utilities/
+            - models.py (for BaseModel)
+    - db.sqlite3
+    - manage.py
+    - requirements.txt
+    - static/
+    - templates/
+        - about_us.html
+        - contact_us.html
+        - home.html
+        - includes/
+            - marketSectors.html
+            - products.html
+            - projects.html
+    - venv/
+    - .gitignore

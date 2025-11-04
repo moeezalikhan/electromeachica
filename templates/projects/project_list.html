@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+        
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url({%static 'images/background/2.'%}jpg)">
+        <div class="auto-container">
+            <h1>Projects</h1>
+            <ul class="page-breadcrumb">
+                <li><a href="{% url 'home'%}">Home</a></li>
+                <li><a href="{% url 'project_list'%}"></a>Projects</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- Project Section Two -->
+    <section class="projects-section-two">
+        <div class="auto-container">
+             <!--MixitUp Galery-->
+            <div class="mixitup-gallery">
+                <div class="inner-container clearfix">
+                    <!--Filter-->
+                    <div class="filters text-center clearfix">
+                    <div class="mixitup-gallery">
+                <div class="inner-container clearfix">
+                <!-- Filter -->
+    <div class="filters text-center clearfix">
+      <ul class="filter-tabs filter-btns clearfix">
+        <li class="filter active" data-filter="all"><h5>View All</h5></li>
+        {% for key, value in categories %}
+          <li class="filter" data-filter=".{{ key }}"><h5>{{ value }}</h5></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="filter-list row clearfix">
+  {% for project in projects %}
+  <div class="project-block-two mix all {{ project.category }} col-md-4 col-sm-6 col-xs-12">
+    <div class="image-box">
+      {% if project.main_image %}
+        {% with first_image=project.images.first %}
+          <figure>
+            <img src="{{ project.main_image.url }}" alt="{{ project.name }}">
+          </figure>
+        {% endwith %}
+      {% endif %}
+    </div>
+    <div class="content-box">
+      <h4><a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a></h4>
+      <span class="tag">{{ project.get_category_display }}</span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+            <!-- Styled Pagination -->
+            {% if is_paginated %}
+<div class="styled-pagination text-center">
+  <ul class="clearfix">
+
+    <!-- Previous -->
+    {% if page_obj.has_previous %}
+      <li>
+        <a class="prev" href="?page={{ page_obj.previous_page_number }}">
+          <span class="fa fa-angle-left"></span>
+        </a>
+      </li>
+    {% else %}
+      <li class="disabled">
+        <a class="prev" href="#"><span class="fa fa-angle-left"></span></a>
+      </li>
+    {% endif %}
+
+    <!-- Page Numbers -->
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <li><a href="?page={{ num }}" class="active">{{ num }}</a></li>
+      {% else %}
+        <li><a href="?page={{ num }}">{{ num }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    <!-- Next -->
+    {% if page_obj.has_next %}
+      <li>
+        <a class="next" href="?page={{ page_obj.next_page_number }}">
+          <span class="fa fa-angle-right"></span>
+        </a>
+      </li>
+    {% else %}
+      <li class="disabled">
+        <a class="next" href="#"><span class="fa fa-angle-right"></span></a>
+      </li>
+    {% endif %}
+
+  </ul>
+</div>
+{% endif %}
+
+    </section>
+    <!-- End Project Section Two -->
+{% endblock %}

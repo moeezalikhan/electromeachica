@@ -16,10 +16,30 @@ Including another URLconf
 """
 
 
+""" ========== Imports ============= """
+
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+""" =============== Main Urls ================= """
 urlpatterns = [
-   
+    # Admin Url
+    path('admin/', admin.site.urls),
+
+    # Projects Urls
+    path('projects/', include('apps.projects.urls')),
+    
+    # teams urls
+    path('teams/', include('apps.teams.urls')),
+
+    # Products Urls
+    path('products/', include('apps.products.urls')),
+
+    # Main Urls
     path('', include('apps.main.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

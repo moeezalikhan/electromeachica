@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - Machinery{% endblock %}
+{% block content %}
+  <section class="page-title" style="background-image: url({% static 'images/background/2.jpg' %})">
+    <div class="auto-container">
+         <h1>Meet Our Team</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'our_team' %}">Our Team</a></li>
+        </ul>
+    </div>
+</section>
+    <!-- Team Section -->
+{% load static %}
+
+<section class="team-section">
+    <div class="auto-container">
+        <div class="sec-title centered text-center">
+            <h2>Meet Our Team</h2>
+        </div>
+
+        <div class="row clearfix">
+            {% for member in teams %}
+            <!-- Team Block -->
+            <div class="team-block col-md-4 col-sm-6 col-xs-12">
+                <div class="inner-box">
+
+                    <!-- Image Box -->
+                    <div class="image-box">
+                        <figure class="image">
+                            {% if member.image %}
+                                <img src="{{ member.image.url }}" alt="{{ member.full_name }}">
+                            {% else %}
+                                <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
+                            {% endif %}
+                        </figure>
+
+                        <!-- Overlay -->
+                        <div class="overlay-box">
+                            <ul class="social-links">
+                                {% if member.facebook %}
+                                    <li><a href="{{ member.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                {% endif %}
+                                {% if member.linkedin %}
+                                    <li><a href="{{ member.linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lower Content -->
+                    <div class="lower-content">
+                        <h3 class="name">{{ member.full_name }}</h3>
+                        <span class="designation">{{ member.get_desination_display }}</span>
+                    </div>
+
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No active team members found.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+    <!--End Team Section -->
+    {% endblock %}

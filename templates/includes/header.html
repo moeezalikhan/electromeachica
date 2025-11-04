@@ -14,20 +14,26 @@
                         </div>
                         </div>
                     <div class="pull-right upper-right clearfix">
-                        <div class="upper-column info-box">
-                            <div class="icon-box"><span class="machinery-icon-contact"></span></div>
-                                <ul><li>1-800-784-533 & 544</li>
+
+                    <!-- Contact Info -->
+                    <div class="upper-column info-box contact-info">
+                        <div class="icon-box">
+                            <span class="machinery-icon-contact"></span>
+                        </div>
+                        <ul>
+                            <li>1-800-784-533 & 544</li>
                             <li><strong>Machinery@Support.com</strong></li>
                         </ul>
-                    </div> 
-                    <div class="upper-column info-box">
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="upper-column info-box social-info">
                         <div class="social-icons">
-                            <a href="#"><i class="fa fa-facebook-f"></i></a><!--
-                                --><a href="#"><i class="fa fa-twitter"></i></a><!--
-                                --><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div><!-- /.social-icons -->
+                            <a href="#"><i class="fa fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -57,7 +63,7 @@
                                 <li class="dropdown">
                                     <a href="{% url 'our_vision' %}">About Us</a><ul>
                                     <li><a href="{% url 'our_vision' %}">Our Vision</a></li>
-                                    <li><a href="{% url 'our_team' %}">Our Team</a></li>
+                                    <li><a href="{% url 'team_list' %}">Our Team</a></li>
                                     <li><a href="{% url 'our_mission' %}">Our Mission</a></li>
                                     </ul>
                                 </li>
@@ -72,15 +78,11 @@
                                         <li><a href="{% url 'power_energy'%}">Automative System</a></li>
                                     </ul>
                                 </li>
-                               <li class="dropdown">
+                               <li>
                                 <a href="{% url 'products' %}">Products</a>
-                                <ul>
-                                    <li><a href="{% url 'products' %}">All Products</a></li>
-                                    <li><a href="{% url 'product_singal'%}">Product Detail</a></li>
-                                </ul>
                                 </li>
                                 <li>
-                                    <a href="{% url 'projects' %}">Projects</a>
+                                    <a href="{% url 'project_list' %}">Projects</a>
                                 </li>
                                 <li>
                                     <a href="{% url 'contact_us'%}">Contact Us</a>                                    
@@ -126,7 +128,7 @@
                                     <a href="{% url 'our_vision' %}"><h4>About Us</h4></a>
                                     <ul>
                                         <li><a href="{% url 'our_vision' %}"><h4>Our Vision</a></li>
-                                        <li><a href="{% url 'our_team' %}">Our Team</a></li>
+                                        <li><a href="{% url 'team_list' %}">Our Team</a></li>
                                         <li><a href="{% url 'our_mission' %}">Our Mission</a></li>
                                     </ul>
                                 </li>
@@ -141,15 +143,11 @@
                                         <li><a href="{% url 'automative_system'%}">Automative System</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown">
+                                <li>
                                 <a href="{% url 'products' %}"><h4>Products</h4></a>
-                                <ul>
-                                    <li><a href="{% url 'products' %}"><h4>All Products</h4></a></li>
-                                    <li><a href="{% url 'product_singal'%}">Product Detail</a></li>
-                                </ul>
                                 </li>
                                 </li>
-                                <li><a href="{% url 'projects' %}"><h4>Projects</h4></a>
+                                <li><a href="{% url 'project_list' %}"><h4>Projects</h4></a>
                                 </li> 
                                 <li><a href="{% url 'contact_us'%}"><h4>Contact Us</h4></a>                                    
                                 </li>
