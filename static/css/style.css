@@ -4375,7 +4375,7 @@ img {
     width: 100%;
     font-size: 16px;
     line-height: 30px;
-    color: #303030;
+    color: #ebe8e8;
     font-weight: 700;
     padding: 10px 50px;
     background-color: #016aac;
@@ -4388,7 +4388,7 @@ img {
 
 .faq-form .form-group input[type="submit"]:hover,
 .faq-form button:hover {
-    background-color: #303030;
+    background-color: rgb(15, 15, 15);
     color: #016aac;
 }
 

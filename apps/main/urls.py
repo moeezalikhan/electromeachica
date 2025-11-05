@@ -21,6 +21,7 @@ urlpatterns = [
     path('power_energy/', views.power_energy, name='power_energy'),
     path('automative_system/', views.automative_system, name='automative_system'),
     path('faqs/', views.faqs, name='faqs'),
+    path("privacy-policy/", views.privacy_policy, name="privacy_policy"),
     
     
 ]

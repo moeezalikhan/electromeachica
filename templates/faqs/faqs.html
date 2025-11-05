@@ -3,21 +3,17 @@
 {% block title %}Home - Machinery{% endblock %}
 {% block content %}
 
-    <!--Page Title-->
-    <section class="page-title" style="background-image:url(images/background/2.jpg)">
-        <div class="auto-container">
-            <h1>Customer FAQ’s</h1>
+<!--Page Title-->
+    <section class="page-title" style="background-image:url({% static 'images/background/2.jpg'%})">
+      <div class="auto-container">
+            <h1>Contact Us</h1>
             <ul class="page-breadcrumb">
                 <li><a href="{% url 'home'%}">Home</a></li>
-                <li><a href="{% url 'contact_us'%"></a>About Us</li>
-                <li><a href="{% url 'faqs'%}"></a>FAQ’s</li>
+                <li><a href="{% url 'contact_us'%}"></a>Contact Us</li>
             </ul>
         </div>
     </section>
-    <!--End Page Title-->
-
     <!-- FAQ Section -->
-   <!-- FAQ Section -->
 <section class="faq-section">
     <div class="auto-container">
         <div class="row clearfix">
@@ -25,10 +21,7 @@
             <!-- Faq Column -->
             <div class="faq-column col-md-6 col-sm-12 col-xs-12">
                 <div class="inner-column">
-                    <!-- Accordian Box -->
                     <ul class="accordion-box">
-                        
-                        <!--Block-->
                         <li class="accordion block">
                             <div class="acc-btn">
                                 <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
@@ -42,8 +35,7 @@
                                 </div>
                             </div>
                         </li>
-    
-                        <!--Block-->
+
                         <li class="accordion block active-block">
                             <div class="acc-btn active">
                                 <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
@@ -57,93 +49,53 @@
                                 </div>
                             </div>
                         </li>
-                        
-                        <!--Block-->
+
                         <li class="accordion block">
-                            <div class="acc-btn">
-                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
-                                What is the procedure to join with your company?
-                            </div>
+                            <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>What is the procedure to join with your company?</div>
                             <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        
-                        <!--Block-->
-                        <li class="accordion block">
-                            <div class="acc-btn">
-                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
-                                We bring together the best people to the world?
-                            </div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        
-                        <!--Block-->
-                        <li class="accordion block">
-                            <div class="acc-btn">
-                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
-                                What makes you special from others?
-                            </div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
-                                    </div>
-                                </div>
+                                <div class="content"><div class="text">Mistaken idea of denouncing pleasure...</div></div>
                             </div>
                         </li>
 
-                        <!--Block-->
                         <li class="accordion block">
-                            <div class="acc-btn">
-                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
-                                Why would a successful entrepreneur hire?
-                            </div>
+                            <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>We bring together the best people to the world?</div>
                             <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
-                                    </div>
-                                </div>
+                                <div class="content"><div class="text">Mistaken idea of denouncing pleasure...</div></div>
                             </div>
                         </li>
 
-                        <!--Block-->
                         <li class="accordion block">
-                            <div class="acc-btn">
-                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
-                                Why would a successful entrepreneur hire?
-                            </div>
+                            <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>What makes you special from others?</div>
                             <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">
-                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
-                                    </div>
-                                </div>
+                                <div class="content"><div class="text">Mistaken idea of denouncing pleasure...</div></div>
+                            </div>
+                        </li>
+
+                        <li class="accordion block">
+                            <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>Why would a successful entrepreneur hire?</div>
+                            <div class="acc-content">
+                                <div class="content"><div class="text">Mistaken idea of denouncing pleasure...</div></div>
+                            </div>
+                        </li>
+
+                        <li class="accordion block">
+                            <div class="acc-btn"><div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>Why would a successful entrepreneur hire?</div>
+                            <div class="acc-content">
+                                <div class="content"><div class="text">Mistaken idea of denouncing pleasure...</div></div>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <!--  Form Column -->
+            <!-- ✅ Form Column -->
             <div class="form-column col-md-6 col-sm-12 col-xs-12">
                 <div class="inner-column">
                     <div class="sec-title">
                         <h2>Ask Your Questions</h2>
                     </div>
 
-                    <!--Contact Form-->
+                    <!-- Contact Form -->
                     <div class="faq-form">
                         <form id="faqForm" method="post" action="{% url 'contact_us' %}">
                             {% csrf_token %}
@@ -154,17 +106,32 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                                     <input type="email" name="email" placeholder="Email Address" required>
                                 </div>
-                                
                                 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                                     <textarea name="message" placeholder="Your Questions..." required></textarea>
                                 </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                    <button type="submit" class="theme-btn">Submit Now</button>
+
+                                <!-- Submit + Loader -->
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group" style="text-align:center;">
+                                    <button type="submit" class="theme-btn" id="faqSubmitBtn">
+                                        Submit Now
+                                    </button>
+
+                                    <!-- 🔵 Loading Spinner -->
+                                    <div id="faqLoader" 
+                                         style="display:none; 
+                                                margin:10px auto; 
+                                                border:4px solid #f3f3f3; 
+                                                border-top:4px solid #007bff; 
+                                                border-radius:50%; 
+                                                width:40px; 
+                                                height:40px; 
+                                                animation:spin 1s linear infinite;">
+                                    </div>
                                 </div>
                             </div>
                         </form>
 
-                        <!--  Blue Popup -->
+                        <!-- ✅ Blue Popup -->
                         <div id="faqPopup"
                             style="display:none;
                                    text-align:center;
@@ -177,7 +144,7 @@
                                    font-family:'Poppins', sans-serif;
                                    transition:all 0.3s ease;">
                             <h2 id="faqPopupTitle" style="margin-bottom:8px; font-weight:600;"></h2>
-                            <p style="margin:0;">Your question has been sent successfully. We’ll get back to you soon </p>
+                            <p style="margin:0;">Your question has been sent successfully. We’ll get back to you soon 😊</p>
                         </div>
                     </div>
                 </div>
@@ -187,12 +154,20 @@
     </div>
 </section>
 
-<!--  AJAX Script -->
+<!-- ✅ Spinner Animation -->
+<style>
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+
+<!-- ✅ AJAX Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function () {
 
-    console.log(" FAQ AJAX form script loaded");
+    console.log("✅ FAQ AJAX form script loaded");
 
     function getCookie(name) {
         let cookieValue = null;
@@ -219,13 +194,22 @@ $(document).ready(function () {
         const url = form.attr("action");
         const formData = form.serialize();
 
+        // 🔵 Show spinner, disable button
+        $("#faqLoader").show();
+        $("#faqSubmitBtn").prop("disabled", true).text("Sending...");
+
         $.ajax({
             type: "POST",
             url: url,
             data: formData,
             headers: { "X-CSRFToken": csrftoken },
             success: function (response) {
-                console.log(" Response:", response);
+                console.log("✅ Response:", response);
+
+                // Hide loader
+                $("#faqLoader").hide();
+                $("#faqSubmitBtn").prop("disabled", false).text("Submit Now");
+
                 if (response.status === "success") {
                     $("#faqPopupTitle").text("Thank you, " + response.name + "!");
                     $("#faqPopup").fadeIn();
@@ -240,6 +224,8 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 console.error("❌ AJAX error:", status, error);
+                $("#faqLoader").hide();
+                $("#faqSubmitBtn").prop("disabled", false).text("Submit Now");
                 alert("Something went wrong. Please check console.");
             },
         });
@@ -247,5 +233,4 @@ $(document).ready(function () {
 });
 </script>
 
-    <!--End FAQ Section -->
 {% endblock %}

@@ -49,3 +49,5 @@ def automative_system(request):
 
 def faqs(request):
     return render(request, 'faqs/faqs.html')
+def privacy_policy(request):
+    return render(request, "faqs/privacy_policy.html")

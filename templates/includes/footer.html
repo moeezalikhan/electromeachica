@@ -37,7 +37,7 @@
                                     <li><a href="{% url 'product_list'%}">Shop Products</a></li>
                                     <li><a href="{% url 'faqs'%}">FAQ’s</a></li>
                                     <li><a href="{% url 'contact_us'%}">Contact Us</a></li>
-                                    <li><a href="{% url 'faqs'%}">Private Policy</a></li>
+                                    <li><a href="{% url 'privacy_policy'%}">Private Policy</a></li>
                                 </ul>
                             </div>
                         </div>  
@@ -91,8 +91,8 @@
                     </div><!-- /.col-md-4 -->
                     <div class="col-md-4 col-sm-4 col-xs-12 text-right">
                         <ul class="footer-menu">
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Terms of Use</a></li>                           
+                            <li><a href="{% url 'privacy_policy'%}">Privacy</a></li>
+                            <li><a href="{% url 'privacy_policy'%}">Terms of Use</a></li>                           
                         </ul><!-- /.footer-menu -->
                     </div><!-- /.col-md-4 -->
                 </div><!-- /.row -->
