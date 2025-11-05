@@ -2301,10 +2301,10 @@ img {
 .highlights .highlight-block .text {
     display: block;
     padding: 30px 0;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 30px;
     color: #E8E3E3;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .highlights .highlight-block .text span {
