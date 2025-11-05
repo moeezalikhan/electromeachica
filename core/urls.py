@@ -36,6 +36,9 @@ urlpatterns = [
 
     # Products Urls
     path('products/', include('apps.products.urls')),
+    
+    # Products Urls
+    path('about_us/', include('apps.about_us.urls')),
 
     # Main Urls
     path('', include('apps.main.urls')),

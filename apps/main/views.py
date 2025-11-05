@@ -46,3 +46,6 @@ def power_energy(request):
 
 def automative_system(request):
     return render(request, 'marketSectors/automative-system.html')
+
+def faqs(request):
+    return render(request, 'faqs/faqs.html')

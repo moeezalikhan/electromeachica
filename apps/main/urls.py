@@ -7,7 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('our_vision/', views.our_vision, name='our_vision'),
-    path('contact_us/', views.contact_us, name='contact_us'),
+    path('contact_us/', views.contact_us, name='contact_page'),
     path('projectss/', views.projects, name='projects'),
     path('products/', views.products, name='products'),
     path('product_singal/', views.product_singal, name='product_singal'),
@@ -20,6 +20,7 @@ urlpatterns = [
     path('ship_building_industry/', views.ship_building_industry, name='ship_building_industry'),
     path('power_energy/', views.power_energy, name='power_energy'),
     path('automative_system/', views.automative_system, name='automative_system'),
+    path('faqs/', views.faqs, name='faqs'),
     
     
 ]

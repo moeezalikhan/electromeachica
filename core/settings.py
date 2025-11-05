@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'apps.projects',
     'apps.utilities',
     'apps.teams',
-    'apps.notifications'
+    'apps.about_us'
 ]
 
 MIDDLEWARE = [
@@ -146,5 +146,5 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "nomandev769@gmail.com"
-EMAIL_HOST_PASSWORD = "avomqongprxsjwhh"
+EMAIL_HOST_PASSWORD = "avomqongprxsjwhh"  # Gmail App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

@@ -5,7 +5,7 @@
 
     <!--Page Title-->
     <section class="page-title" style="background-image:url({% static 'images/background/2.jpg'%})">
-  '%}      <div class="auto-container">
+      <div class="auto-container">
             <h1>Contact Us</h1>
             <ul class="page-breadcrumb">
                 <li><a href="{% url 'home'%}">Home</a></li>
@@ -53,48 +53,118 @@
                         </div>
                     </div>
                 </div>
+{% load static %}
 
-                <!-- Form Column -->
-                <div class="form-column col-md-8 col-sm-12 col-xs-12">
-    <div class="inner-column">
-        <div class="sec-title">
-            <h2>Send Message Us</h2>
-            <div class="text">We have 74 branches in US and 145 branches in world wide, you can reach any branch at your desk, our experts will help you 24/7.</div>
-        </div>
-
-        <div class="contact-form style-three">
-            <form method="post" action="{% url 'contact_us' %}">
-                {% csrf_token %}
-                <div class="row clearfix">
-                    <div class="left-column col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="username" placeholder="Your Name" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="email" placeholder="Email Address" required>
-                        </div>
-                    </div>
-
-                    <div class="column col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group border-left">
-                            <label>Message</label>
-                            <textarea name="message" placeholder="Write your message..." required></textarea>
-                        </div>
-                    </div>
-
-                    <div class="column col-md-12 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            <button type="submit" class="theme-btn">Submit Now</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+<div class="form-column col-md-8 col-sm-12 col-xs-12">
+  <div class="inner-column">
+    <div class="sec-title">
+      <h2>Send Message Us</h2>
+      <div class="text">
+        We have 74 branches in US and 145 branches in world wide, you can reach any branch at your desk, our experts will help you 24/7.
+      </div>
     </div>
+
+    <div class="contact-form style-three">
+      <form id="contactForm" method="post" action="{% url 'contact_us' %}">
+        {% csrf_token %}
+        <div class="row clearfix">
+          <div class="left-column col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" name="username" placeholder="Your Name" required />
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="Email Address" required />
+            </div>
+          </div>
+
+          <div class="column col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group border-left">
+              <label>Message</label>
+              <textarea name="message" placeholder="Write your message..." required></textarea>
+            </div>
+          </div>
+
+          <div class="column col-md-12 col-sm-6 col-xs-12">
+            <div class="form-group">
+              <button type="submit" class="theme-btn">Submit Now</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!--  Popup -->
+      <div id="popupMessage" style="display:none; text-align:center; background:linear-gradient(135deg, #346599ff, #0056b3); color:white; padding:15px; border-radius:8px; margin-top:10px;">
+        <h2 id="popupTitle"></h2>
+        <p>Your message has been sent successfully. We’ll contact you soon.</p>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!--  Only ONE jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!--  AJAX Contact Form Script -->
+<script>
+$(document).ready(function() {
+    console.log("✅ AJAX contact form ready");
+
+    // Get CSRF token
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.substring(0, name.length + 1) === (name + "=")) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie("csrftoken");
+
+    $("#contactForm").on("submit", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const form = $(this);
+        const url = form.attr("action");
+        const formData = form.serialize();
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            headers: { "X-CSRFToken": csrftoken },
+            success: function(response) {
+                if (response.status === "success") {
+                    $("#popupTitle").text("Thank you, " + response.name + "!");
+                    $("#popupMessage").fadeIn();
+
+                    setTimeout(function() {
+                        $("#popupMessage").fadeOut();
+                        form.trigger("reset");
+                    }, 3000);
+                } else {
+                    alert("⚠️ Error: " + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("❌ AJAX error:", status, error);
+                alert("Something went wrong! Check console.");
+            }
+        });
+    });
+});
+</script>
+
+
 
             </div>
         </div>

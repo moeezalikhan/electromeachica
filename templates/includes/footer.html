@@ -31,13 +31,13 @@
                             <div class="widget-title"><h2>Usefull Links</h2></div>
                             <div class="widget-content">
                                 <ul class="list clearfix">
-                                    <li><a href="about.html">About Company</a></li>
+                                    <li><a href="{% url 'home' %}#about-company">About Company</a></li>
                                     <li><a href="market-sector.html">Our Services</a></li>
-                                    <li><a href="projects.html">Latest Projects</a></li>
-                                    <li><a href="shop.html">Shop Products</a></li>
-                                    <li><a href="faqs.html">FAQ’s</a></li>
+                                    <li><a href="{% url 'project_list'%}">Projects</a></li>
+                                    <li><a href="{% url 'product_list'%}">Shop Products</a></li>
+                                    <li><a href="{% url 'faqs'%}">FAQ’s</a></li>
                                     <li><a href="{% url 'contact_us'%}">Contact Us</a></li>
-                                    <li><a href="faqs.html">Private Policy</a></li>
+                                    <li><a href="{% url 'faqs'%}">Private Policy</a></li>
                                 </ul>
                             </div>
                         </div>  

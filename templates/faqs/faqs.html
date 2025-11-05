@@ -1,0 +1,251 @@
+    {% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - Machinery{% endblock %}
+{% block content %}
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(images/background/2.jpg)">
+        <div class="auto-container">
+            <h1>Customer FAQ’s</h1>
+            <ul class="page-breadcrumb">
+                <li><a href="{% url 'home'%}">Home</a></li>
+                <li><a href="{% url 'contact_us'%"></a>About Us</li>
+                <li><a href="{% url 'faqs'%}"></a>FAQ’s</li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- FAQ Section -->
+   <!-- FAQ Section -->
+<section class="faq-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Faq Column -->
+            <div class="faq-column col-md-6 col-sm-12 col-xs-12">
+                <div class="inner-column">
+                    <!-- Accordian Box -->
+                    <ul class="accordion-box">
+                        
+                        <!--Block-->
+                        <li class="accordion block">
+                            <div class="acc-btn">
+                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
+                                We bring together the best to the world?
+                            </div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">
+                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+    
+                        <!--Block-->
+                        <li class="accordion block active-block">
+                            <div class="acc-btn active">
+                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
+                                Submit your sponsorship request easy way?
+                            </div>
+                            <div class="acc-content current">
+                                <div class="content">
+                                    <div class="text">
+                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <!--Block-->
+                        <li class="accordion block">
+                            <div class="acc-btn">
+                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
+                                What is the procedure to join with your company?
+                            </div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">
+                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <!--Block-->
+                        <li class="accordion block">
+                            <div class="acc-btn">
+                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
+                                We bring together the best people to the world?
+                            </div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">
+                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <!--Block-->
+                        <li class="accordion block">
+                            <div class="acc-btn">
+                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
+                                What makes you special from others?
+                            </div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">
+                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!--Block-->
+                        <li class="accordion block">
+                            <div class="acc-btn">
+                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
+                                Why would a successful entrepreneur hire?
+                            </div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">
+                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!--Block-->
+                        <li class="accordion block">
+                            <div class="acc-btn">
+                                <div class="icon-outer"><span class="icon flaticon-letter-x"></span></div>
+                                Why would a successful entrepreneur hire?
+                            </div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">
+                                        Mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth.
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--  Form Column -->
+            <div class="form-column col-md-6 col-sm-12 col-xs-12">
+                <div class="inner-column">
+                    <div class="sec-title">
+                        <h2>Ask Your Questions</h2>
+                    </div>
+
+                    <!--Contact Form-->
+                    <div class="faq-form">
+                        <form id="faqForm" method="post" action="{% url 'contact_us' %}">
+                            {% csrf_token %}
+                            <div class="row clearfix">
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                    <input type="text" name="username" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                                    <input type="email" name="email" placeholder="Email Address" required>
+                                </div>
+                                
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <textarea name="message" placeholder="Your Questions..." required></textarea>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <button type="submit" class="theme-btn">Submit Now</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!--  Blue Popup -->
+                        <div id="faqPopup"
+                            style="display:none;
+                                   text-align:center;
+                                   background:linear-gradient(135deg, #007bff, #0056b3);
+                                   color:white;
+                                   padding:20px;
+                                   border-radius:10px;
+                                   margin-top:15px;
+                                   box-shadow:0 4px 10px rgba(0,0,0,0.2);
+                                   font-family:'Poppins', sans-serif;
+                                   transition:all 0.3s ease;">
+                            <h2 id="faqPopupTitle" style="margin-bottom:8px; font-weight:600;"></h2>
+                            <p style="margin:0;">Your question has been sent successfully. We’ll get back to you soon </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--  AJAX Script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+
+    console.log(" FAQ AJAX form script loaded");
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + "=")) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie("csrftoken");
+
+    $("#faqForm").off("submit").on("submit", function (e) {
+        e.preventDefault();
+
+        console.log("🚀 Sending FAQ form via AJAX...");
+
+        const form = $(this);
+        const url = form.attr("action");
+        const formData = form.serialize();
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: formData,
+            headers: { "X-CSRFToken": csrftoken },
+            success: function (response) {
+                console.log(" Response:", response);
+                if (response.status === "success") {
+                    $("#faqPopupTitle").text("Thank you, " + response.name + "!");
+                    $("#faqPopup").fadeIn();
+
+                    setTimeout(function () {
+                        $("#faqPopup").fadeOut();
+                        form.trigger("reset");
+                    }, 3000);
+                } else {
+                    alert("⚠️ Email send failed: " + response.message);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("❌ AJAX error:", status, error);
+                alert("Something went wrong. Please check console.");
+            },
+        });
+    });
+});
+</script>
+
+    <!--End FAQ Section -->
+{% endblock %}
