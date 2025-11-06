@@ -12871,11 +12871,20 @@ html {
 
 .hero-banner {
     position: relative;
-    background-position: center center;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-/* Light blue overlay */
+/* Overlay for better contrast */
 .hero-banner::before {
     content: "";
     position: absolute;
@@ -12883,12 +12892,34 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(29, 76, 174, 0.48); /* Light blue transparent overlay */
+    background: rgba(59, 56, 78, 0.66); /* dark bluish tone */
     z-index: 1;
 }
 
-/* Bring text above overlay */
+/* Text styling */
 .hero-banner .carousel-caption {
     position: relative;
     z-index: 2;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-banner h1, 
+.hero-banner h2, 
+.hero-banner p {
+    color: #fff !important;
+}
+
+/* Buttons */
+.hero-banner .btn {
+    position: relative;
+    z-index: 2;
+    border: none;
+    padding: 12px 28px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+/* Optional: make text slightly bolder for clarity */
+.hero-banner h1 {
+    font-weight: 800;
 }
