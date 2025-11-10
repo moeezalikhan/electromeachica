@@ -221,60 +221,154 @@
     <!-- End Sidebar Page Container -->
 
     <!-- Contact Section -->
-    <section class="contact-section style-two">
-        <div class="auto-container">
-            <div class="row clearfix">
-                <!-- Title Column -->
-                <div class="title-column col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                    <div class="inner-column">
-                        <div class="sec-title">
-                            <h2>Request a Quote</h2>
-                        </div>
-                        <div class="text">Your details are kept strictly confidential as per our company private & privacy policy.</div>
-                        <div class="link-box"><a href="#"><i class="fa fa-hand-o-right"></i> Contact Us</a></div>
-                    </div>
-                </div>
+   <!-- Contact Section -->
+<section class="contact-section style-two">
+  <div class="auto-container">
+    <div class="row clearfix">
 
-                <!-- Form Column -->
-                <div class="form-column col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                    <div class="inner-column">
-                        <div class="text">For Business: For Business inquiry fill our feedback form and Troll Free Number - (+91) 00-700-6202, our team will help you with in 24 hours.</div>
-                        <!--Contact Form-->
-                        <div class="contact-form">
-                            <form method="post" action="index-2.html">
-                                <div class="row clearfix">
-                                    <div class="column col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="text" name="username" value="" placeholder="Your Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" name="email" value="" placeholder="Email Address" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="custom-select-box">
-                                                <option>Select Service</option>
-                                                <option>Select Service</option>
-                                                <option>Select Service</option>
-                                                <option>Select Service</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="column col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <textarea name="message" placeholder="Massage"></textarea>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <button type="submit" class="theme-btn">Submit Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Title Column -->
+      <div class="title-column col-lg-3 col-md-12 col-sm-12 col-xs-12">
+        <div class="inner-column">
+          <div class="sec-title">
+            <h2>Request a Quote</h2>
+          </div>
+          <div class="text">
+            Your details are kept strictly confidential as per our company privacy policy.
+          </div>
+          <div class="link-box">
+          <a href="{% url 'contact_us'%}"><i class="fa fa-hand-o-right"></i> Contact Us</a>
+          </div>
         </div>
-    </section>
+      </div>
+
+      <!-- Form Column -->
+      <div class="form-column col-lg-9 col-md-12 col-sm-12 col-xs-12">
+        <div class="inner-column">
+          <div class="text">
+            For Business: For Business inquiry fill our feedback form and Toll-Free Number - (+91) 00-700-6202,
+            our team will help you within 24 hours.
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form">
+            <form id="homeContactForm" method="post" action="{% url 'contact_us' %}">
+              {% csrf_token %}
+              <div class="row clearfix">
+                <div class="column col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <input type="text" name="username" placeholder="Your Name" required />
+                  </div>
+                  <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Address" required />
+                  </div>
+                </div>
+
+                <div class="column col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <textarea name="message" placeholder="Message" required></textarea>
+                  </div>
+
+                  <div class="form-group" style="position: relative;">
+                    <button type="submit" class="theme-btn">Submit Now</button>
+
+                    <!-- Spinner -->
+                    <div id="homeLoader"
+                         style="display:none; position:absolute; top:50%; right:10px; transform:translateY(-50%);
+                                width:25px; height:25px; border:3px solid rgba(255,255,255,0.4);
+                                border-top-color:#fff; border-radius:50%; animation:spin 1s linear infinite;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <!-- Success Popup -->
+            <div id="homePopupMessage"
+                 style="display:none; text-align:center; background:linear-gradient(135deg,#346599ff,#0056b3);
+                        color:white; padding:15px; border-radius:8px; margin-top:10px;">
+              <h2 id="homePopupTitle"></h2>
+              <p>Your message has been sent successfully. We’ll contact you soon.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Spinner Animation -->
+<style>
+@keyframes spin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+</style>
+
+<!-- jQuery (only once in your site) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- AJAX Script -->
+<script>
+$(document).ready(function() {
+  console.log("✅ Home page contact form ready");
+
+  // Get CSRF Token
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+      const cookies = document.cookie.split(";");
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.substring(0, name.length + 1) === (name + "=")) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  const csrftoken = getCookie("csrftoken");
+
+  // Handle Form Submit
+  $("#homeContactForm").on("submit", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const form = $(this);
+    const url = form.attr("action");
+    const formData = form.serialize();
+
+    $("#homeLoader").show(); // Show spinner
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: formData,
+      headers: { "X-CSRFToken": csrftoken },
+      success: function(response) {
+        $("#homeLoader").hide(); // Hide spinner
+
+        if (response.status === "success") {
+          $("#homePopupTitle").text("Thank you, " + response.name + "!");
+          $("#homePopupMessage").fadeIn();
+
+          setTimeout(function() {
+            $("#homePopupMessage").fadeOut();
+            form.trigger("reset");
+          }, 3000);
+        } else {
+          alert("⚠️ Error: " + response.message);
+        }
+      },
+      error: function(xhr, status, error) {
+        $("#homeLoader").hide(); // Hide spinner
+        console.error("❌ AJAX error:", status, error);
+        alert("Something went wrong! Check console.");
+      }
+    });
+  });
+});
+</script>
+
     <!--End Contact Section -->
 {% endblock %}
