@@ -11,3 +11,4 @@ media/
 # Git and Database #
 .git/
 db.sqlite3
+.idea
