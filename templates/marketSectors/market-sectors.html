@@ -1,11 +1,10 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Market - Sectors{% endblock %}
 {% block content %}
 
     <!--Page Title-->
-    <section class="page-title" style="background-image:url({% static 'images/background/2.jpg'%})">
+    <section class="page-title" style="background-image:url({% static 'images/background/2.jpg' %})">
         <div class="auto-container">
             <h1>Market Sectors</h1>
             <ul class="page-breadcrumb">
@@ -22,23 +21,29 @@
             <div class="sec-title text-center">
                 <h2>Our Market Sectors</h2>
             </div>
-
             <div class="row clearfix">
 
                 <!-- Services Block -->
                 <div class="services-block col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-1.jpg'%}" alt=""></figure>
+                            <figure><img
+                                    src="{% static 'images/sectors/educational/DSCN7843.JPG' %}"
+                                    alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="market-sector-single.html"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'educational_trainers' %}"><i class="icon arrow-top-right"></i>Read
+                                        More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3><a href="market-sector-single.html">Construction Products</a></h3> <i class="icon flaticon-user-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'educational_trainers' %}">Educational Trainers</a>
+                            </h3> <i
+                                    class="icon flaticon-reading"></i></div>
                         </div>
                         <div class="lower-content">
-                            <div class="text">Great explore of the truth sed, the master our builder of human happiness give you  complete account of the system...</div>
+                            <div class="text">Educational institutions require practical, hands-on tools to train future
+                                engineers and technicians. We design training...
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -47,16 +52,23 @@
                 <div class="services-block col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-2.jpg'%}" alt=""></figure>
+                            <figure><img
+                                    src="{% static 'images/sectors/industrial/trainer.jpg' %}"
+                                    alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="aero-space-services.html"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'industrial_trainers' %}"><i class="icon arrow-top-right"></i>Read
+                                        More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3><a href="aero-space-services.html">Aero Space Services</a></h3> <i class="icon flaticon-departures"></i></div>
+                            <div class="title"><h3><a href="{% url 'industrial_trainers' %}">Industrial Trainers</a>
+                            </h3> <i
+                                    class="icon flaticon-engineer"></i></div>
                         </div>
                         <div class="lower-content">
-                            <div class="text">Pursues or desires to obtain pain itself, because it pain, but because occasionally circumstances occur procure...</div>
+                            <div class="text">Industrial training systems support companies in upgrading workforce
+                                capabilities, improving operational...
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,16 +77,19 @@
                 <div class="services-block col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-3.jpg'%}" alt=""></figure>
+                            <figure><img src="{% static 'images/sectors/testing benches/ALPC0804.JPG' %}" alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="railway-infrastructure.html"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'testing_benches' %}"><i class="icon arrow-top-right"></i>Read More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3><a href="railway-infrastructure.html">Railway Infrastructure</a></h3> <i class="icon flaticon-railway-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'testing_benches' %}">Testing Benches</a></h3> <i
+                                    class="icon flaticon-conveyor"></i></div>
                         </div>
                         <div class="lower-content">
-                            <div class="text">Right to find fault with a man who enjoy pleasure that has no annoying avoids all gain that produces...</div>
+                            <div class="text">Right to find fault with a man who enjoy pleasure that has no annoying
+                                avoids all gain that produces...
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,16 +98,44 @@
                 <div class="services-block col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-4.jpg'%}" alt=""></figure>
+                            <figure><img
+                                    src="{% static 'images/sectors/fabric-printing-machine-colorful-textile-designs-studio.jpg' %}"
+                                    alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="ship-building-industry.html"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'textile_sector' %}"><i class="icon arrow-top-right"></i>Read
+                                        More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3><a href="ship-building-industry.html">Ship Building Industry</a></h3> <i class="icon flaticon-cargo"></i></div>
+                            <div class="title"><h3><a href="{% url 'textile_sector' %}">Textile Sector</a></h3> <i
+                                    class="icon flaticon-sewing-machine"></i></div>
                         </div>
                         <div class="lower-content">
-                            <div class="text">Pursues or desires to obtain pain itself, because it pain, but because occasionally circumstances occur procure...</div>
+                            <div class="text">The textile industry operates in a fast-paced, high-output environment
+                                where precision, durability, and process...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Services Block -->
+                <div class="services-block col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure><img src="{% static 'images/resource/service-4.jpg' %}" alt=""></figure>
+                            <div class="overlay-box">
+                                <div class="btn-box">
+                                    <a href="{% url 'cement' %}"><i class="icon arrow-top-right"></i>Read More</a>
+                                </div>
+                            </div>
+                            <div class="title"><h3><a href="{% url 'cement' %}">Cement Sector</a></h3>
+                                <i class="icon flaticon-brick"></i></div>
+                        </div>
+                        <div class="lower-content">
+                            <div class="text">The cement industry operates in some of the toughest industrial
+                                environments, where heat, dust, vibration, and...
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,34 +144,39 @@
                 <div class="services-block col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-5.jpg'%}" alt=""></figure>
+                            <figure><img src="{% static 'images/resource/service-4.jpg' %}" alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="power-and-energy.html"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'fmcg' %}"><i class="icon arrow-top-right"></i>Read More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3><a href="power-and-energy.html">Power and Energy</a></h3> <i class="icon flaticon-usb-charger-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'fmcg' %}">FMCG Sector</a></h3>
+                                <i class="icon flaticon-cargo"></i></div>
                         </div>
                         <div class="lower-content">
-                            <div class="text">Right to find fault with a man who enjoy pleasure that has no annoying avoids all gain that produces...</div>
+                            <div class="text">Fast-Moving Consumer Goods companies depend on speed, precision, and
+                                reliability. Whether it is production, packaging...
+                            </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- Services Block -->
                 <div class="services-block col-md-4 col-sm-6 col-xs-12">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-6.jpg'%}" alt=""></figure>
+                            <figure><img src="{% static 'images/resource/service-4.jpg' %}" alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="automative-system.html"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'chemicals' %}"><i class="icon arrow-top-right"></i>Read More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3><a href="automative-system.html">Automative System</a></h3> <i class="icon flaticon-coffee-machine-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'chemicals' %}">Chemicals Sector</a></h3>
+                                <i class="icon flaticon-drop"></i></div>
                         </div>
                         <div class="lower-content">
-                            <div class="text">Great explore of the truth sed, the master our builder of human happiness give you  complete account of the system...</div>
+                            <div class="text">Chemical manufacturing demands accuracy, stability, and safety. From
+                                temperature-sensitive processes to fluid control...
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,526 +1,580 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Home - Machinery{% endblock %}
 {% block content %}
-<div id="minimal-bootstrap-carousel" class="carousel slide carousel-fade slider-home-one" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
+    <div id="minimal-bootstrap-carousel" class="carousel slide carousel-fade slider-home-one" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
 
-        <!-- Slide 1 -->
-        <div class="item active hero-banner" style="background-image: url({% static 'images/main-slider/banner-1-1.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption text-right">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Welcome to</h3>
-                                <h1>Machinery World</h1>
-                                <p class="text">Delivering industrial excellence with over 24 years of experience and innovation.</p>
-                                <a href="{% url 'power_energy'%}" class="theme-btn btn-style-one">Power Energy</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Market Sectors</a>
+            <!-- Slide 1 -->
+            <div class="item active hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-1-1.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption text-right">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Welcome to</h3>
+                                    <h1>Machinery World</h1>
+                                    <p class="text">Delivering industrial excellence with over 24 years of experience
+                                        and innovation.</p>
+                                    <a href="{% url 'textile_sector' %}" class="theme-btn btn-style-one">Textile</a>
+                                    <a href="{% url 'chemicals' %}" class="theme-btn btn-style-two">Chemicals</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 2 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-1-2.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Strong Foundation of</h3>
-                                <h1>Industrial Growth</h1>
-                                <p class="text">Pioneering mechanical solutions to meet the challenges of tomorrow’s industries.</p>
-                                <a href="#" class="theme-btn btn-style-one">Discover More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Sectors</a>
+            <!-- Slide 2 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-1-2.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Strong Foundation of</h3>
+                                    <h1>Industrial Growth</h1>
+                                    <p class="text">Pioneering mechanical solutions to meet the challenges of tomorrow’s
+                                        industries.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Discover More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 3 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-1-3.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Innovation Meets</h3>
-                                <h1>Engineering</h1>
-                                <p class="text">Our machinery is designed with precision, efficiency, and long-term durability in mind.</p>
-                                <a href="#" class="theme-btn btn-style-one">Explore</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two"> Market Sector</a>
+            <!-- Slide 3 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-1-3.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Innovation Meets</h3>
+                                    <h1>Engineering</h1>
+                                    <p class="text">Our machinery is designed with precision, efficiency, and long-term
+                                        durability in mind.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Explore</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two"> Market
+                                        Sector</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 4 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-2-1.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Building the Future of</h3>
-                                <h1>Industrial Machines</h1>
-                                <p class="text">Our mission is to modernize the global manufacturing industry with advanced machinery.</p>
-                                <a href="{% url 'construction_products'%}" class="theme-btn btn-style-one">Construction Products</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Markets</a>
+            <!-- Slide 4 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-2-1.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Building the Future of</h3>
+                                    <h1>Industrial Machines</h1>
+                                    <p class="text">Our mission is to modernize the global manufacturing industry with
+                                        advanced machinery.</p>
+                                    <a href="{% url 'cement' %}" class="theme-btn btn-style-one">Construction
+                                        Products</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Markets</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 5 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-2-2.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Precision in Every</h3>
-                                <h1>Movement</h1>
-                                <p class="text">Empowering industries through accuracy, technology, and reliability.</p>
-                                <a href="#" class="theme-btn btn-style-one">Explore More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Sectors</a>
+            <!-- Slide 5 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-2-2.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Precision in Every</h3>
+                                    <h1>Movement</h1>
+                                    <p class="text">Empowering industries through accuracy, technology, and
+                                        reliability.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Explore More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 6 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-2-3.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Driven by</h3>
-                                <h1>Innovation</h1>
-                                <p class="text">We combine creativity with engineering excellence to build industrial solutions that last.</p>
-                                <a href="#" class="theme-btn btn-style-one">Learn More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Industries</a>
+            <!-- Slide 6 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-2-3.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Driven by</h3>
+                                    <h1>Innovation</h1>
+                                    <p class="text">We combine creativity with engineering excellence to build
+                                        industrial solutions that last.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Learn More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Industries</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 7 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-3-1.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Your Partner in</h3>
-                                <h1>Industrial Excellence</h1>
-                                <p class="text">From design to production, we ensure every machine defines perfection.</p>
-                                <a href="#" class="theme-btn btn-style-one">Contact Us</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">See Sectors</a>
+            <!-- Slide 7 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-3-1.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Your Partner in</h3>
+                                    <h1>Industrial Excellence</h1>
+                                    <p class="text">From design to production, we ensure every machine defines
+                                        perfection.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Contact Us</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">See Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 8 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-3-2.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Experience the Power of</h3>
-                                <h1>Modern Machinery</h1>
-                                <p class="text">High-performance solutions engineered for heavy-duty industries worldwide.</p>
-                                <a href="#" class="theme-btn btn-style-one">Explore</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Merket Sector</a>
+            <!-- Slide 8 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-3-2.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Experience the Power of</h3>
+                                    <h1>Modern Machinery</h1>
+                                    <p class="text">High-performance solutions engineered for heavy-duty industries
+                                        worldwide.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Explore</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Merket
+                                        Sector</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 9 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-3-3.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Empowering</h3>
-                                <h1>Industrial Systems</h1>
-                                <p class="text">Integrating innovation, power, and precision to shape the future of manufacturing.</p>
-                                <a href="#" class="theme-btn btn-style-one">Get Started</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Services</a>
+            <!-- Slide 9 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-3-3.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Empowering</h3>
+                                    <h1>Industrial Systems</h1>
+                                    <p class="text">Integrating innovation, power, and precision to shape the future of
+                                        manufacturing.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Get Started</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Services</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 10 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-4-1.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Quality You Can</h3>
-                                <h1>Trust</h1>
-                                <p class="text">Setting new benchmarks in industrial equipment and mechanical excellence.</p>
-                                <a href="#" class="theme-btn btn-style-one">Discover</a>
-                                <a href="{% url 'railway_infastracture' %}" class="theme-btn btn-style-two">RailWay Infastruture</a>
+            <!-- Slide 10 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-4-1.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Quality You Can</h3>
+                                    <h1>Trust</h1>
+                                    <p class="text">Setting new benchmarks in industrial equipment and mechanical
+                                        excellence.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Discover</a>
+                                    <a href="{% url 'chemicals' %}" class="theme-btn btn-style-two">RailWay
+                                        Infastruture</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 11 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-4-2.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Advanced</h3>
-                                <h1>Engineering Solutions</h1>
-                                <p class="text">Our technology helps industries achieve higher productivity and precision.</p>
-                                <a href="#" class="theme-btn btn-style-one">Explore</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Industries</a>
+            <!-- Slide 11 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-4-2.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Advanced</h3>
+                                    <h1>Engineering Solutions</h1>
+                                    <p class="text">Our technology helps industries achieve higher productivity and
+                                        precision.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Explore</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Industries</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 12 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-4-3.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Smart Industrial</h3>
-                                <h1>Automation</h1>
-                                <p class="text">Bringing smart engineering and digital solutions to the industrial world.</p>
-                                <a href="#" class="theme-btn btn-style-one">Read More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore</a>
+            <!-- Slide 12 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-4-3.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Smart Industrial</h3>
+                                    <h1>Automation</h1>
+                                    <p class="text">Bringing smart engineering and digital solutions to the industrial
+                                        world.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Read More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 13 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-5-1.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Connecting</h3>
-                                <h1>Technology & Industry</h1>
-                                <p class="text">Where mechanical innovation meets digital transformation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Learn More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">View Sectors</a>
+            <!-- Slide 13 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-5-1.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Connecting</h3>
+                                    <h1>Technology & Industry</h1>
+                                    <p class="text">Where mechanical innovation meets digital transformation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Learn More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">View Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 14 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-5-2.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Future of</h3>
-                                <h1>Industrial Revolution</h1>
-                                <p class="text">Empowering industries with technology, precision, and sustainable innovation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Get Started</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore Sectors</a>
+            <!-- Slide 14 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-5-2.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Future of</h3>
+                                    <h1>Industrial Revolution</h1>
+                                    <p class="text">Empowering industries with technology, precision, and sustainable
+                                        innovation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Get Started</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore
+                                        Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-         <!-- Slide 15 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-5-3.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Future of</h3>
-                                <h1>Industrial Revolution</h1>
-                                <p class="text">Empowering industries with technology, precision, and sustainable innovation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Get Started</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore Sectors</a>
+            <!-- Slide 15 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-5-3.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Future of</h3>
+                                    <h1>Industrial Revolution</h1>
+                                    <p class="text">Empowering industries with technology, precision, and sustainable
+                                        innovation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Get Started</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore
+                                        Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-         <!-- Slide 16 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-6-1.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Future of</h3>
-                                <h1>Industrial Revolution</h1>
-                                <p class="text">Empowering industries with technology, precision, and sustainable innovation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Get Started</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore Sectors</a>
+            <!-- Slide 16 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-6-1.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Future of</h3>
+                                    <h1>Industrial Revolution</h1>
+                                    <p class="text">Empowering industries with technology, precision, and sustainable
+                                        innovation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Get Started</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore
+                                        Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-         <!-- Slide 17 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-6-2.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Connecting</h3>
-                                <h1>Technology & Industry</h1>
-                                <p class="text">Where mechanical innovation meets digital transformation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Learn More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">View Sectors</a>
+            <!-- Slide 17 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-6-2.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Connecting</h3>
+                                    <h1>Technology & Industry</h1>
+                                    <p class="text">Where mechanical innovation meets digital transformation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Learn More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">View Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 18 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-6-3.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption text-right">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Welcome to</h3>
-                                <h1>Machinery World</h1>
-                                <p class="text">Delivering industrial excellence with over 24 years of experience and innovation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Read More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Market Sectors</a>
+            <!-- Slide 18 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-6-3.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption text-right">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Welcome to</h3>
+                                    <h1>Machinery World</h1>
+                                    <p class="text">Delivering industrial excellence with over 24 years of experience
+                                        and innovation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Read More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Market
+                                        Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 19 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-7-1.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Strong Foundation of</h3>
-                                <h1>Industrial Growth</h1>
-                                <p class="text">Pioneering mechanical solutions to meet the challenges of tomorrow’s industries.</p>
-                                <a href="#" class="theme-btn btn-style-one">Discover More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Sectors</a>
+            <!-- Slide 19 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-7-1.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Strong Foundation of</h3>
+                                    <h1>Industrial Growth</h1>
+                                    <p class="text">Pioneering mechanical solutions to meet the challenges of tomorrow’s
+                                        industries.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Discover More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Our Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-          <!-- Slide 20 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-7-2.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Connecting</h3>
-                                <h1>Technology & Industry</h1>
-                                <p class="text">Where mechanical innovation meets digital transformation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Learn More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">View Sectors</a>
+            <!-- Slide 20 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-7-2.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Connecting</h3>
+                                    <h1>Technology & Industry</h1>
+                                    <p class="text">Where mechanical innovation meets digital transformation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Learn More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">View Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-         <!-- Slide 21 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-7-3.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption text-right">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Welcome to</h3>
-                                <h1>Machinery World</h1>
-                                <p class="text">Delivering industrial excellence with over 24 years of experience and innovation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Read More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Market Sectors</a>
+            <!-- Slide 21 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-7-3.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption text-right">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Welcome to</h3>
+                                    <h1>Machinery World</h1>
+                                    <p class="text">Delivering industrial excellence with over 24 years of experience
+                                        and innovation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Read More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Market
+                                        Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-                <!-- Slide 22 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-8-1.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Connecting</h3>
-                                <h1>Technology & Industry</h1>
-                                <p class="text">Where mechanical innovation meets digital transformation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Learn More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">View Sectors</a>
+            <!-- Slide 22 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-8-1.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Connecting</h3>
+                                    <h1>Technology & Industry</h1>
+                                    <p class="text">Where mechanical innovation meets digital transformation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Learn More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">View Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Slide 23 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-8-2.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Future of</h3>
-                                <h1>Industrial Revolution</h1>
-                                <p class="text">Empowering industries with technology, precision, and sustainable innovation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Get Started</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore Sectors</a>
+            <!-- Slide 23 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-8-2.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Future of</h3>
+                                    <h1>Industrial Revolution</h1>
+                                    <p class="text">Empowering industries with technology, precision, and sustainable
+                                        innovation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Get Started</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Explore
+                                        Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        
-         <!-- Slide 24 -->
-        <div class="item hero-banner" style="background-image: url({% static 'images/main-slider/banner-8-3.jpg' %}); background-position: center center; background-size: cover;">
-            <div class="carousel-caption text-right">
-                <div class="container">
-                    <div class="box valign-middle">
-                        <div class="content">
-                            <div class="main-banner-content" data-animation="animated fadeInUp">
-                                <h3 class="title">Welcome to</h3>
-                                <h1>Machinery World</h1>
-                                <p class="text">Delivering industrial excellence with over 24 years of experience and innovation.</p>
-                                <a href="#" class="theme-btn btn-style-one">Read More</a>
-                                <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Market Sectors</a>
+
+            <!-- Slide 24 -->
+            <div class="item hero-banner"
+                 style="background-image: url({% static 'images/main-slider/banner-8-3.jpg' %}); background-position: center center; background-size: cover;">
+                <div class="carousel-caption text-right">
+                    <div class="container">
+                        <div class="box valign-middle">
+                            <div class="content">
+                                <div class="main-banner-content" data-animation="animated fadeInUp">
+                                    <h3 class="title">Welcome to</h3>
+                                    <h1>Machinery World</h1>
+                                    <p class="text">Delivering industrial excellence with over 24 years of experience
+                                        and innovation.</p>
+                                    <a href="#" class="theme-btn btn-style-one">Read More</a>
+                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two">Market
+                                        Sectors</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="right carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+            <span class="sr-only">Next</span>
+        </a>
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators list-inline custom-navigation">
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="1"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="2"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="3"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="4"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="5"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="6"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="7"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="8"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="9"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="10"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="11"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="12"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="13"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="14"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="15"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="16"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="17"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="18"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="19"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="20"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="21"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="22"></li>
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="23"></li>
+        </ul>
 
     </div>
 
-    <!-- Controls -->
-<a class="left carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="prev">
-    <i class="fa fa-angle-left"></i>
-    <span class="sr-only">Previous</span>
-</a>
-
-<a class="right carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="next">
-    <i class="fa fa-angle-right"></i>
-    <span class="sr-only">Next</span>
-</a>
-
-<!-- Indicators -->
-<ul class="carousel-indicators list-inline custom-navigation">
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="0" class="active"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="1"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="2"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="3"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="4"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="5"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="6"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="7"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="8"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="9"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="10"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="11"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="12"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="13"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="14"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="15"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="16"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="17"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="18"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="19"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="20"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="21"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="22"></li>
-    <li data-target="#minimal-bootstrap-carousel" data-slide-to="23"></li>
-</ul>
-
-</div>
-
     <!-- Highlights -->
     <div class="highlights dark-bg">
-        <div class="auto-container">        
+        <div class="auto-container">
             <div class="highlight-carousel owl-carousel owl-theme">
                 <!-- Highlight Block -->
                 <div class="highlight-block">
                     <div class="inner-box">
                         <div class="icon-box"><span class="machinery-icon-factory"></span></div>
-                        <div class="text">Registration with Pakistan <span>  Engineering Council (PEC)</span> 
+                        <div class="text">Registration with Pakistan <span>  Engineering Council (PEC)</span>
                             ensuring compliance with national engineering standards.
                         </div>
                     </div>
                 </div>
 
-               
+
                 <!-- Highlight Block -->
                 <div class="highlight-block">
                     <div class="inner-box">
@@ -548,16 +602,19 @@
                 <!-- Services Block -->
                 <div class="services-block">
                     <div class="inner-box">
-                        <div class="image-box">  
-                          <figure>
-                            <img src="{% static 'images/resource/service-1.jpg' %}" alt="">
-                            </figure>   
+                        <div class="image-box">
+                            <figure><img
+                                    src="{% static 'images/sectors/educational/DSCN7843.JPG' %}"
+                                    alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="#"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'educational_trainers' %}"><i class="icon arrow-top-right"></i>Read
+                                        More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3>Construction Products</h3> <i class="icon flaticon-user-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'educational_trainers' %}">Educational Trainers</a>
+                            </h3> <i
+                                    class="icon flaticon-reading"></i></div>
                         </div>
                     </div>
                 </div>
@@ -566,14 +623,18 @@
                 <div class="services-block">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-2.jpg' %}" alt=""></figure>
-                              
+                            <figure><img
+                                    src="{% static 'images/sectors/industrial/trainer.jpg' %}"
+                                    alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="#"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'industrial_trainers' %}"><i class="icon arrow-top-right"></i>Read
+                                        More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3>Aero Space Services</h3> <i class="icon flaticon-departures-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'industrial_trainers' %}">Industrial Trainers</a>
+                            </h3> <i
+                                    class="icon flaticon-engineer"></i></div>
                         </div>
                     </div>
                 </div>
@@ -582,13 +643,14 @@
                 <div class="services-block">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-2.jpg' %}" alt=""></figure>
+                            <figure><img src="{% static 'images/sectors/testing benches/ALPC0804.JPG' %}" alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="#"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'testing_benches' %}"><i class="icon arrow-top-right"></i>Read More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3>Railway Infrastructure</h3> <i class="icon flaticon-railway-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'testing_benches' %}">Testing Benches</a></h3> <i
+                                    class="icon flaticon-conveyor"></i></div>
                         </div>
                     </div>
                 </div>
@@ -597,13 +659,17 @@
                 <div class="services-block">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-1.jpg' %}" alt=""></figure>
+                            <figure><img
+                                    src="{% static 'images/sectors/fabric-printing-machine-colorful-textile-designs-studio.jpg' %}"
+                                    alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="#"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'textile_sector' %}"><i class="icon arrow-top-right"></i>Read
+                                        More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3>Construction Products</h3> <i class="icon flaticon-user-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'textile_sector' %}">Textile Sector</a></h3> <i
+                                    class="icon flaticon-sewing-machine"></i></div>
                         </div>
                     </div>
                 </div>
@@ -612,13 +678,14 @@
                 <div class="services-block">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-2.jpg' %}" alt=""></figure>
+                            <figure><img src="{% static 'images/resource/service-4.jpg' %}" alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="#"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'cement' %}"><i class="icon arrow-top-right"></i>Read More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3>Aero Space Services</h3> <i class="icon flaticon-departures-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'cement' %}">Cement Sector</a></h3>
+                                <i class="icon flaticon-brick"></i></div>
                         </div>
                     </div>
                 </div>
@@ -627,13 +694,30 @@
                 <div class="services-block">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure><img src="{% static 'images/resource/service-2.jpg' %}" alt=""></figure>
+                            <figure><img src="{% static 'images/resource/service-4.jpg' %}" alt=""></figure>
                             <div class="overlay-box">
                                 <div class="btn-box">
-                                    <a href="#"><i class="icon arrow-top-right"></i>Read More</a>
+                                    <a href="{% url 'fmcg' %}"><i class="icon arrow-top-right"></i>Read More</a>
                                 </div>
                             </div>
-                            <div class="title"><h3>Railway Infrastructure</h3> <i class="icon flaticon-railway-1"></i></div>
+                            <div class="title"><h3><a href="{% url 'fmcg' %}">FMCG Sector</a></h3>
+                                <i class="icon flaticon-cargo"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Block -->
+                <div class="services-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure><img src="{% static 'images/resource/service-4.jpg' %}" alt=""></figure>
+                            <div class="overlay-box">
+                                <div class="btn-box">
+                                    <a href="{% url 'chemicals' %}"><i class="icon arrow-top-right"></i>Read More</a>
+                                </div>
+                            </div>
+                            <div class="title"><h3><a href="{% url 'chemicals' %}">Chemicals Sector</a></h3>
+                                <i class="icon flaticon-drop"></i></div>
                         </div>
                     </div>
                 </div>
@@ -667,7 +751,10 @@
                             <span class="title"><span>Branches Worldwide</span></span>
                         </div>
 
-                        <div class="text">Over 148+ branches  indignation & dislike men who beguiled demoralized <br> by the charms of pleasure of the moment, so blinded by desire, that they <br> cannot foresee the pain and over all trouble.</div>
+                        <div class="text">Over 148+ branches indignation & dislike men who beguiled demoralized <br> by
+                            the charms of pleasure of the moment, so blinded by desire, that they <br> cannot foresee
+                            the pain and over all trouble.
+                        </div>
                         <a href="#" class="more-btn"><i class="machinery-icon-next"></i> Locate Our Branches</a>
                     </div>
                 </div>
@@ -675,12 +762,13 @@
                 <!-- Video Column -->
                 <div class="video-column col-md-6 col-sm-12 col-xs-12">
                     <div class="inner-column">
-                      <figure class="image">
-                        <img src="{% static 'images/resource/video-img.jpg' %}" alt="">
-                        <a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="link" data-fancybox="gallery" data-caption="">
-                            <span class="icon fa fa-play-circle"></span>
-                        </a>
-                    </figure>
+                        <figure class="image">
+                            <img src="{% static 'images/resource/video-img.jpg' %}" alt="">
+                            <a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="link" data-fancybox="gallery"
+                               data-caption="">
+                                <span class="icon fa fa-play-circle"></span>
+                            </a>
+                        </figure>
                     </div>
                 </div>
             </div>
@@ -709,21 +797,30 @@
 
                             <div class="tabs-content">
                                 <!--Tab / Active Tab-->
-                                <div class="tab active-tab" id="info-tab-1">                         
+                                <div class="tab active-tab" id="info-tab-1">
                                     <h3>We are Reliable & Experienced manufacturing Company.</h3>
-                                    <div class="text">Built enviable reputation in consumer goods, heavy industry, high tech, manufacturing, medical, vehicle  our  works sectors multi disciplinary team of engineering & experts, who  pursues desires.</div>
+                                    <div class="text">Built enviable reputation in consumer goods, heavy industry, high
+                                        tech, manufacturing, medical, vehicle our works sectors multi disciplinary team
+                                        of engineering & experts, who pursues desires.
+                                    </div>
                                 </div>
 
                                 <!--Tab-->
-                                <div class="tab" id="info-tab-2">                         
+                                <div class="tab" id="info-tab-2">
                                     <h3>We are Reliable & Experienced manufacturing Company.</h3>
-                                    <div class="text">Built enviable reputation in consumer goods, heavy industry, high tech, manufacturing, medical, vehicle  our  works sectors multi disciplinary team of engineering & experts, who  pursues desires.</div>
+                                    <div class="text">Built enviable reputation in consumer goods, heavy industry, high
+                                        tech, manufacturing, medical, vehicle our works sectors multi disciplinary team
+                                        of engineering & experts, who pursues desires.
+                                    </div>
                                 </div>
 
                                 <!--Tab-->
-                                <div class="tab" id="info-tab-3">                         
+                                <div class="tab" id="info-tab-3">
                                     <h3>We are Reliable & Experienced manufacturing Company.</h3>
-                                    <div class="text">Built enviable reputation in consumer goods, heavy industry, high tech, manufacturing, medical, vehicle  our  works sectors multi disciplinary team of engineering & experts, who  pursues desires.</div>
+                                    <div class="text">Built enviable reputation in consumer goods, heavy industry, high
+                                        tech, manufacturing, medical, vehicle our works sectors multi disciplinary team
+                                        of engineering & experts, who pursues desires.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -738,7 +835,9 @@
                             <div class="inner-box">
                                 <span class="icon icon-gear"></span>
                                 <h4><a href="market-sector.html">Smart Technology</a></h4>
-                                <div class="text">Encounter consequences that are extremely our painful again is there desires.</div>
+                                <div class="text">Encounter consequences that are extremely our painful again is there
+                                    desires.
+                                </div>
                             </div>
                         </div>
 
@@ -747,7 +846,9 @@
                             <div class="inner-box">
                                 <span class="icon icon-clock"></span>
                                 <h4><a href="market-sector.html">Punctual Delivery Time</a></h4>
-                                <div class="text">To take trivial example, which of us ever physical except to obtain some advantage.</div>
+                                <div class="text">To take trivial example, which of us ever physical except to obtain
+                                    some advantage.
+                                </div>
                             </div>
                         </div>
 
@@ -756,7 +857,9 @@
                             <div class="inner-box">
                                 <span class="icon icon-worker"></span>
                                 <h4><a href="market-sector.html">Team of Professionals</a></h4>
-                                <div class="text">Any right to find fault with a man who chooses to enjoy a pleasure that has no annoying..</div>
+                                <div class="text">Any right to find fault with a man who chooses to enjoy a pleasure
+                                    that has no annoying..
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -773,15 +876,16 @@
                 <h4>Our Works</h4>
                 <h2>Latest Projects</h2>
             </div>
-            
+
             <!--Carousel Box-->
             <div class="carousel-box">
                 <div class="project-carousel owl-carousel owl-theme">
                     <!-- Project Block -->
                     <div class="project-block">
                         <div class="image-box">
-                          <figure>
-                                <a href="{% static 'images/resource/project-1.jpg' %}" class="ligtbox-image" data-fancybox="gallery">
+                            <figure>
+                                <a href="{% static 'images/resource/project-1.jpg' %}" class="ligtbox-image"
+                                   data-fancybox="gallery">
                                     <img src="{% static 'images/resource/project-1.jpg' %}" alt="">
                                 </a>
                             </figure>
@@ -791,55 +895,65 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Project Block -->
                     <div class="project-block">
                         <div class="image-box">
-                            <figure><a href="{% static 'images/resource/project-2.jpg' %}" class="ligtbox-image" data-fancybox="gallery"><img src="{% static 'images/resource/project-2.jpg' %}" alt=""></a></figure>
+                            <figure><a href="{% static 'images/resource/project-2.jpg' %}" class="ligtbox-image"
+                                       data-fancybox="gallery"><img src="{% static 'images/resource/project-2.jpg' %}"
+                                                                    alt=""></a></figure>
                             <div class="title-box">
                                 <h3><a href="projects-single.html">Rail Engine Manufacture</a></h3>
                                 <span class="tag">Construction</span>
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Project Block -->
                     <div class="project-block">
                         <div class="image-box">
-                           <figure><a href="{% static 'images/resource/project-3.jpg' %}" class="ligtbox-image" data-fancybox="gallery"><img src="{% static 'images/resource/project-3.jpg' %}" alt=""></a></figure>
+                            <figure><a href="{% static 'images/resource/project-3.jpg' %}" class="ligtbox-image"
+                                       data-fancybox="gallery"><img src="{% static 'images/resource/project-3.jpg' %}"
+                                                                    alt=""></a></figure>
                             <div class="title-box">
                                 <h3><a href="projects-single.html">Generate Natural Power</a></h3>
                                 <span class="tag">Power & Energy</span>
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Project Block -->
                     <div class="project-block">
                         <div class="image-box">
-                            <figure><a href="{% static 'images/resource/project-1.jpg' %}" class="ligtbox-image" data-fancybox="gallery"><img src="{% static 'images/resource/project-1.jpg' %}" alt=""></a></figure>
+                            <figure><a href="{% static 'images/resource/project-1.jpg' %}" class="ligtbox-image"
+                                       data-fancybox="gallery"><img src="{% static 'images/resource/project-1.jpg' %}"
+                                                                    alt=""></a></figure>
                             <div class="title-box">
                                 <h3><a href="projects-single.html">Rail Engine Manufacture</a></h3>
                                 <span class="tag">Engineering</span>
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Project Block -->
                     <div class="project-block">
                         <div class="image-box">
-                          <figure><a href="{% static 'images/resource/project-2.jpg' %}" class="ligtbox-image" data-fancybox="gallery"><img src="{% static 'images/resource/project-2.jpg' %}" alt=""></a></figure>
+                            <figure><a href="{% static 'images/resource/project-2.jpg' %}" class="ligtbox-image"
+                                       data-fancybox="gallery"><img src="{% static 'images/resource/project-2.jpg' %}"
+                                                                    alt=""></a></figure>
                             <div class="title-box">
                                 <h3><a href="projects-single.html">Rail Engine Manufacture</a></h3>
                                 <span class="tag">Construction</span>
                             </div>
                         </div>
                     </div>
-    
+
                     <!-- Project Block -->
                     <div class="project-block">
                         <div class="image-box">
-                           <figure><a href="{% static 'images/resource/project-3.jpg' %}" class="ligtbox-image" data-fancybox="gallery"><img src="{% static 'images/resource/project-3.jpg' %}" alt=""></a></figure>
+                            <figure><a href="{% static 'images/resource/project-3.jpg' %}" class="ligtbox-image"
+                                       data-fancybox="gallery"><img src="{% static 'images/resource/project-3.jpg' %}"
+                                                                    alt=""></a></figure>
                             <div class="title-box">
                                 <h3><a href="projects-single.html">Generate Natural Power</a></h3>
                                 <span class="tag">Power & Energy</span>
@@ -856,18 +970,21 @@
             <div class="sec-title text-center">
                 <h4>Ask Our Expert</h4>
                 <h2>Request For Free Quote</h2>
-                <div class="text">Your details are kept strictly confidential as per our company privacy policy, Pleasure & praising <br> was we will give you a complete.</div><!-- /.text -->
+                <div class="text">Your details are kept strictly confidential as per our company privacy policy,
+                    Pleasure & praising <br> was we will give you a complete.
+                </div><!-- /.text -->
             </div><!-- /.sec-title -->
         </div><!-- /.auto-container -->
     </section><!-- /.request-qoute-block -->
-        <!-- Contact Section -->
+    <!-- Contact Section -->
     <section class="contact-section request-qoute-content-block">
         <div class="auto-container">
             <div class="row clearfix no-gutters">
                 <!-- Title Column -->
                 <div class="image-column col-md-4 col-sm-12 col-xs-12">
                     <div class="inner-column">
-                        <img src="{% static 'images/resource/customer_care.jpg' %}" style="width: 100%;" alt="Awesome Image"/>
+                        <img src="{% static 'images/background/contact_us.jpg' %}" style="width: 100%;"
+                             alt="Awesome Image"/>
                         <div class="overlay-box">
                             <div class="inner-box">
                                 <div class="content">
@@ -876,37 +993,39 @@
                         </div><!-- /.overlay-box -->
                     </div>
                 </div>
-<!-- 🌐 HOME PAGE CONTACT FORM -->
-<div class="form-column col-md-8 col-sm-12 col-xs-12">
-  <div class="inner-column">
-    <div class="text">
-      For Business: For Business inquiry fill our feedback form and Troll Free Number - (+91) 00-700-6202, our team will help you within 24 hours.
-    </div>
+                <!-- 🌐 HOME PAGE CONTACT FORM -->
+                <div class="form-column col-md-8 col-sm-12 col-xs-12">
+                    <div class="inner-column">
+                        <div class="text">
+                            For Business: For Business inquiry fill our feedback form and Troll Free Number - (+91)
+                            00-700-6202, our team will help you within 24 hours.
+                        </div>
 
-    <div class="contact-form">
-      <form id="homeContactForm" method="post" action="{% url 'contact_us' %}">
-        {% csrf_token %}
-        <div class="row clearfix">
-          <div class="column col-md-6 col-sm-6 col-xs-12">
-            <div class="form-group">
-              <input type="text" name="username" placeholder="Your Name" required />
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Email Address" required />
-            </div>
-          </div>
+                        <div class="contact-form">
+                            <form id="homeContactForm" method="post" action="{% url 'contact_us' %}">
+                                {% csrf_token %}
+                                <div class="row clearfix">
+                                    <div class="column col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <input type="text" name="username" placeholder="Your Name" required/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Email Address" required/>
+                                        </div>
+                                    </div>
 
-          <div class="column col-md-6 col-sm-6 col-xs-12">
-            <div class="form-group">
-              <textarea name="message" placeholder="Your Message..." required></textarea>
-            </div>
+                                    <div class="column col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <textarea name="message" placeholder="Your Message..." required></textarea>
+                                        </div>
 
-            <div class="form-group" style="text-align:center;">
-              <button type="submit" class="theme-btn" id="homeSubmitBtn">Submit Now</button>
+                                        <div class="form-group" style="text-align:center;">
+                                            <button type="submit" class="theme-btn" id="homeSubmitBtn">Submit Now
+                                            </button>
 
-              <!-- 🔵 Loader -->
-              <div id="homeLoader" 
-                   style="display:none; 
+                                            <!-- 🔵 Loader -->
+                                            <div id="homeLoader"
+                                                 style="display:none;
                           margin:10px auto; 
                           border:4px solid #f3f3f3; 
                           border-top:4px solid #0056b3; 
@@ -914,15 +1033,15 @@
                           width:40px; 
                           height:40px; 
                           animation:spin 1s linear infinite;">
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
 
-      <!-- ✅ Popup Message -->
-      <div id="homePopupMessage" 
-           style="display:none; 
+                            <!-- ✅ Popup Message -->
+                            <div id="homePopupMessage"
+                                 style="display:none;
                   text-align:center; 
                   background:linear-gradient(135deg, #346599, #0056b3); 
                   color:white; 
@@ -931,92 +1050,97 @@
                   margin-top:10px; 
                   box-shadow:0 4px 10px rgba(0,0,0,0.2); 
                   font-family:'Poppins', sans-serif;">
-        <h2 id="homePopupTitle"></h2>
-        <p>Your message has been sent successfully. We’ll contact you soon.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 🔁 Spinner Animation -->
-<style>
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-</style>
-
-<!-- ✅ jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- ✅ AJAX Script -->
-<script>
-$(document).ready(function() {
-    console.log("✅ Home page AJAX contact form ready");
-
-    // Get CSRF token
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== "") {
-            const cookies = document.cookie.split(";");
-            for (let cookie of cookies) {
-                cookie = cookie.trim();
-                if (cookie.substring(0, name.length + 1) === (name + "=")) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-    const csrftoken = getCookie("csrftoken");
-
-    $("#homeContactForm").on("submit", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const form = $(this);
-        const url = form.attr("action");
-        const formData = form.serialize();
-
-        // Show Loader + Disable Button
-        $("#homeLoader").show();
-        $("#homeSubmitBtn").prop("disabled", true).text("Sending...");
-
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: formData,
-            headers: { "X-CSRFToken": csrftoken },
-            success: function(response) {
-                $("#homeLoader").hide();
-                $("#homeSubmitBtn").prop("disabled", false).text("Submit Now");
-
-                if (response.status === "success") {
-                    $("#homePopupTitle").text("Thank you, " + response.name + "!");
-                    $("#homePopupMessage").fadeIn();
-
-                    setTimeout(function() {
-                        $("#homePopupMessage").fadeOut();
-                        form.trigger("reset");
-                    }, 3000);
-                } else {
-                    alert("⚠️ Error: " + response.message);
-                }
-            },
-            error: function(xhr, status, error) {
-                $("#homeLoader").hide();
-                $("#homeSubmitBtn").prop("disabled", false).text("Submit Now");
-                console.error("❌ AJAX error:", status, error);
-                alert("Something went wrong! Check console.");
-            }
-        });
-    });
-});
-</script>
-
+                                <h2 id="homePopupTitle"></h2>
+                                <p>Your message has been sent successfully. We’ll contact you soon.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- 🔁 Spinner Animation -->
+                <style>
+                    @keyframes spin {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
+                </style>
+
+                <!-- ✅ jQuery -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                <!-- ✅ AJAX Script -->
+                <script>
+                    $(document).ready(function () {
+                        console.log("✅ Home page AJAX contact form ready");
+
+                        // Get CSRF token
+                        function getCookie(name) {
+                            let cookieValue = null;
+                            if (document.cookie && document.cookie !== "") {
+                                const cookies = document.cookie.split(";");
+                                for (let cookie of cookies) {
+                                    cookie = cookie.trim();
+                                    if (cookie.substring(0, name.length + 1) === (name + "=")) {
+                                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                        break;
+                                    }
+                                }
+                            }
+                            return cookieValue;
+                        }
+
+                        const csrftoken = getCookie("csrftoken");
+
+                        $("#homeContactForm").on("submit", function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+
+                            const form = $(this);
+                            const url = form.attr("action");
+                            const formData = form.serialize();
+
+                            // Show Loader + Disable Button
+                            $("#homeLoader").show();
+                            $("#homeSubmitBtn").prop("disabled", true).text("Sending...");
+
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                data: formData,
+                                headers: {"X-CSRFToken": csrftoken},
+                                success: function (response) {
+                                    $("#homeLoader").hide();
+                                    $("#homeSubmitBtn").prop("disabled", false).text("Submit Now");
+
+                                    if (response.status === "success") {
+                                        $("#homePopupTitle").text("Thank you, " + response.name + "!");
+                                        $("#homePopupMessage").fadeIn();
+
+                                        setTimeout(function () {
+                                            $("#homePopupMessage").fadeOut();
+                                            form.trigger("reset");
+                                        }, 3000);
+                                    } else {
+                                        alert("⚠️ Error: " + response.message);
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                    $("#homeLoader").hide();
+                                    $("#homeSubmitBtn").prop("disabled", false).text("Submit Now");
+                                    console.error("❌ AJAX error:", status, error);
+                                    alert("Something went wrong! Check console.");
+                                }
+                            });
+                        });
+                    });
+                </script>
+
             </div>
+        </div>
         </div>
     </section>
     <!--End Contact Section -->
@@ -1024,9 +1148,8 @@ $(document).ready(function() {
     <!-- News Section -->
     <section class="news-section">
         <div class="auto-container">
-           
-                
-                   
+
+
         </div>
     </section>
     <!--End News Section -->

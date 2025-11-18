@@ -2,15 +2,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Machinery - blog </title>
-    
+    <title>{% block title %}{% endblock %}</title>
+
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
 
     <!-- Local Static CSS -->
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
@@ -34,27 +34,21 @@
 
 
     {% block extra_css %}{% endblock %}
-    
+
     <!-- Example: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> -->
 </head>
-<body>
-    <!-- Your content -->
-</body>
-</html>
-
-
 <body class="home-one">
-     <div class="preloader"></div>
-    <!--  Preloader End -->
+<div class="preloader"></div>
+<!--  Preloader End -->
 
 
-    <!--  Header Include -->
-    {% include 'includes/header.html' %}
+<!--  Header Include -->
+{% include 'includes/header.html' %}
 
-    <!--  Main Content -->
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+<!--  Main Content -->
+<main>
+    {% block content %}{% endblock %}
+</main>
 {% comment %} 
     <!--  Client Carousel -->
     <section class="client-carousel-wrapper">
@@ -89,14 +83,14 @@
         </div>
     </section> {% endcomment %}
 
-    <!--  Footer Include -->
-    {% include 'includes/footer.html' %}
+<!--  Footer Include -->
+{% include 'includes/footer.html' %}
 
-    <!--  Scripts Include -->
-    {% include 'includes/scripts.html' %}
-    <script src="{% static 'js/loader.js' %}"></script> <!--  Loader JS -->
-    {% block extra_js %}{% endblock %}
+<!--  Scripts Include -->
+{% include 'includes/scripts.html' %}
+<script src="{% static 'js/loader.js' %}"></script> <!--  Loader JS -->
+{% block extra_js %}{% endblock %}
 
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
