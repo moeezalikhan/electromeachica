@@ -5,11 +5,11 @@
 
     <!--Page Title-->
     <section class="page-title" style="background-image:url({% static 'images/resource/customer_care.jpg' %})">
-      <div class="auto-container">
+        <div class="auto-container">
             <h1>Contact Us</h1>
             <ul class="page-breadcrumb">
-                <li><a href="{% url 'home'%}">Home</a></li>
-                <li><a href="{% url 'contact_us'%}"></a>Contact Us</li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'contact_us' %}"></a>Contact Us</li>
             </ul>
         </div>
     </section>
@@ -22,76 +22,82 @@
                 <div class="info-column col-md-4 col-sm-6 col-xs-12 ">
                     <div class="branch-info-box">
                         <div class="image-box">
-                            <div class="image"><a href="#"><img src="{% static 'images/background/contact_us.jpg'%}" alt=""></a></div>
+                            <div class="image"><a href="#"><img src="{% static 'images/background/contact_us.jpg' %}"
+                                                                alt=""></a></div>
                         </div>
                         <div class="lower-content">
                             <ul>
                                 <li>
                                     <span class="icon flaticon-place"></span>
-                                    <h5>Big Smart Str, 2nd Cross</h5>
-                                    <p>Newyork, USA 1002.</p>
+                                    <h5>Factory/Off Add: ST-1/4/B, Sector 1,
+                                        Ahsanabad Co-operative Housing Society,
+                                        Scheme 33, Gulzar Hijri</h5>
+                                    <p>Karachi, Pakistan.</p>
                                 </li>
 
                                 <li>
                                     <span class="icon flaticon-support"></span>
                                     <h5>Call Us On</h5>
-                                    <p><a href="#">1-800-784-533 & 544</a></p>
+                                    <p><a href="#">+92-21-36412339</a></p>
                                 </li>
 
                                 <li>
                                     <span class="icon flaticon-plane"></span>
                                     <h5>Mail Us at</h5>
-                                    <p><a href="#">Machinery@Support.com</a></p>
+                                    <p><a href="#">elecmech.pak@gmail.com</a></p>
                                 </li>
 
                                 <li>
                                     <span class="icon flaticon-watch"></span>
                                     <h5>Working Hours</h5>
-                                    <p>Mon-Satday: 09.00am to 10.00pm</p>
+                                    <p>Monday - Saturday: 09.00am to 10.00pm</p>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="form-column col-md-8 col-sm-12 col-xs-12">
-                  <div class="inner-column">
-                    <div class="sec-title">
-                      <h2>Send Message Us</h2>
-                      <div class="text">
-                        We have 74 branches in US and 145 branches in world wide, you can reach any branch at your desk, our experts will help you 24/7.
-                      </div>
-                    </div>
-
-                    <div class="contact-form style-three">
-                      <form id="contactForm" method="post" action="{% url 'contact_us' %}">
-                        {% csrf_token %}
-                        <div class="row clearfix">
-                          <div class="left-column col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group">
-                              <label>Name</label>
-                              <input type="text" name="username" placeholder="Your Name" required />
+                    <div class="inner-column">
+                        <div class="sec-title">
+                            <h2>Send Message Us</h2>
+                            <div class="text">
+                                We have 74 branches in PK and 145 branches in world wide, you can reach any branch at
+                                your desk, our experts will help you 24/7.
                             </div>
+                        </div>
 
-                            <div class="form-group">
-                              <label>Email</label>
-                              <input type="email" name="email" placeholder="Email Address" required />
-                            </div>
-                          </div>
+                        <div class="contact-form style-three">
+                            <form id="contactForm" method="post" action="{% url 'contact_us' %}">
+                                {% csrf_token %}
+                                <div class="row clearfix">
+                                    <div class="left-column col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" name="username" placeholder="Your Name" required/>
+                                        </div>
 
-                          <div class="column col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group border-left">
-                              <label>Message</label>
-                              <textarea name="message" placeholder="Write your message..." required></textarea>
-                            </div>
-                          </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" name="email" placeholder="Email Address" required/>
+                                        </div>
+                                    </div>
 
-                          <div class="column col-md-12 col-sm-6 col-xs-12">
-                            <div class="form-group" style="text-align:center;">
-                              <button type="submit" class="theme-btn" id="contactSubmitBtn">Submit Now</button>
+                                    <div class="column col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group border-left">
+                                            <label>Message</label>
+                                            <textarea name="message" placeholder="Write your message..."
+                                                      required></textarea>
+                                        </div>
+                                    </div>
 
-                              <!-- 🔵 Loading Spinner -->
-                              <div id="contactLoader" 
-                                  style="display:none; 
+                                    <div class="column col-md-12 col-sm-6 col-xs-12">
+                                        <div class="form-group" style="text-align:center;">
+                                            <button type="submit" class="theme-btn" id="contactSubmitBtn">Submit Now
+                                            </button>
+
+                                            <!-- 🔵 Loading Spinner -->
+                                            <div id="contactLoader"
+                                                 style="display:none;
                                           margin:10px auto; 
                                           border:4px solid #f3f3f3; 
                                           border-top:4px solid #0056b3; 
@@ -99,15 +105,15 @@
                                           width:40px; 
                                           height:40px; 
                                           animation:spin 1s linear infinite;">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
 
-                      <!--  Success Popup -->
-                      <div id="popupMessage" 
-                          style="display:none; 
+                            <!--  Success Popup -->
+                            <div id="popupMessage"
+                                 style="display:none;
                                   text-align:center; 
                                   background:linear-gradient(135deg, #346599, #0056b3); 
                                   color:white; 
@@ -116,19 +122,23 @@
                                   margin-top:10px; 
                                   box-shadow:0 4px 10px rgba(0,0,0,0.2); 
                                   font-family:'Poppins', sans-serif;">
-                        <h2 id="popupTitle"></h2>
-                        <p>Your message has been sent successfully. We’ll contact you soon.</p>
-                      </div>
+                                <h2 id="popupTitle"></h2>
+                                <p>Your message has been sent successfully. We’ll contact you soon.</p>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
 
                 <!-- 🔄 Spinner Animation -->
                 <style>
-                @keyframes spin {
-                  0% { transform: rotate(0deg); }
-                  100% { transform: rotate(360deg); }
-                }
+                    @keyframes spin {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
                 </style>
 
                 <!--  Only ONE jQuery -->
@@ -136,69 +146,70 @@
 
                 <!--  AJAX Contact Form Script -->
                 <script>
-                $(document).ready(function() {
-                    console.log(" AJAX contact form ready");
+                    $(document).ready(function () {
+                        console.log(" AJAX contact form ready");
 
-                    // Get CSRF token
-                    function getCookie(name) {
-                        let cookieValue = null;
-                        if (document.cookie && document.cookie !== "") {
-                            const cookies = document.cookie.split(";");
-                            for (let cookie of cookies) {
-                                cookie = cookie.trim();
-                                if (cookie.substring(0, name.length + 1) === (name + "=")) {
-                                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                                    break;
+                        // Get CSRF token
+                        function getCookie(name) {
+                            let cookieValue = null;
+                            if (document.cookie && document.cookie !== "") {
+                                const cookies = document.cookie.split(";");
+                                for (let cookie of cookies) {
+                                    cookie = cookie.trim();
+                                    if (cookie.substring(0, name.length + 1) === (name + "=")) {
+                                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                        break;
+                                    }
                                 }
                             }
+                            return cookieValue;
                         }
-                        return cookieValue;
-                    }
-                    const csrftoken = getCookie("csrftoken");
 
-                    $("#contactForm").on("submit", function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
+                        const csrftoken = getCookie("csrftoken");
 
-                        const form = $(this);
-                        const url = form.attr("action");
-                        const formData = form.serialize();
+                        $("#contactForm").on("submit", function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
 
-                        // 🔵 Show Loader
-                        $("#contactLoader").show();
-                        $("#contactSubmitBtn").prop("disabled", true).text("Sending...");
+                            const form = $(this);
+                            const url = form.attr("action");
+                            const formData = form.serialize();
 
-                        $.ajax({
-                            type: "POST",
-                            url: url,
-                            data: formData,
-                            headers: { "X-CSRFToken": csrftoken },
-                            success: function(response) {
-                                // 🟢 Hide Loader
-                                $("#contactLoader").hide();
-                                $("#contactSubmitBtn").prop("disabled", false).text("Submit Now");
+                            // 🔵 Show Loader
+                            $("#contactLoader").show();
+                            $("#contactSubmitBtn").prop("disabled", true).text("Sending...");
 
-                                if (response.status === "success") {
-                                    $("#popupTitle").text("Thank you, " + response.name + "!");
-                                    $("#popupMessage").fadeIn();
+                            $.ajax({
+                                type: "POST",
+                                url: url,
+                                data: formData,
+                                headers: {"X-CSRFToken": csrftoken},
+                                success: function (response) {
+                                    // 🟢 Hide Loader
+                                    $("#contactLoader").hide();
+                                    $("#contactSubmitBtn").prop("disabled", false).text("Submit Now");
 
-                                    setTimeout(function() {
-                                        $("#popupMessage").fadeOut();
-                                        form.trigger("reset");
-                                    }, 3000);
-                                } else {
-                                    alert("⚠️ Error: " + response.message);
+                                    if (response.status === "success") {
+                                        $("#popupTitle").text("Thank you, " + response.name + "!");
+                                        $("#popupMessage").fadeIn();
+
+                                        setTimeout(function () {
+                                            $("#popupMessage").fadeOut();
+                                            form.trigger("reset");
+                                        }, 3000);
+                                    } else {
+                                        alert("⚠️ Error: " + response.message);
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                    $("#contactLoader").hide();
+                                    $("#contactSubmitBtn").prop("disabled", false).text("Submit Now");
+                                    console.error("❌ AJAX error:", status, error);
+                                    alert("Something went wrong! Check console.");
                                 }
-                            },
-                            error: function(xhr, status, error) {
-                                $("#contactLoader").hide();
-                                $("#contactSubmitBtn").prop("disabled", false).text("Submit Now");
-                                console.error("❌ AJAX error:", status, error);
-                                alert("Something went wrong! Check console.");
-                            }
+                            });
                         });
                     });
-                });
                 </script>
             </div>
         </div>
