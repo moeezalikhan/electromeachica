@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'apps.projects',
     'apps.utilities',
     'apps.teams',
-    'apps.about_us'
+    'apps.about_us',
+    'apps.market_sector',
+    'apps.contact_us'
 ]
 
 MIDDLEWARE = [

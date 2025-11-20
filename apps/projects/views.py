@@ -5,7 +5,7 @@ from apps.projects.models import Project
 
 
 """ ============= All Projects View =============== """
-def project_list(request):
+def projects(request):
     projects = Project.objects.prefetch_related('images').all()
     categories = Project.CATEGORY_CHOICES
 
@@ -21,7 +21,7 @@ def project_list(request):
         'is_paginated': page_obj.has_other_pages(),
     }
 
-    return render(request, 'projects/project_list.html', context)
+    return render(request, 'projects/projects.html', context)
 
 
 """ ============= Single Project Detail View =============== """

@@ -6,7 +6,7 @@ from django.db.models import Q
 
 
 """ ============= All Products View =============== """
-def product_list(request):
+def products(request):
     category = request.GET.get('category')
     search_query = request.GET.get('q', '')
 
@@ -37,7 +37,7 @@ def product_list(request):
         'category': category,
         'search_query': search_query,
     }
-    return render(request, 'products/product_list.html', context)
+    return render(request, 'products/products.html', context)
 
 
 

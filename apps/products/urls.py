@@ -4,6 +4,7 @@ from . import views
 
 """ ============= URL Patterns =============== """
 urlpatterns = [
-    path('', views.product_list, name='product_list'),
+  
+    path('', views.products, name='products'),
     path('<int:pk>/', views.product_detail, name='product_detail'),
 ]

@@ -12922,3 +12922,25 @@ footer {
 .hero-banner h1 {
     font-weight: 800;
 }
+
+
+.buy-now-btn {
+    display: inline-block;
+    background-color: #20b15a;  /* Green Stripe */
+    padding: 12px 28px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 45px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.buy-now-btn i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.buy-now-btn:hover {
+    background-color: #1d9f50;
+}

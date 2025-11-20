@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Machenary - Products{% endblock %}
+{% block content %}
+        
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url({% static 'images/background/2.jpg'%})">
+        <div class="auto-container">
+            <h1>Products</h1>
+            <ul class="page-breadcrumb">
+                <li><a href="{% url 'home'%}">Home</a></li>
+                 <li><a href="{% url 'products'%}">Products</a>
+                 </li>
+            </ul>
+        </div>
+    </section>
+    <!--End Page Title-->
+<!--Sidebar Page Container-->
+<div class="sidebar-page-container">
+  <div class="auto-container">
+    <div class="row clearfix">
+
+      <!--Content Side-->
+      <div class="content-side pull-right col-lg-9 col-md-8 col-sm-12 col-xs-12">
+        <div class="shop-section">
+
+          <!--Sort & Search Bar-->
+          <div class="items-sorting">
+            <div class="row clearfix">
+              <div class="results-column col-md-6 col-sm-6 col-xs-12">
+                <h4>Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }} results</h4>
+              </div>
+              <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
+                <form method="get" class="search-form">
+                  <input type="text" name="q" placeholder="Search products..." value="{{ search_query }}" class="form-control" style="width: 70%; display:inline-block;">
+                  {% if category %}
+                    <input type="hidden" name="category" value="{{ category }}">
+                  {% endif %}
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!--Products Grid-->
+          <div class="row clearfix">
+            {% for product in products %}
+            <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
+              <div class="inner-box">
+                <div class="image-box">
+                  <div class="image">
+                    <a href="{% url 'product_detail' product.pk %}">
+                      {% with first_image=product.images.first %}
+                        {% if first_image %}
+                          <img src="{{ first_image.image.url }}" alt="{{ product.title }}" style="width:100%; height:350px; object-fit:cover; border-radius:10px;">
+                        {% else %}
+                          <img src="{% static 'images/no-image.jpg' %}" alt="No Image" style="width:100%; height:350px; object-fit:cover; border-radius:10px;">
+                        {% endif %}
+                      {% endwith %}
+                    </a>
+                  </div>
+                </div>
+                <div class="lower-content ">
+                  <h4><a href="{% url 'product_detail' product.pk %}">{{ product.title|truncatewords:5 }}</a></h4>
+                </div>
+              </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+              <p>No products available.</p>
+            </div>
+            {% endfor %}
+          </div>
+
+          <!--Pagination-->
+          {% comment %} <ul class="styled-pagination text-center">
+            {% if page_obj.has_previous %}
+              <li><a href="?page={{ page_obj.previous_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"><span class="fa fa-chevron-left"></span></a></li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+              <li><a href="?page={{ num }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
+                     class="{% if page_obj.number == num %}active{% endif %}">{{ num }}</a></li>
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+              <li><a href="?page={{ page_obj.next_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"><span class="fa fa-chevron-right"></span></a></li>
+            {% endif %}
+          </ul> {% endcomment %}
+
+        </div>
+      </div>
+
+      <!--Sidebar-->
+      <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12">
+        <aside class="sidebar shop-sidebar">
+
+          <!--Search Box (duplicate removed because already in top)-->
+          
+          <!--Category Filter-->
+          <div class="sidebar-widget sidebar-blog-category">
+            <div class="sidebar-title">
+              <h2>Categories</h2>
+            </div>
+            <ul class="blog-cat">
+              <li><a href="{% url 'products' %}" class="{% if not category %}active{% endif %}">All</a></li>
+              {% for key, label in categories %}
+              <li class="{% if category == key %}active{% endif %}">
+                <a href="{% url 'products' %}?category={{ key }}">{{ label }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -8,11 +8,18 @@ from apps.utilities.models import BaseModel
 class Product(BaseModel):
     """ Defining choices for categories"""
     CATEGORY_CHOICES = [
-        ('business_growth', 'Business Growth'),
-        ('consulting', 'Consulting'),
-        ('management', 'Management'),
-        ('customer_insights', 'Customer Insights'),
-        ('organization', 'Organization')
+        ('plc', 'Programmable Logic Controller (PLC)'),
+        ('vfd', 'Variable Frequency Drive (VFD)'),
+        ('hydraulic_valves', 'Hydraulic Valves'),
+        ('pneumatic_valves', 'Pneumatic Valves'),
+        ('sensors', 'Sensors'),
+        ('actuators', 'Actuators'),
+        ('ip_positioners', 'I/P Positioners'),
+        ('angle_transducer', 'Angle Transducer'),
+        ('hmi', 'Human Machine Interface (HMI)'),
+        ('encoders', 'Encoders'),
+        ('resolvers', 'Resolvers'),
+        ('embedded_system', 'Embedded System'),
     ]
     
     title = models.CharField(max_length=255)

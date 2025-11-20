@@ -11,9 +11,9 @@ class Project(BaseModel):
         ('consulting', 'Consulting'),
         ('management', 'Management'),
         ('customer_insights', 'Customer Insights'),
-        ('organization', 'Organization')
+        ('organization', 'Organization'),
     ]
-    
+
     name = models.CharField(max_length=255)
     description = models.TextField()
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)

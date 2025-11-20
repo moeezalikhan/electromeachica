@@ -27,21 +27,32 @@ from django.urls import path, include
 urlpatterns = [
     # Admin Url
     path('admin/', admin.site.urls),
-
+    # Main Urls
+    path('', include('apps.main.urls')),
+    # Products Urls
+    path('', include('apps.about_us.urls')),
+    # teams urls
+    path('teams/', include('apps.teams.urls')),
+    # market_sector
+    path('market_sectors/',include('apps.market_sector.urls')),
+     # Products Urls
+    path('products/', include('apps.products.urls')),
     # Projects Urls
     path('projects/', include('apps.projects.urls')),
     
-    # teams urls
-    path('teams/', include('apps.teams.urls')),
-
-    # Products Urls
-    path('products/', include('apps.products.urls')),
+    path('', include('apps.contact_us.urls')),
     
-    # Products Urls
-    path('about_us/', include('apps.about_us.urls')),
+    
+    
+    
+    
 
-    # Main Urls
-    path('', include('apps.main.urls')),
+   
+    
+  
+    
+
+   
 ]
 
 if settings.DEBUG:

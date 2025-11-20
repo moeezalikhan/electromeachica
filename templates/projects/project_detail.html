@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Projects{% endblock %}
+{% block title %}Machenary - Projects details{% endblock %}
 {% block content %}
             
     <!--Page Title-->
-    <section class="page-title" style="background-image:url("{% static 'images/background/2.jpg'%}")">
+    <section class="page-title" style="background-image:url({%static 'images/background/projects-banner.jpg'%})">
+    
         <div class="auto-container">
             <h1>Single Project</h1>
             <ul class="page-breadcrumb">
                 <li><a href="{% url 'home'%}">Home</a></li>
-                <li><a href="{% url 'project_list'%}"></a>Projects</li>
+                <li><a href="{% url 'projects' %}"></a>Projects</li>
                 <li>Single Project</li>
             </ul>
         </div>
@@ -80,7 +81,7 @@
     </li>
 
     <li class="load-more">
-      <a href="{% url 'project_list' %}"><span class="fa fa-th"></span></a>
+      <a href="{% url 'projects' %}"><span class="fa fa-th"></span></a>
     </li>
 
     <li class="next pull-right">

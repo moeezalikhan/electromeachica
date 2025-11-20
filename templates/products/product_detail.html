@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Market - Sectors{% endblock %}
+{% block title %}Machenary - Product Details{% endblock %}
 {% block content %}
 <!-- Page Title -->
 <section class="page-title" style="background-image:url('{% static 'images/background/2.jpg'%}')">
@@ -8,7 +8,7 @@
     <h1>Product Single</h1>
     <ul class="page-breadcrumb">
       <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="{% url 'product_list' %}">Products</a></li>
+      <li><a href="{% url 'products' %}">Products</a></li>
       <li>Product Single</li>
     </ul>
   </div>
@@ -62,6 +62,9 @@
                       <span style="color:red;">Out of Stock</span>
                     {% endif %}
                   </p>
+                 <a href="#" class="buy-now-btn">
+                    <i class="fa fa-whatsapp"></i> Buy Now
+                </a>
                 </div>
               </div>
             </div>
