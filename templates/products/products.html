@@ -3,7 +3,6 @@
 {% block title %}Machenary - Products{% endblock %}
 {% block content %}
 
-
 <!--Page Title-->
 <section class="page-title" style="background-image:url({% static 'images/background/product.jpg'%}); padding:80px 0;">
     <div class="auto-container">
@@ -50,7 +49,7 @@
               <div class="inner-box">
                 <div class="image-box">
                   <a href="{% url 'product_detail' product.pk %}">
-                    {% with first_image=product.images.first %}
+                    {% with first_image=product.images.all|first %}
                       {% if first_image %}
                         <img src="{{ first_image.image.url }}" alt="{{ product.title }}">
                       {% else %}
@@ -86,8 +85,10 @@
             </div>
             <ul class="blog-cat">
               <li><a href="{% url 'products' %}" class="{% if not category %}active{% endif %}">All</a></li>
-              {% for key, label in categories %}
-              <li class="{% if category == key %}active{% endif %}"><a href="{% url 'products' %}?category={{ key }}">{{ label }}</a></li>
+              {% for cat in categories %}
+              <li class="{% if category|add:'' == cat.id|stringformat:'s' %}active{% endif %}">
+                  <a href="{% url 'products' %}?category={{ cat.id }}">{{ cat.name }}</a>
+              </li>
               {% endfor %}
             </ul>
           </div>

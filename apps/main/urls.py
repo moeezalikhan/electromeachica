@@ -4,7 +4,6 @@ from apps.main import views
 
 # urls.py
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.home, name='home'),
   
      

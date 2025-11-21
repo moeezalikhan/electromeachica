@@ -1,77 +1,83 @@
-""" ============= Imports =============== """
 from django.shortcuts import render, get_object_or_404
-from apps.products.models import Product
+from apps.products.models import Product, Categories
 from django.core.paginator import Paginator
 from django.db.models import Q
 
 
-""" ============= All Products View =============== """
+# ============ All Products View ============
 def products(request):
-    category = request.GET.get('category')
+    category_id = request.GET.get('category')
     search_query = request.GET.get('q', '')
 
-    products = Product.objects.prefetch_related('images').all()
+    products_qs = Product.objects.prefetch_related('images').all()
 
     # Category filter
-    if category:
-        products = products.filter(category=category)
+    if category_id:
+        products_qs = products_qs.filter(category_id=category_id)
 
     # Search filter
     if search_query:
-        products = products.filter(
+        products_qs = products_qs.filter(
             Q(title__icontains=search_query) |
             Q(short_description__icontains=search_query)
         )
 
     # Pagination (9 per page)
-    paginator = Paginator(products, 9)
+    paginator = Paginator(products_qs, 9)
+
+    @property
+    def images(self):
+        raise NotImplementedError
+
+    @images.setter
+    def images(self, value):
+        raise NotImplementedError
+
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-
-    categories = Product.CATEGORY_CHOICES
 
     context = {
         'page_obj': page_obj,
         'products': page_obj.object_list,
-        'categories': categories,
-        'category': category,
+        'category': int(category_id) if category_id else None,
         'search_query': search_query,
+        'categories': Categories.objects.all(),  # added
     }
     return render(request, 'products/products.html', context)
 
+
+# ============ Product Detail View ============
 def product_detail(request, pk):
     product = get_object_or_404(Product.objects.prefetch_related('images'), pk=pk)
-    images = product.images.all()  # type: ignore
+    images = product.images.all() # type: ignore
 
-    # Sidebar inputs
+    # Sidebar filters
     search_query = request.GET.get('q', '').strip()
-    category = request.GET.get('category', '').strip()  # category selection from sidebar
+    category_id = request.GET.get('category', '').strip()
 
-    # ---- Base Query ----
-    if category:  
-        products_to_show = Product.objects.filter(category=category).prefetch_related('images')
-    else:  # default: related products of current product's category
-        products_to_show = Product.objects.filter(category=product.category).exclude(pk=product.pk).prefetch_related('images')
+    # Related products query
+    if category_id:
+        related_products = Product.objects.filter(category_id=category_id).exclude(pk=product.pk).prefetch_related('images')
+    else:
+        related_products = Product.objects.filter(category=product.category).exclude(pk=product.pk).prefetch_related('images')
 
-    # ---- Optional Search Filtering ----
+    # Optional search filter
     if search_query:
-        products_to_show = products_to_show.filter(
+        related_products = related_products.filter(
             Q(title__icontains=search_query) |
             Q(short_description__icontains=search_query)
         )
 
-    
-    products_to_show = products_to_show.distinct()[:6]
-
-    categories = Product.CATEGORY_CHOICES
+    related_products = related_products.distinct()[:6]
 
     context = {
         'product': product,
         'images': images,
-        'related_products': products_to_show,
-        'categories': categories,
+        'related_products': related_products,
         'search_query': search_query,
-        'category': category,
+        'category': int(category_id) if category_id else None,
+        'categories': Categories.objects.all(),  # added
+        
     }
 
     return render(request, 'products/product_detail.html', context)

@@ -24,35 +24,21 @@ from django.contrib import admin
 from django.urls import path, include
 
 """ =============== Main Urls ================= """
+
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import path, include
+
 urlpatterns = [
-    # Admin Url
     path('admin/', admin.site.urls),
-    # Main Urls
-    path('', include('apps.main.urls')),
-    # Products Urls
-    path('', include('apps.about_us.urls')),
-    # teams urls
+    path('', include('apps.main.urls')),                # Home page
+    path('about-us/', include('apps.about_us.urls')),   # About page
+    path('contact-us/', include('apps.contact_us.urls')), # Contact page
     path('teams/', include('apps.teams.urls')),
-    # market_sector
-    path('market_sectors/',include('apps.market_sector.urls')),
-     # Products Urls
+    path('market-sectors/', include('apps.market_sector.urls')),
     path('products/', include('apps.products.urls')),
-    # Projects Urls
     path('projects/', include('apps.projects.urls')),
-    
-    path('', include('apps.contact_us.urls')),
-    
-    
-    
-    
-    
-
-   
-    
-  
-    
-
-   
 ]
 
 if settings.DEBUG:
