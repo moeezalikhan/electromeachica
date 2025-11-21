@@ -41,7 +41,7 @@ def products(request):
         'products': page_obj.object_list,
         'category': int(category_id) if category_id else None,
         'search_query': search_query,
-        'categories': Categories.objects.all(),  # added
+        'categories': Categories.objects.filter(is_active=True),  # added
     }
     return render(request, 'products/products.html', context)
 
