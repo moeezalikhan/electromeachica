@@ -39,44 +39,39 @@ def products(request):
     }
     return render(request, 'products/products.html', context)
 
-
-
-""" ============= Single Product Detail View =============== """
 def product_detail(request, pk):
     product = get_object_or_404(Product.objects.prefetch_related('images'), pk=pk)
     images = product.images.all()  # type: ignore
 
-    # --- Sidebar Filters ---
+    # Sidebar inputs
     search_query = request.GET.get('q', '').strip()
-    category = request.GET.get('category', '').strip()
+    category = request.GET.get('category', '').strip()  # category selection from sidebar
 
-    # --- Related products queryset ---
-    related_products = Product.objects.prefetch_related('images').exclude(pk=product.pk)
+    # ---- Base Query ----
+    if category:  
+        products_to_show = Product.objects.filter(category=category).prefetch_related('images')
+    else:  # default: related products of current product's category
+        products_to_show = Product.objects.filter(category=product.category).exclude(pk=product.pk).prefetch_related('images')
 
-    # Filter by category
-    if category:
-        related_products = related_products.filter(category=category)
-    else:
-        related_products = related_products.filter(category=product.category)
-
-    # Filter by search query
+    # ---- Optional Search Filtering ----
     if search_query:
-        related_products = related_products.filter(
+        products_to_show = products_to_show.filter(
             Q(title__icontains=search_query) |
             Q(short_description__icontains=search_query)
         )
 
-    # Limit results
-    related_products = related_products.distinct()[:6]
+    
+    products_to_show = products_to_show.distinct()[:6]
 
     categories = Product.CATEGORY_CHOICES
 
     context = {
         'product': product,
         'images': images,
-        'related_products': related_products,
+        'related_products': products_to_show,
         'categories': categories,
         'search_query': search_query,
         'category': category,
     }
+
     return render(request, 'products/product_detail.html', context)

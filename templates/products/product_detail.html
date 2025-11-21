@@ -3,17 +3,16 @@
 {% block title %}Machenary - Product Details{% endblock %}
 {% block content %}
 <!-- Page Title -->
-<section class="page-title" style="background-image:url('{% static 'images/background/2.jpg'%}')">
+<section class="page-title" style="background-image:url('{% static "images/background/2.jpg" %}')">
   <div class="auto-container">
-    <h1>Product Single</h1>
+    <h1>{{ product.title }}</h1>
     <ul class="page-breadcrumb">
       <li><a href="{% url 'home' %}">Home</a></li>
       <li><a href="{% url 'products' %}">Products</a></li>
-      <li>Product Single</li>
+      <li>{{ product.title }}</li>
     </ul>
   </div>
 </section>
-<!-- End Page Title -->
 
 <!-- Sidebar Page Container -->
 <div class="sidebar-page-container">
@@ -25,7 +24,7 @@
         <div class="shop-single">
           <div class="product-details">
 
-            <!-- Basic Details -->
+            <!-- Product Images -->
             <div class="basic-details">
               <div class="row clearfix">
                 <div class="image-column col-md-6 col-sm-6 col-xs-12">
@@ -46,7 +45,7 @@
                   {% endif %}
                 </div>
 
-                <!-- Info Column -->
+                <!-- Product Info -->
                 <div class="info-column col-md-6 col-sm-6 col-xs-12">
                   <div class="details-header">
                     <h4>{{ product.title }}</h4>
@@ -62,17 +61,16 @@
                       <span style="color:red;">Out of Stock</span>
                     {% endif %}
                   </p>
-                 <a href="#" class="buy-now-btn">
+                  <a href="#" class="buy-now-btn">
                     <i class="fa fa-whatsapp"></i> Buy Now
-                </a>
+                  </a>
                 </div>
               </div>
             </div>
-            <!-- End Basic Details -->
 
-            <!-- Related Products -->
+            <!-- Related / Category Products -->
             <div class="related-products mt-5">
-              <h2>Related Products</h2>
+              <h2>{% if category %}Products in {{ category|title }}{% else %}Related Products{% endif %}</h2>
               <div class="row clearfix">
                 {% for related in related_products %}
                 <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -95,12 +93,11 @@
                 </div>
                 {% empty %}
                 <div class="col-12 text-center">
-                  <p>No related products found.</p>
+                  <p>No products found.</p>
                 </div>
                 {% endfor %}
               </div>
             </div>
-            <!-- End Related Products -->
 
           </div>
         </div>
