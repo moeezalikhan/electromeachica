@@ -13,6 +13,8 @@ def projects(request):
     paginator = Paginator(projects, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+    
+    
 
     context = {
         'projects': page_obj.object_list,

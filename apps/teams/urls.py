@@ -6,5 +6,5 @@ from apps.teams import views
 """ ============ URLS =============== """
 
 urlpatterns = [
-    path('', views.team_list, name='team_list'),
+    path('', views.teams, name='teams'),
 ]
