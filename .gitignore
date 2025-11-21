@@ -12,3 +12,6 @@ media/
 .git/
 db.sqlite3
 .idea
+
+# Environment Variables #
+.env

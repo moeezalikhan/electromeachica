@@ -13029,3 +13029,10 @@ footer {
         margin-bottom: 20px;
     }
 }
+
+
+
+.footer-address p {
+    font-size: 14px !important;
+    line-height: 1.5;
+}

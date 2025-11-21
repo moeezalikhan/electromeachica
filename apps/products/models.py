@@ -7,24 +7,11 @@ from apps.utilities.models import BaseModel
 """ ============ Products Model ============ """
 class Product(BaseModel):
     """ Defining choices for categories"""
-    CATEGORY_CHOICES = [
-        ('plc', 'Programmable Logic Controller (PLC)'),
-        ('vfd', 'Variable Frequency Drive (VFD)'),
-        ('hydraulic_valves', 'Hydraulic Valves'),
-        ('pneumatic_valves', 'Pneumatic Valves'),
-        ('sensors', 'Sensors'),
-        ('actuators', 'Actuators'),
-        ('ip_positioners', 'I/P Positioners'),
-        ('angle_transducer', 'Angle Transducer'),
-        ('hmi', 'Human Machine Interface (HMI)'),
-        ('encoders', 'Encoders'),
-        ('resolvers', 'Resolvers'),
-        ('embedded_system', 'Embedded System'),
-    ]
+
     
     title = models.CharField(max_length=255)
     short_description = models.TextField()
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    category = models.ForeignKey(Categories, on_delete=models.CASCADE, related_name='products')
     availability = models.BooleanField(default=True)
     
 
@@ -40,3 +27,12 @@ class ProductImage(BaseModel):
 
     def __str__(self):
         return f"Image for {self.product.title}"
+
+
+
+class Categories(BaseModel):
+    name = models.CharField(max_length=255)
+    description = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
