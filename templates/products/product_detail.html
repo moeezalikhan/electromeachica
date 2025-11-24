@@ -3,8 +3,62 @@
 {% block title %}Machenary - Product Details{% endblock %}
 {% block content %}
 
+<style>
+  .whatsapp-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #25d366;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 18px;
+  }
+
+  .whatsapp-cta:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(37, 211, 102, 0.35);
+  }
+
+  .whatsapp-cta .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+  }
+
+  .whatsapp-cta .text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .whatsapp-cta .text small {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    opacity: 0.9;
+  }
+
+  .product-detail-hero {
+    background-image: url("{% static 'images/background/2.jpg' %}");
+    background-size: cover;
+    background-position: center;
+  }
+</style>
+
 <!-- Page Title -->
-<section class="page-title" style="background-image:url('{% static "images/background/2.jpg" %}')">
+<section class="page-title product-detail-hero">
   <div class="auto-container">
     <h1>{{ product.title }}</h1>
     <ul class="page-breadcrumb">
@@ -62,9 +116,34 @@
                       <span style="color:red;">Out of Stock</span>
                     {% endif %}
                   </p>
-                  <a href="#" class="buy-now-btn">
-                    <i class="fa fa-whatsapp"></i> Buy Now
+                  {% if whatsapp_number %}
+                  <a
+                    href="https://wa.me/{{ whatsapp_number|urlencode }}?text={{ whatsapp_message|urlencode }}"
+                    class="whatsapp-cta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span class="icon" aria-hidden="true">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 32 32"
+                        width="22"
+                        height="22"
+                        role="presentation"
+                        focusable="false"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M16 3C9.372 3 4 8.373 4 15c0 2.36.77 4.55 2.062 6.343L4.5 29.5l8.406-1.528C14.563 28.63 15.26 29 16 29c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 2c5.514 0 10 4.486 10 10s-4.486 10-10 10c-.617 0-1.222-.062-1.813-.188l-.375-.062-.375.062-4.75.844.875-4.344.094-.406-.25-.344C8.502 19.369 8 17.758 8 15c0-5.514 4.486-10 10-10zm4.383 5.133c-.219 0-.445.016-.668.062-.926.204-1.367 1.36-.945 2.269.133.29.29.688.164.863-.515.762-.836 1.445-1.887 2.312-.547.45-.964.613-1.277.613-.34 0-.648-.238-1.019-.449-.718-.406-1.406-.868-2.086-1.344-1.074-.738-2.152-1.742-2.613-2.988-.262-.707-.102-1.59.332-2.102.188-.223.238-.333.358-.555.137-.262.09-.505.027-.675-.238-.611-.649-1.52-.887-2.035-.211-.464-.43-.637-.851-.637-.371 0-.754.004-1.117.184-.516.258-1.203.945-1.203 2.3 0 .056.004.113.008.168.137 1.786.903 3.254 1.875 4.477 1.277 1.59 2.895 2.778 4.488 3.816 1.606 1.045 3.339 2.06 5.27 2.363.266.043.531.063.789.063 1.359 0 2.148-.62 2.426-.984.285-.363 1.012-1.184 1.129-2.238.062-.535.094-.98-.203-1.25-.285-.258-.727-.402-1.118-.402z"
+                        />
+                      </svg>
+                    </span>
+                    <span class="text">
+                      Chat on WhatsApp
+                      <small>Ask about {{ product.title }}</small>
+                    </span>
                   </a>
+                  {% endif %}
                 </div>
               </div>
             </div>

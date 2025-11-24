@@ -154,5 +154,14 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+# =====================================================
+# CONTACT / WHATSAPP SETTINGS
+# =====================================================
+WHATSAPP_NUMBER = os.getenv('WHATSAPP_NUMBER', '')
+WHATSAPP_DEFAULT_MESSAGE = os.getenv(
+    'WHATSAPP_DEFAULT_MESSAGE',
+    'Hello, I would like to know more about {product}.'
+)
+
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

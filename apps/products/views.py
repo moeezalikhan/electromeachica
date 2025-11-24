@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from apps.products.models import Product, Categories
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.conf import settings
+from apps.products.models import Product, Categories
 
 
 # ============ All Products View ============
@@ -70,6 +71,10 @@ def product_detail(request, pk):
 
     related_products = related_products.distinct()[:6]
 
+    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '')
+    whatsapp_message_template = getattr(settings, 'WHATSAPP_DEFAULT_MESSAGE', '')
+    whatsapp_message = whatsapp_message_template.format(product=product.title)
+
     context = {
         'product': product,
         'images': images,
@@ -77,7 +82,8 @@ def product_detail(request, pk):
         'search_query': search_query,
         'category': int(category_id) if category_id else None,
         'categories': Categories.objects.all(),  # added
-        
+        'whatsapp_number': whatsapp_number,
+        'whatsapp_message': whatsapp_message,
     }
 
     return render(request, 'products/product_detail.html', context)
