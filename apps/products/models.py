@@ -10,7 +10,7 @@ class Categories(BaseModel):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
 
-    class Meta:
+    class Meta: # type: ignore
         verbose_name = "Category"
         verbose_name_plural = "Categories"
 
