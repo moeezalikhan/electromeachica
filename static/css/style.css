@@ -12995,12 +12995,15 @@ footer {
     color: #007bff;
 }
 
-/* Category active styling */
-.blog-cat li.active a,
+.blog-cat li a.active {
+    color: #007bff;
+    font-weight: 600;
+}
 .blog-cat li a:hover {
     color: #007bff;
     font-weight: 600;
 }
+
 
 /* Search bar styling */
 .search-form input {
@@ -13036,3 +13039,6 @@ footer {
     font-size: 14px !important;
     line-height: 1.5;
 }
+
+
+

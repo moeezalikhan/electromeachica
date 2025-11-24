@@ -84,11 +84,14 @@
               <h2>Categories</h2>
             </div>
             <ul class="blog-cat">
-              <li><a href="{% url 'products' %}" class="{% if not category %}active{% endif %}">All</a></li>
-              {% for cat in categories %}
-              <li class="{% if category|add:'' == cat.id|stringformat:'s' %}active{% endif %}">
-                  <a href="{% url 'products' %}?category={{ cat.id }}">{{ cat.name }}</a>
-              </li>
+             <li><a href="{% url 'products' %}" class="{% if not category %}active{% endif %}">All</a></li>
+{% for cat in categories %}
+<li>
+    <a href="{% url 'products' %}?category={{ cat.id }}" class="{% if category|stringformat:'s' == cat.id|stringformat:'s' %}active{% endif %}">
+        {{ cat.name }}
+    </a>
+</li>
+
               {% endfor %}
             </ul>
           </div>

@@ -908,12 +908,12 @@
 .fa-angle-double-down:before {
   content: "\f103";
 }
-.fa-angle-left:before {
+/* .fa-angle-left:before {
   content: "\f104";
 }
 .fa-angle-right:before {
   content: "\f105";
-}
+} */
 .fa-angle-up:before {
   content: "\f106";
 }
