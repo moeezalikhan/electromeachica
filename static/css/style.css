@@ -10346,10 +10346,10 @@ a.ui-button:active,
     border-bottom: 0;
 }
 
-.blog-cat li.active a,
-.blog-cat li:hover a {
+.blog-cat li.active > a {
     padding-left: 25px;
     color: #016aac;
+    font-weight: bold;
 }
 
 .blog-cat li.active a:before,
