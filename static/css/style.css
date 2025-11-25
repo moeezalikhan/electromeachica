@@ -332,6 +332,13 @@ img {
     max-width: 100%;
 }
 
+.mission-page img {
+    display: inline-block;
+    width: auto;
+    height: 230px;
+    max-width: 100%;
+}
+
 .preloader {
     position: fixed;
     left: 0px;
