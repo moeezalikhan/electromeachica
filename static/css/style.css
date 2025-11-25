@@ -3965,6 +3965,7 @@ img {
 
 .story-section .sec-title {
     margin-bottom: 35px;
+    margin-top: 35px;
 }
 
 .story-section .content-column .inner-column {
@@ -4003,6 +4004,7 @@ img {
 .story-section .content-column .info {
     position: relative;
     display: block;
+    margin-bottom: 35px;
 }
 
 .story-section .content-column .info .name {
@@ -4018,7 +4020,7 @@ img {
     font-size: 16px;
     line-height: 24px;
     color: #016aac;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .story-block {
@@ -13077,4 +13079,40 @@ footer {
 .page-btn.active {
     background: #016aac !important;
     color: #fff !important;
+}
+
+.page-title--vision {
+    padding: 160px 0 90px;
+    background-image: url("{% static 'images/background/2.jpg' %}");
+    background-size: cover;
+    background-position: center;
+}
+
+.vision-content h4 {
+    margin-top: 24px;
+    font-weight: 600;
+}
+
+.vision-content ul {
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding-left: 0;
+}
+
+.vision-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.vision-content ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #016aac;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
 }
