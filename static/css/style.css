@@ -8239,7 +8239,7 @@ img {
 ====================================================================
 
 ***/
-
+/* 
 .styled-pagination {
     position: relative;
     z-index: 9;
@@ -8294,7 +8294,7 @@ img {
     font-size: 14px;
     color: #848484;
 }
-
+ */
 /*** 
 
 ====================================================================
@@ -10346,10 +10346,10 @@ a.ui-button:active,
     border-bottom: 0;
 }
 
-.blog-cat li.active > a {
+.blog-cat li.active a,
+.blog-cat li:hover a {
     padding-left: 25px;
     color: #016aac;
-    font-weight: bold;
 }
 
 .blog-cat li.active a:before,
@@ -12996,11 +12996,11 @@ footer {
 }
 
 .blog-cat li a.active {
-    color: #007bff;
+    color: #016aac;
     font-weight: 600;
 }
 .blog-cat li a:hover {
-    color: #007bff;
+    color: #016aac;
     font-weight: 600;
 }
 
@@ -13039,6 +13039,42 @@ footer {
     font-size: 14px !important;
     line-height: 1.5;
 }
+.pagination-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
 
+.pagination-list li {
+    margin: 0;
+    padding: 0;
+}
 
+.page-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border: 1px solid #016aac !important;
+    background: #fff;
+    color: #016aac !important;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
 
+.page-btn:hover {
+    background: #016aac;
+    color: #fff !important;
+}
+
+.page-btn.active {
+    background: #016aac !important;
+    color: #fff !important;
+}

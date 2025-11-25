@@ -28,14 +28,22 @@
           <div class="items-sorting">
             <div class="row clearfix">
               <div class="results-column col-md-6 col-sm-6 col-xs-12">
-                <h4>Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }} results</h4>
+                <h4>
+                  Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} 
+                  of {{ page_obj.paginator.count }} results
+                </h4>
               </div>
+
               <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
                 <form method="get" class="search-form">
-                  <input type="text" name="q" placeholder="Search products..." value="{{ search_query }}" class="form-control" style="width: 70%; display:inline-block;">
+                  <input type="text" name="q" placeholder="Search products..." 
+                         value="{{ search_query }}" class="form-control"
+                         style="width: 70%; display:inline-block;">
+
                   {% if category %}
                     <input type="hidden" name="category" value="{{ category }}">
                   {% endif %}
+
                   <button type="submit" class="btn btn-primary">Search</button>
                 </form>
               </div>
@@ -47,6 +55,7 @@
             {% for product in page_obj.object_list %}
             <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
               <div class="inner-box">
+
                 <div class="image-box">
                   <a href="{% url 'product_detail' product.pk %}">
                     {% with first_image=product.images.all|first %}
@@ -60,16 +69,54 @@
                 </div>
 
                 <div class="lower-content">
-                  <h4><a href="{% url 'product_detail' product.pk %}">{{ product.title|truncatewords:5 }}</a></h4>
+                  <h4>
+                    <a href="{% url 'product_detail' product.pk %}">
+                      {{ product.title|truncatewords:5 }}
+                    </a>
+                  </h4>
                 </div>
+
               </div>
             </div>
             {% empty %}
-            <div class="col-12 text-center">
-              <p>No products available.</p>
-            </div>
+              <div class="col-12 text-center">
+                <p>No products available.</p>
+              </div>
             {% endfor %}
           </div>
+
+          <!--Pagination-->
+        {% if page_obj.has_other_pages %}
+<div class="styled-pagination text-center mt-4">
+    <ul class="pagination-list">
+
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
+               class="page-btn">« Prev</a>
+        </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        <li>
+            <a href="?page={{ num }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
+               class="page-btn {% if page_obj.number == num %}active{% endif %}">
+                {{ num }}
+            </a>
+        </li>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li>
+            <a href="?page={{ page_obj.next_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
+               class="page-btn">Next »</a>
+        </li>
+        {% endif %}
+
+    </ul>
+</div>
+{% endif %}
+
 
         </div>
       </div>
@@ -84,15 +131,24 @@
               <h2>Categories</h2>
             </div>
             <ul class="blog-cat">
-             <li><a href="{% url 'products' %}" class="{% if not category %}active{% endif %}">All</a></li>
-{% for cat in categories %}
-<li>
-    <a href="{% url 'products' %}?category={{ cat.id }}" class="{% if category|stringformat:'s' == cat.id|stringformat:'s' %}active{% endif %}">
-        {{ cat.name }}
-    </a>
-</li>
 
+              <!-- All -->
+              <li>
+                <a href="{% url 'products' %}" class="{% if not category %}active{% endif %}">
+                  All
+                </a>
+              </li>
+
+              <!-- Dynamic -->
+              {% for cat in categories %}
+              <li>
+                <a href="{% url 'products' %}?category={{ cat.id }}" 
+                   class="{% if category|stringformat:'s' == cat.id|stringformat:'s' %}active{% endif %}">
+                  {{ cat.name }}
+                </a>
+              </li>
               {% endfor %}
+
             </ul>
           </div>
 
