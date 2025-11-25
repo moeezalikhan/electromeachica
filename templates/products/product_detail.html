@@ -3,80 +3,6 @@
 {% block title %}Machenary - Product Details{% endblock %}
 {% block content %}
 
-<style>
-.whatsapp-cta {
-    display: flex;
-    align-items: center;
-    background: #25D366;
-    color: #fff;
-    padding: 56px -1px;
-    height: 65px;
-    border-radius: 127px;
-    text-decoration: none;
-    gap: 14px;
-    width: 116%;
-    max-width: 345px;
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.fa-brands, .fab {
-    font-weight: 600;
-    padding-left: 1px;
-}
-.whatsapp-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
-    color: #fff;
-}
-
-.whatsapp-cta .icon {
-    width: 66px;
-    height: 55px;
-    border-radius: 50%;
-    padding-left: 4px;
-    background: rgba(311, 349, 318, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-}
-
-.whatsapp-cta .text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-}
-
-.whatsapp-cta .text .small-text {
-    font-size: 13px;
-    padding-top: 23px;
-    font-weight: 600;
-    opacity: 0.9;
-}
-
-.whatsapp-cta .text .status {
-    background: rgba(255,255,255,0.35);
-    padding: 1px 8px;
-    margin-left: 6px;
-    border-radius: 8px;
-    font-size: 11px;
-}
-
-.whatsapp-cta .text .main-text {
-    font-size: 18px;
-    font-weight: 600;
-    margin-top: -2px;
-}
-
-  .product-detail-hero {
-    background-image: url("{% static 'images/background/2.jpg' %}");
-    background-size: cover;
-    background-position: center;
-  }
-</style>
-
-
 <!-- Page Title -->
 <section class="page-title product-detail-hero">
   <div class="auto-container">
@@ -152,10 +78,10 @@
 
     <div class="text">
         <span class="small-text">
-            Ask Me Anything
+            Contact Me at {{ whatsapp_number}}
             <span class="status">Online</span>
         </span>
-        <span class="main-text">Click to Chat via WhatsApp</span>
+        <span class="main-text">Ask me about {{ product.title|truncatechars:15 }}</span>
     </div>
 
 </a>
