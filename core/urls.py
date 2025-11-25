@@ -33,7 +33,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.main.urls')),                # Home page
-    path('about-us/', include('apps.about_us.urls')),   # About page
+    path('', include('apps.about_us.urls')),   # About page
     path('contact-us/', include('apps.contact_us.urls')), # Contact page
     path('teams/', include('apps.teams.urls')),
     path('market-sectors/', include('apps.market_sector.urls')),
