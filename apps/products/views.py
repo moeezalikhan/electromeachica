@@ -75,7 +75,7 @@ def product_detail(request, pk):
         'search_query': search_query,
         'whatsapp_number': whatsapp_number,
         'whatsapp_message': whatsapp_message,
-        'category': product.category.id,  # currently selected category # type: ignore
+        'category': product.category,  # currently selected category # type: ignore
         'categories': categories,
     }
 

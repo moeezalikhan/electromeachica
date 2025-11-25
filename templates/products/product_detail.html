@@ -168,12 +168,12 @@
 
             <!-- Related / Category Products -->
             <div class="related-products mt-5">
-              <h2>{% if category %}Products in {{ category|title }}{% else %}Related Products{% endif %}</h2>
+             <h2>{% if category %}Related Products{% else %}Related Products{% endif %}</h2>
               <div class="row clearfix">
                 {% for related in related_products %}
                 <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
                   <div class="inner-box">
-                    <a href="{% url 'product_detail' related.pk %}">
+                    <a href="{% url 'product_detail' related.id %}">
                       <div class="image-box">
                         {% with first_image=related.images.all|first %}
                           {% if first_image %}
