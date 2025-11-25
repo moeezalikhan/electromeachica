@@ -2,6 +2,7 @@
 
 from django.db import models
 from apps.utilities.models import BaseModel
+import uuid
 
 
 """ ============ categories Model ============ """
@@ -21,20 +22,26 @@ class Categories(BaseModel):
 class Product(BaseModel):
     """ Defining choices for categories"""
 
+    CATEGORY_CHOICES = [
+        ('IN_STOCK', 'In Stock'),
+        ('OUT_OF_STOCK', 'Out of Stock'),
+    ]
     
     title = models.CharField(max_length=255)
     short_description = models.TextField()
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, related_name='products')
-    availability = models.BooleanField(default=True)
+    availability = models.CharField(max_length=255, choices=CATEGORY_CHOICES, default='IN_STOCK')
+    sku = models.CharField(max_length=255,unique=True, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.sku:
+            self.sku = f"PRO-{uuid.uuid4().hex[:5].upper()}"
+        super().save(*args, **kwargs)
     
 
     def __str__(self):
         return self.title
 
-""" =========== Product Image Model =========== """
-from django.db import models
-from apps.utilities.models import BaseModel
-from django.utils.html import format_html
 
 class ProductImage(BaseModel):
     product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='images')
