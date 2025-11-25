@@ -29,6 +29,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('availability', 'category')
     search_fields = ('title', 'short_description')
     autocomplete_fields = ['category']  # green "+" button
+    readonly_fields = ['sku']
     inlines = [ProductImageInline]      # show images inline in Product admin
 
 

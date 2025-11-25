@@ -4,17 +4,17 @@
 {% block content %}
 
 <!-- Page Title -->
-<section class="page-title product-detail-hero">
-  <div class="auto-container">
-    <h1>{{ product.title }}</h1>
-    <ul class="page-breadcrumb">
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="{% url 'products' %}">Products</a></li>
-      <li>{{ product.title }}</li>
-    </ul>
-  </div>
-</section>
 
+<section class="page-title" style="background-image:url({% static 'images/background/WhatsApp Image 2025-11-25 at 17.45.11_14746e71.jpg'%})">
+        <div class="auto-container">
+            <h1>{{ product.title }}</h1>
+            <ul class="page-breadcrumb">
+                <li><a href="{% url 'home'%}">Home</a></li>
+                <li><a href="{% url 'products'%}">Products</a></li>
+                 <li>{{ product.title }}</li>
+            </ul>
+        </div>
+    </section>
 
 <!-- Sidebar Page Container -->
 <div class="sidebar-page-container">
