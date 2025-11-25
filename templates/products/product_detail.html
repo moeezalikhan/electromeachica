@@ -120,18 +120,15 @@
                   </figure>
                   {% endif %}
                 </div>
-
                 <!-- Product Info -->
                 <div class="info-column col-md-6 col-sm-6 col-xs-12">
                   <div class="details-header">
                     <h4>{{ product.title }}</h4>
                     <p><strong>Category:</strong> {{ product.category.name }}</p>
                   </div>
-
                   <div class="text">
                     <p>{{ product.short_description }}</p>
                   </div>
-
                   <p><strong>Availability:</strong>
                     {% if product.availability %}
                       <span style="color:green;">In Stock</span>
@@ -139,33 +136,26 @@
                       <span style="color:red;">Out of Stock</span>
                     {% endif %}
                   </p>
-
                   {% if whatsapp_number %}
-<a href="https://wa.me/{{ whatsapp_number|urlencode }}?text={{ whatsapp_message|urlencode }}"
-   class="whatsapp-cta"
-   target="_blank"
-   rel="noopener noreferrer">
-
-    <div class="icon">
-        <i class="fab fa-whatsapp"></i>
-    </div>
-
-    <div class="text">
-        <span class="small-text">
-            Ask Me Anything
-            <span class="status">Online</span>
-        </span>
-        <span class="main-text">Click to Chat via WhatsApp</span>
-    </div>
-
-</a>
-{% endif %}
-
+                <a href="https://wa.me/{{ whatsapp_number|urlencode }}?text={{ whatsapp_message|urlencode }}"
+                  class="whatsapp-cta"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                    <div class="icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="text">
+                        <span class="small-text">
+                            Ask Me Anything
+                            <span class="status">Online</span>
+                        </span>
+                        <span class="main-text">Click to Chat via WhatsApp</span>
+                    </div>
+                </a>
+                {% endif %}
                 </div>
               </div>
             </div>
-
-
             <!-- Related / Category Products -->
             <div class="related-products mt-5">
              <h2>{% if category %}Related Products{% else %}Related Products{% endif %}</h2>
