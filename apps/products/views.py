@@ -28,20 +28,11 @@ def products(request):
     # Pagination (9 per page)
     paginator = Paginator(products_qs, 9)
 
-    @property
-    def images(self):
-        raise NotImplementedError
-
-    @images.setter
-    def images(self, value):
-        raise NotImplementedError
-
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     context = {
         'page_obj': page_obj,
-        'products': page_obj.object_list,
         'category': int(category_id) if category_id else None,
         'search_query': search_query,
         'categories': Categories.objects.filter(is_active=True),  # added
