@@ -69,14 +69,14 @@
                   target="_blank"
                   rel="noopener noreferrer">
                     <div class="icon">
-                        <i class="fab fa-whatsapp"></i>
+                        <i class="fa fa-whatsapp"></i>
                     </div>
                     <div class="text">
                         <span class="small-text">
-                            Ask Me Anything
+                            Chat with me at {{ whatsapp_number }}
                             <span class="status">Online</span>
                         </span>
-                        <span class="main-text">Click to Chat via WhatsApp</span>
+                        <span class="main-text">Ask me about {{ product.title|truncatechars:15 }}</span>
                     </div>
                 </a>
                 {% endif %}

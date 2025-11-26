@@ -1,4 +1,4 @@
-- ELECTROMEACHICA/
+- Electromechanica/
     - apps/
         - main/
         - products/

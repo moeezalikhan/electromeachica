@@ -47,3 +47,6 @@ def faqs(request):
 
 def privacy_policy(request):
     return render(request, "faqs/privacy_policy.html")
+    
+def term_of_use(request):
+    return render(request, "faqs/term_of_use.html")
