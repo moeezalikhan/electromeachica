@@ -25,18 +25,16 @@ class Product(BaseModel):
     CATEGORY_CHOICES = [
         ('IN_STOCK', 'In Stock'),
         ('OUT_OF_STOCK', 'Out of Stock'),
+        ('MAKE_TO_ORDER', 'Make to Order'),
     ]
     
     title = models.CharField(max_length=255)
-    short_description = models.TextField()
+    description = models.TextField()
     category = models.ForeignKey(Categories, on_delete=models.CASCADE, related_name='products')
     availability = models.CharField(max_length=255, choices=CATEGORY_CHOICES, default='IN_STOCK')
-    sku = models.CharField(max_length=255,unique=True, null=True, blank=True)
-
-    def save(self, *args, **kwargs):
-        if not self.sku:
-            self.sku = f"PRO-{uuid.uuid4().hex[:5].upper()}"
-        super().save(*args, **kwargs)
+    model_number = models.CharField(max_length=255, null=True, blank=True)
+    part_number = models.CharField(max_length=255, null=True, blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     
 
     def __str__(self):
