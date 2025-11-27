@@ -13191,3 +13191,42 @@ footer {
     background-size: cover;
     background-position: center;
   }
+
+
+  .privacy-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+.privacy-section ul li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.privacy-section ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #016aac;
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.15);
+}
+
+.privacy-section ul li.list-item {
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.privacy-section ul li.list-item + p {
+    margin-left: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #666;
+}

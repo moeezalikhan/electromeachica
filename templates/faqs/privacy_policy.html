@@ -1,72 +1,88 @@
-    {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
-{% block title %}Machinery - Privacy Policy{% endblock %}
+{% block title %}Electromechanica - Privacy Policy{% endblock %}
 {% block content %}
- {% load static %}
+{% load static %}
 
-    <!--Page Title-->
-    <section class="page-title" style="background-image:url({% static 'images/resource/customer_care.jpg' %})">
-        <div class="auto-container">
-            <h1>Privacy Policy</h1>
-            <ul class="page-breadcrumb">
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'privacy_policy' %}"></a>Privacy Policy</li>
-            </ul>
-        </div>
-    </section>
-    <!--End Page Title-->
+<!--Page Title-->
+<section class="page-title" style="background-image:url({% static 'images/resource/customer_care.jpg' %})">
+    <div class="auto-container">
+        <h1>Privacy Policy</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'privacy_policy' %}"></a>Privacy Policy</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Title-->
 <!--  Main Privacy Content -->
 <section class="privacy-section">
     <div class="container">
 
         <div class="highlight-box">
             <p>
-                At <strong>Your Company Name</strong>, we respect your privacy and are committed to protecting your personal data.
-                This policy explains how we handle your information when you visit our website or use our services.
+                At <strong>Electromechanica</strong>, we respect your privacy and are committed to protecting your
+                personal data. This policy explains how we handle your information when you visit our website or use our
+                services.
             </p>
         </div>
 
         <h2>1. Information We Collect</h2>
-        <p>We may collect and process the following data about you:</p>
+        <p>We may collect and process the following information about you:</p>
         <ul>
-            <li>Personal details such as your name, email address, and phone number when you fill out forms.</li>
-            <li>Technical data such as your IP address, browser type, and visit duration.</li>
-            <li>Usage data such as how you interact with our website or services.</li>
+            <li class="list-item ">Personal Details</li>
+            <p>Your name, email address, phone number, company name, or any information you submit through inquiry or
+                contact forms.</p>
+            <li class="list-item">Technical Data</li>
+            <p>Your IP address, browser type, device information, operating system, and time spent on our website.</p>
+            <li class="list-item">Usage Data</li>
+            <p>Details on how you interact with our website, pages visited, and features accessed.</p>
         </ul>
 
         <h2>2. How We Use Your Information</h2>
         <p>We use your data to:</p>
         <ul>
-            <li>Respond to your inquiries and provide support.</li>
-            <li>Improve our website and user experience.</li>
-            <li>Send important service updates and promotional offers (only if you consent).</li>
+            <li class="list-item">Respond to your inquiries and provide customer support.</li>
+            <li class="list-item">Process service requests and communicate project updates.</li>
+            <li class="list-item">Improve our website performance, functionality, and user experience.</li>
+            <li class="list-item">Send important service announcements or promotional communications (only with your
+                consent).</li>
         </ul>
 
         <h2>3. Cookies</h2>
         <p>
-            Our website uses cookies to enhance your browsing experience. You can choose to disable cookies through your browser settings, 
-            but some parts of our website may not function properly without them.
+            Our website uses cookies to enhance your browsing experience and analyze site performance.
+You may disable cookies through your browser settings, but certain site features may not function properly without them.
         </p>
 
         <h2>4. Data Security</h2>
         <p>
-            We implement strong technical and organizational measures to safeguard your data against unauthorized access, alteration, or disclosure.
-        </p>
+            We implement strong technical and organizational measures to protect your data against unauthorized access, misuse, alteration, or disclosure.<br>
+            While we strive to secure your information, no method of transmission is 100% risk-free.</p>
 
         <h2>5. Data Sharing</h2>
-        <p>
-            We do not sell, rent, or share your personal data with third parties except as required by law or to trusted partners who help us operate our website.
-        </p>
+        <p>We do <strong>not</strong> sell or rent your personal data.<br>
+        <p>We only share information with:</p>
+        <ul>
+            <li class="list-item">Trusted service providers who assist in operating our website or delivering services.</li>
+            <li class="list-item">Legal authorities when required by applicable law.</li>
+        </ul>
+        <p>All third-party partners adhere to strict confidentiality and data protection standards.</p>
+
 
         <h2>6. Your Rights</h2>
         <p>
-            You have the right to access, correct, or delete your personal information. To exercise these rights, contact us at
-            <a href="mailto:support@yourcompany.com">support@yourcompany.com</a>.
-        </p>
-
+            You have the right to:</p>
+            <ul>
+                <li class="list-item">Access your personal information.</li>
+                <li class="list-item">Request corrections to inaccurate or incomplete data.</li>
+                <li class="list-item">Object to or restrict certain data processing.</li>
+                <li class="list-item">Request data portability.</li>
+            </ul>
+        <p>To exercise these rights, please contact us at <a href="mailto:elecmech.pak@gmail.com">elecmech.pak@gmail.com</a>.</p>
         <h2>7. Changes to This Policy</h2>
         <p>
-            We may update this Privacy Policy from time to time. All changes will be posted on this page with a revised “last updated” date.
+            We may update this Privacy Policy periodically. All updates will be posted on this page with a revised 1st January 2026 date.
         </p>
 
         <h2>8. Contact Us</h2>
@@ -74,9 +90,10 @@
             If you have any questions about this Privacy Policy or our data practices, please contact us at:
         </p>
         <address>
-            <strong>Your Company Name</strong><br>
-            123 Business Street, City, Country<br>
-            Email: <a href="mailto:support@yourcompany.com">support@yourcompany.com</a>
+            <strong>Electromechanica</strong><br>
+            ST-1/4/B, Sector 1, Ahsanabad Co-operative Housing Society, Scheme 33, Gulzar Hijri, Karachi, Pakistan.<br>
+            Email: <a href="mailto:elecmech.pak@gmail.com">elecmech.pak@gmail.com</a>
+            <br>Phone: <strong>+92-21-36412339</strong>
         </address>
 
         <a href="#" class="back-to-top">↑ Back to Top</a>
