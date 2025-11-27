@@ -53,13 +53,7 @@ def product_detail(request, pk):
         availability=True
     ).exclude(pk=product.pk).prefetch_related('images')
 
-    # Optional search filter on related products
-    if search_query:
-        related_products = related_products.filter(
-            Q(title__icontains=search_query) |
-            Q(short_description__icontains=search_query)
-        )
-
+    
     related_products = related_products.distinct()[:6]
 
     whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '')

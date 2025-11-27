@@ -16,6 +16,21 @@
     border: 1px solid #ddd;
   }
 </style>
+<style>
+.fancy-title {
+    background: #f7f7f7;        /* light gray background */
+    padding: 10px 15px;         /* thoda spacing */
+    border-radius: 8px;          /* rounded corners */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);  /* soft shadow */
+    margin-bottom: 15px;         /* spacing from next element */
+    text-align: center;           /* center align text */
+    font-size: 18px;              /* thoda bada font */
+    font-weight: 600;             /* bold text */
+    color: #333;                  /* text color */
+}
+
+
+</style>
 
 <section class="page-title" style="background-image:url({% static 'images/background/WhatsApp Image 2025-11-25 at 17.45.11_14746e71.jpg'%})">
         <div class="auto-container">
@@ -140,22 +155,11 @@
       <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <aside class="sidebar shop-sidebar">
 
-          <!-- Search -->
-          <div class="sidebar-widget search-box style-two">
-            <form method="get" action="">
-              <div class="form-group">
-                <input type="search" name="q" placeholder="Search..." value="{{ search_query }}">
-                {% if category %}
-                <input type="hidden" name="category" value="{{ category }}">
-                {% endif %}
-                <button type="submit"><span class="icon fa fa-search"></span></button>
-              </div>
-            </form>
-          </div>
+          
 
           <!-- Categories -->
           <div class="sidebar-widget sidebar-blog-category">
-            <div class="sidebar-title"><h2>Categories</h2></div>
+           <div class="sidebar-title fancy-title"><h2>Categories</h2></div>
             <ul class="blog-cat">
               <li class="{% if not category %}active{% endif %}">
                 <a href="{% url 'products' %}">View All</a>

@@ -149,10 +149,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
-EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') == 'True'
+
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # =====================================================
 # CONTACT / WHATSAPP SETTINGS
@@ -163,5 +163,16 @@ WHATSAPP_DEFAULT_MESSAGE = os.getenv(
     'Hello, I would like to know more about {product}.'
 )
 
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+print("------ EMAIL DEBUG ------")
+print("EMAIL_HOST =", EMAIL_HOST)
+print("EMAIL_PORT =", EMAIL_PORT)
+print("EMAIL_USER =", EMAIL_HOST_USER)
+print("EMAIL_TLS =", EMAIL_USE_TLS) # type: ignore
+print("-------------------------")
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = 'nomandev769@gmail.com'
+EMAIL_HOST_PASSWORD = 'pikm slfn fwwo scsr'
