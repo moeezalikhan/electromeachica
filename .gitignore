@@ -1,12 +1,19 @@
-# Ignore Virtual Environment Only
-venv/
+/venv
+/venv/*
 
-# Python cache
+# Django #
+*.log
+*.pot
 *.pyc
-__pycache__/
+__pycache__
+media/
 
-# IDE Files
-.idea/
-.vscode/
+# Git and Database #
+.git/
+db.sqlite3
+.idea
 
-# Ignore nothing else – everything uploads
+# Environment Variables #
+.env
+
+launch.json
