@@ -5,6 +5,7 @@ from apps.main import views
 # urls.py
 urlpatterns = [
     path('', views.home, name='home'),
+    path('brochure/', views.brochure, name='brochure'),
   
      
 ]

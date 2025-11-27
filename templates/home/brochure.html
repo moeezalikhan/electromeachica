@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Electromechanica - Brochures{% endblock %}
+{% block content %}
+<!-- PDF.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+    // Set PDF.js worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    
+    // Generate PDF thumbnails
+    document.addEventListener('DOMContentLoaded', function() {
+        const previewContainers = document.querySelectorAll('.brochure-preview-container');
+        
+        previewContainers.forEach(function(container) {
+            const canvas = container.querySelector('.pdf-thumbnail-canvas');
+            const loading = container.querySelector('.pdf-thumbnail-loading');
+            const fallback = container.querySelector('.brochure-preview-fallback');
+            const pdfUrl = container.getAttribute('data-pdf-url');
+            
+            if (!canvas || !pdfUrl) return;
+            
+            // Render PDF thumbnail
+            pdfjsLib.getDocument(pdfUrl).promise.then(function(pdf) {
+                // Get first page
+                return pdf.getPage(1);
+            }).then(function(page) {
+                // Get container dimensions
+                const container = canvas.parentElement;
+                const containerWidth = container.offsetWidth;
+                const containerHeight = container.offsetHeight;
+                
+                // Get page viewport
+                const viewport = page.getViewport({ scale: 1.0 });
+                
+                // Calculate scale to fit container
+                const scale = Math.min(
+                    containerWidth / viewport.width,
+                    containerHeight / viewport.height
+                );
+                
+                // Get scaled viewport
+                const scaledViewport = page.getViewport({ scale: scale });
+                
+                // Set canvas dimensions to match scaled viewport
+                canvas.width = scaledViewport.width;
+                canvas.height = scaledViewport.height;
+                
+                // Set canvas display size to fill container
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+                
+                // Render page to canvas
+                const canvasContext = canvas.getContext('2d');
+                const renderContext = {
+                    canvasContext: canvasContext,
+                    viewport: scaledViewport
+                };
+                
+                return page.render(renderContext).promise;
+            }).then(function() {
+                // Hide loading indicator
+                if (loading) {
+                    loading.classList.add('hidden');
+                }
+                // Hide fallback
+                if (fallback) {
+                    fallback.style.display = 'none';
+                }
+            }).catch(function(error) {
+                console.error('Error rendering PDF thumbnail:', error);
+                // Show fallback on error
+                if (loading) {
+                    loading.classList.add('hidden');
+                }
+                if (fallback) {
+                    fallback.style.display = 'flex';
+                }
+            });
+        });
+    });
+</script>
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url({%static 'images/background/projects-banner.jpg'%})">
+    <div class="auto-container">
+        <h1>Brochures</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li><a href="{% url 'brochure' %}"></a>Brochures</li>
+        </ul>
+    </div>
+</section>
+<!--End Page Title-->
+
+<!-- Project Section Two -->
+<section class="projects-section-two">
+    <div class="auto-container">
+        <!-- Sort & Search Bar -->
+        <div class="items-sorting">
+            <div class="row clearfix">
+                <div class="results-column col-md-6 col-sm-6 col-xs-12">
+                    <h4>
+                        Showing {{ brochures|length }} brochure{{ brochures|length|pluralize }}
+                        {% if search_query %}
+                            for "{{ search_query }}"
+                        {% endif %}
+                    </h4>
+                </div>
+
+                <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
+                    <form method="get" action="{% url 'brochure' %}" class="search-form">
+                        <input 
+                            type="text" 
+                            name="q" 
+                            placeholder="Search brochures..." 
+                            value="{{ search_query }}" 
+                            class="form-control"
+                        >
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+            {% if search_query %}
+            <div class="brochure-results-count">
+                Found {{ brochures|length }} result{{ brochures|length|pluralize }}
+                <a href="{% url 'brochure' %}">
+                    <i class="fa fa-times"></i> Clear search
+                </a>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Brochure Cards Grid -->
+        <div class="row clearfix">
+            {% for brochure in brochures %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="brochure-card">
+                    <div class="image-box">
+                        {% if brochure.brochure %}
+                        <a href="{{ brochure.brochure.url }}" target="_blank" style="text-decoration: none; display: block;">
+                            <figure class="brochure-preview-container" data-pdf-url="{{ brochure.brochure.url }}">
+                                <!-- PDF Thumbnail Canvas -->
+                                <canvas class="pdf-thumbnail-canvas"></canvas>
+                                <!-- Loading indicator -->
+                                <div class="pdf-thumbnail-loading">
+                                    <div class="spinner"></div>
+                                    <p>Loading preview...</p>
+                                </div>
+                                <!-- Fallback if PDF.js fails -->
+                                <div class="brochure-preview-fallback" style="display: none;">
+                                    <div class="pdf-icon-wrapper">
+                                        <i class="fa fa-file-pdf-o"></i>
+                                    </div>
+                                    <h4>{{ brochure.title }}</h4>
+                                    <p>Click to view PDF</p>
+                                    <div class="pdf-preview-badge">
+                                        <i class="fa fa-external-link"></i> Open PDF
+                                    </div>
+                                </div>
+                                <div class="brochure-preview-overlay"></div>
+                            </figure>
+                        </a>
+                        {% else %}
+                        <figure class="brochure-placeholder">
+                            <i class="fa fa-file-o"></i>
+                        </figure>
+                        {% endif %}
+                    </div>
+                    <div class="content-box">
+                        <h4><a href="{{ brochure.brochure.url }}" target="_blank">{{ brochure.title }}</a></h4>
+                        <span class="tag">{{ brochure.description }}</span>
+                        <div class="brochure-actions">
+                            <a href="{{ brochure.brochure.url }}" 
+                               target="_blank" 
+                               class="btn-view">
+                                <i class="fa fa-eye"></i> View
+                            </a>
+                            <a href="{{ brochure.brochure.url }}" 
+                               download 
+                               class="btn-download">
+                                <i class="fa fa-download"></i> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div style="text-align: center; padding: 60px 20px;">
+                    <i class="fa fa-file-pdf-o" style="font-size: 64px; color: #dee2e6; margin-bottom: 20px;"></i>
+                    <h3 style="color: #6c757d; margin-bottom: 10px;">No brochures found</h3>
+                    {% if search_query %}
+                    <p style="color: #6c757d;">Try adjusting your search terms.</p>
+                    <a href="{% url 'brochure' %}" style="color: #25d366; text-decoration: none; margin-top: 15px; display: inline-block;">
+                        <i class="fa fa-arrow-left"></i> View all brochures
+                    </a>
+                    {% else %}
+                    <p style="color: #6c757d;">No brochures are available at the moment.</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+                <!-- Styled Pagination -->
+                {% if is_paginated %}
+                <div class="styled-pagination text-center">
+                    <ul class="clearfix">
+
+                        <!-- Previous -->
+                        {% if page_obj.has_previous %}
+                        <li>
+                            <a class="prev" href="?page={{ page_obj.previous_page_number }}">
+                                <span class="fa fa-angle-left"></span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="disabled">
+                            <a class="prev" href="#"><span class="fa fa-angle-left"></span></a>
+                        </li>
+                        {% endif %}
+
+                        <!-- Page Numbers -->
+                        {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                        <li><a href="?page={{ num }}" class="active">{{ num }}</a></li>
+                        {% else %}
+                        <li><a href="?page={{ num }}">{{ num }}</a></li>
+                        {% endif %}
+                        {% endfor %}
+
+                        <!-- Next -->
+                        {% if page_obj.has_next %}
+                        <li>
+                            <a class="next" href="?page={{ page_obj.next_page_number }}">
+                                <span class=""></span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="disabled">
+                            <a class="next" href="#"><span class=""></span></a>
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+                {% endif %}
+
+</section>
+<!-- End Project Section Two -->
+{% endblock %}
