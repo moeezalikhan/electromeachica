@@ -4,6 +4,18 @@
 {% block content %}
 
 <!-- Page Title -->
+<style>
+  .sku-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #f0f0f0;
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+</style>
 
 <section class="page-title" style="background-image:url({% static 'images/background/WhatsApp Image 2025-11-25 at 17.45.11_14746e71.jpg'%})">
         <div class="auto-container">
@@ -55,6 +67,10 @@
                   <div class="text">
                     <p>{{ product.short_description }}</p>
                   </div>
+                  <p>
+                   <span class="sku-badge">{{ product.sku }}
+                   </span>
+                      </p>
                   <p><strong>Availability:</strong>
                     {% if product.availability %}
                       <span style="color:green;">In Stock</span>
