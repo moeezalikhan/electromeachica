@@ -163,16 +163,3 @@ WHATSAPP_DEFAULT_MESSAGE = os.getenv(
     'Hello, I would like to know more about {product}.'
 )
 
-print("------ EMAIL DEBUG ------")
-print("EMAIL_HOST =", EMAIL_HOST)
-print("EMAIL_PORT =", EMAIL_PORT)
-print("EMAIL_USER =", EMAIL_HOST_USER)
-print("EMAIL_TLS =", EMAIL_USE_TLS) # type: ignore
-print("-------------------------")
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-EMAIL_HOST_USER = 'nomandev769@gmail.com'
-EMAIL_HOST_PASSWORD = 'pikm slfn fwwo scsr'
