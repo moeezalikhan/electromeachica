@@ -3,160 +3,158 @@
 {% block title %}Machenary - Products{% endblock %}
 {% block content %}
 
-
 <section class="page-title" style="background-image:url({% static 'images/background/product.jpg'%})">
-        <div class="auto-container">
-            <h1>Products</h1>
-            <ul class="page-breadcrumb">
-                <li><a href="{% url 'home'%}">Home</a></li>
-                <li><a href="{% url 'products'%}">Products</a></li>
-            </ul>
-        </div>
-    </section>
-<!--End Page Title-->
+    <div class="auto-container">
+        <h1>Products</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="{% url 'home'%}">Home</a></li>
+            <li><a href="{% url 'products'%}">Products</a></li>
+        </ul>
+    </div>
+</section>
 
 <!--Sidebar Page Container-->
 <div class="sidebar-page-container">
-  <div class="auto-container">
-    <div class="row clearfix">
+    <div class="auto-container">
+        <div class="row clearfix">
 
-      <!--Content Side-->
-      <div class="content-side pull-right col-lg-9 col-md-8 col-sm-12 col-xs-12">
-        <div class="shop-section">
+            <!-- Content Side -->
+            <div class="content-side pull-right col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="shop-section">
 
-          <!--Sort & Search Bar-->
-          <div class="items-sorting">
-            <div class="row clearfix">
-              <div class="results-column col-md-6 col-sm-6 col-xs-12">
-                <h4>
-                  Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} 
-                  of {{ page_obj.paginator.count }} results
-                </h4>
-              </div>
+                    <!-- Sort & Search Bar -->
+                    <div class="items-sorting">
+                        <div class="row clearfix">
+                            <div class="results-column col-md-6 col-sm-6 col-xs-12">
+                                <h4>
+                                    Showing {{ page_obj.start_index }}-{{ page_obj.end_index }}
+                                    of {{ page_obj.paginator.count }} results
+                                </h4>
+                            </div>
 
-              <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
-                <form method="get" class="search-form">
-                  <input type="text" name="q" placeholder="Search products..." 
-                         value="{{ search_query }}" class="form-control"
-                         style="width: 70%; display:inline-block;">
+                            <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
+                                <form method="get" class="search-form">
+                                    <input type="text" name="q" placeholder="Search products..."
+                                           value="{{ search_query }}" class="form-control"
+                                           style="width: 70%; display:inline-block;">
 
-                  {% if category %}
-                    <input type="hidden" name="category" value="{{ category }}">
-                  {% endif %}
+                                    {% if category %}
+                                        <input type="hidden" name="category" value="{{ category }}">
+                                    {% endif %}
 
-                  <button type="submit" class="btn btn-primary">Search</button>
-                </form>
-              </div>
-            </div>
-          </div>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
-          <!--Products Grid-->
-          <div class="row clearfix">
-            {% for product in page_obj.object_list %}
-            <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div class="inner-box">
+                    <!-- Products Grid -->
+                    <div class="row clearfix">
+                        {% for product in page_obj.object_list %}
+                            <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="inner-box">
 
-                <div class="image-box">
-                  <a href="{% url 'product_detail' product.pk %}">
-                    {% with first_image=product.images.all|first %}
-                      {% if first_image %}
-                        <img src="{{ first_image.image.url }}" alt="{{ product.title }}">
-                      {% else %}
-                        <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
-                      {% endif %}
-                    {% endwith %}
-                  </a>
+                                    <div class="image-box">
+                                        <a href="{% url 'product_detail' product.pk %}">
+                                            {% with first_image=product.images.all|first %}
+                                                {% if first_image %}
+                                                    <img src="{{ first_image.image.url }}" alt="{{ product.title }}">
+                                                {% else %}
+                                                    <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
+                                                {% endif %}
+                                            {% endwith %}
+                                        </a>
+                                    </div>
+
+                                    <div class="lower-content">
+                                        <h4>
+                                            <a href="{% url 'product_detail' product.pk %}">
+                                                {{ product.title|truncatewords:5 }}
+                                            </a>
+                                        </h4>
+                                    </div>
+
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="col-12 text-center">
+                                <p>No products available.</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Pagination -->
+                    {% if page_obj.has_other_pages %}
+                        <div class="styled-pagination text-center mt-4">
+                            <ul class="pagination-list">
+
+                                {% if page_obj.has_previous %}
+                                    <li>
+                                        <a href="?page={{ page_obj.previous_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
+                                           class="page-btn">« Prev</a>
+                                    </li>
+                                {% endif %}
+
+                                {% for num in page_obj.paginator.page_range %}
+                                    <li>
+                                        <a href="?page={{ num }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
+                                           class="page-btn {% if page_obj.number == num %}active{% endif %}">
+                                            {{ num }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+
+                                {% if page_obj.has_next %}
+                                    <li>
+                                        <a href="?page={{ page_obj.next_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
+                                           class="page-btn">Next »</a>
+                                    </li>
+                                {% endif %}
+
+                            </ul>
+                        </div>
+                    {% endif %}
+
                 </div>
-
-                <div class="lower-content">
-                  <h4>
-                    <a href="{% url 'product_detail' product.pk %}">
-                      {{ product.title|truncatewords:5 }}
-                    </a>
-                  </h4>
-                </div>
-
-              </div>
             </div>
-            {% empty %}
-              <div class="col-12 text-center">
-                <p>No products available.</p>
-              </div>
-            {% endfor %}
-          </div>
 
-          <!--Pagination-->
-        {% if page_obj.has_other_pages %}
-<div class="styled-pagination text-center mt-4">
-    <ul class="pagination-list">
+            <!-- Sidebar -->
+            <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <aside class="sidebar shop-sidebar">
 
-        {% if page_obj.has_previous %}
-        <li>
-            <a href="?page={{ page_obj.previous_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
-               class="page-btn">« Prev</a>
-        </li>
-        {% endif %}
+                    <!-- Category Filter -->
+                    <div class="sidebar-widget sidebar-blog-category">
+                        <div class="sidebar-title">
+                            <h2>Categories</h2>
+                        </div>
+                        <ul class="blog-cat">
 
-        {% for num in page_obj.paginator.page_range %}
-        <li>
-            <a href="?page={{ num }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
-               class="page-btn {% if page_obj.number == num %}active{% endif %}">
-                {{ num }}
-            </a>
-        </li>
-        {% endfor %}
+                            <!-- All -->
+                            <li>
+                                <a href="{% url 'products' %}"
+                                   class="{% if not category %}active{% endif %}">
+                                    All
+                                </a>
+                            </li>
 
-        {% if page_obj.has_next %}
-        <li>
-            <a href="?page={{ page_obj.next_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}"
-               class="page-btn">Next »</a>
-        </li>
-        {% endif %}
+                            <!-- Dynamic Categories -->
+                            {% for cat in categories %}
+                                <li>
+                                    <a href="{% url 'products' %}?category={{ cat.id }}"
+                                       class="{% if cat.id == category %}active{% endif %}">
+                                        {{ cat.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
 
-    </ul>
-</div>
-{% endif %}
+                        </ul>
+                    </div>
 
+                </aside>
+            </div>
 
         </div>
-      </div>
-
-      <!--Sidebar-->
-      <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12">
-        <aside class="sidebar shop-sidebar">
-
-          <!--Category Filter-->
-          <div class="sidebar-widget sidebar-blog-category">
-            <div class="sidebar-title">
-              <h2>Categories</h2>
-            </div>
-            <ul class="blog-cat">
-
-              <!-- All -->
-              <li>
-                <a href="{% url 'products' %}" class="{% if not category %}active{% endif %}">
-                  All
-                </a>
-              </li>
-
-              <!-- Dynamic -->
-              {% for cat in categories %}
-              <li>
-                <a href="{% url 'products' %}?category={{ cat.id }}" 
-                   class="{% if category|stringformat:'s' == cat.id|stringformat:'s' %}active{% endif %}">
-                  {{ cat.name }}
-                </a>
-              </li>
-              {% endfor %}
-
-            </ul>
-          </div>
-
-        </aside>
-      </div>
-
     </div>
-  </div>
 </div>
 
 {% endblock %}
