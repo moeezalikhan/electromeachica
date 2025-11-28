@@ -7,12 +7,16 @@ from apps.products.models import Product, Categories
 
 
 """ ============ All Products View ============ """
+from django.shortcuts import render
+from apps.products.models import Product, Categories
+from django.core.paginator import Paginator
+from django.db.models import Q
+
 def products(request):
     category_id = request.GET.get('category')
     search_query = request.GET.get('q', '')
 
     products_qs = Product.objects.prefetch_related('images').filter(category__is_active=True)
-
 
     # Category filter
     if category_id:
@@ -26,19 +30,31 @@ def products(request):
         )
 
     # Pagination (9 per page)
-    paginator = Paginator(products_qs, 9)
-
+    paginator = Paginator(products_qs, 1)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
+    # Prepare compact pagination
+    total_pages = paginator.num_pages
+    current = page_obj.number
+    page_range_display = []
+
+    for num in range(1, total_pages + 1):
+        if num <= 2 or num > total_pages - 1 or (current - 1 <= num <= current + 1):
+            page_range_display.append(num)
+        elif num == 4 and current > 5:
+            page_range_display.append("...")
+        elif num == total_pages - 3 and current < total_pages - 4:
+            page_range_display.append("...")
+
     context = {
         'page_obj': page_obj,
+        'page_range_display': page_range_display,
         'category': int(category_id) if category_id else None,
         'search_query': search_query,
-        'categories': Categories.objects.filter(is_active=True),  # added
+        'categories': Categories.objects.filter(is_active=True),
     }
     return render(request, 'products/products.html', context)
-
 
 """ ============ Product Detail View ============ """
 def product_detail(request, pk):
