@@ -59,36 +59,31 @@ def products(request):
 """ ============ Product Detail View ============ """
 def product_detail(request, pk):
     product = get_object_or_404(Product.objects.prefetch_related('images'), pk=pk)
-    images = product.images.all()  # type: ignore
-
+    
     search_query = request.GET.get('q', '').strip()
 
-    # Related products: only current category, excluding current product
+    # Related products: same category, in stock, excluding current product
     related_products = Product.objects.filter(
         category=product.category,
-        availability=True
-    ).exclude(pk=product.pk).prefetch_related('images')
-
-    
-    related_products = related_products.distinct()[:6]
+        availability='IN_STOCK'  # correct filtering
+    ).exclude(pk=product.pk).prefetch_related('images')[:3]
 
     whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '')
     whatsapp_message_template = getattr(settings, 'WHATSAPP_DEFAULT_MESSAGE', '')
     whatsapp_message = whatsapp_message_template.format(product=product.title)
+
     # Sidebar: all active categories
     categories = Categories.objects.filter(is_active=True)
 
     context = {
         'product': product,
-        'images': images,
+        'images': product.images.all(),   # pyright: ignore[reportAttributeAccessIssue]
         'related_products': related_products,
         'search_query': search_query,
         'whatsapp_number': whatsapp_number,
         'whatsapp_message': whatsapp_message,
-        'category': product.category,  # currently selected category # type: ignore
+        'category': product.category,
         'categories': categories,
     }
 
     return render(request, 'products/product_detail.html', context)
-
-

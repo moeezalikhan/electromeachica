@@ -115,8 +115,8 @@
         $('.main-header .navigation li.dropdown').append('<div class="dropdown-btn"><span class="fa fa-angle-down"></span></div>');
 
         //Dropdown Button
-        $('.main-header .navigation li.dropdown .dropdown-btn').on('click', function() {
-            $(this).prev('ul').slideToggle(500);
+$('.main-header .navigation li.dropdown').on('click', function() {
+            $(this).children('ul').slideToggle(500);
         });
 
         //Disable dropdown parent link
@@ -900,7 +900,7 @@
 
         //Initialize carousel 
         $myCarousel.carousel({
-            interval: 7000
+            interval: 6000
         });
 
         //Animate captions in first slide on page load 
