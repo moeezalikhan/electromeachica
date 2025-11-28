@@ -66,10 +66,19 @@
                 <div class="info-column col-md-6 col-sm-6 col-xs-12">
                   <div class="details-header">
                     <h4>{{ product.title }}</h4>
-                    <div class="item-price">Price:{{ product.price }}</div>
-                     <p><span class="sku-badge">Part No:{{ product.part_number }}</span></p>
-                     <p><span class="sku-badge">Model No:{{ product.model_number }}</span></p>
-                    <p><strong>Category:</strong> {{ product.category.name }}</p>
+                     <p><strong>Category:</strong> {{ product.category.name }}</p>
+                     {% if product.part_number %}
+                     <p><strong>Part No:</strong>{{ product.part_number }}</p>
+                     {% endif %}
+                     {% if product.model_number %}
+                     <p><strong>Model No:</strong>{{ product.model_number }}</p>
+                    {% endif %} 
+                    {% if product.price %}
+                    <br>
+                    <div class="item-price"><strong>Price:{{ product.price }} </strong></div>
+                    {% endif %}
+                    
+  
                   </div>
                   <div class="text">
                     <p>{{ product.description }}</p>
