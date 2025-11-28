@@ -30,7 +30,7 @@ def products(request):
         )
 
     # Pagination (9 per page)
-    paginator = Paginator(products_qs, 1)
+    paginator = Paginator(products_qs, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

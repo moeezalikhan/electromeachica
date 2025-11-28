@@ -66,15 +66,16 @@
                 <div class="info-column col-md-6 col-sm-6 col-xs-12">
                   <div class="details-header">
                     <h4>{{ product.title }}</h4>
+                    <div class="item-price">Price:{{ product.price }}</div>
                     <p><strong>Category:</strong> {{ product.category.name }}</p>
                   </div>
                   <div class="text">
-                    <p>{{ product.short_description }}</p>
+                    <p>{{ product.description }}</p>
                   </div>
-                  <p>
-                   <span class="sku-badge">{{ product.sku }}
-                   </span>
-                      </p>
+                  <p><span class="sku-badge">Model No:{{ product.model_number }}</span></p>
+
+                  <p><span class="sku-badge">Part No:{{ product.part_number }}</span></p>
+                  
                   <p><strong>Availability:</strong>
                     {% if product.availability %}
                       <span style="color:green;">In Stock</span>
