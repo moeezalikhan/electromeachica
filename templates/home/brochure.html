@@ -3,8 +3,9 @@
 {% block title %}Electromechanica - Brochures{% endblock %}
 {% block content %}
 <!-- PDF.js Library -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script>
+<script>        
     // Set PDF.js worker
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
     
@@ -169,7 +170,7 @@
                     </div>
                     <div class="content-box">
                         <h4><a href="{{ brochure.brochure.url }}" target="_blank">{{ brochure.title }}</a></h4>
-                        <span class="tag">{{ brochure.description }}</span>
+                        <span class="tag">{{ brochure.description|truncatewords:10 }}</span>
                         <div class="brochure-actions">
                             <a href="{{ brochure.brochure.url }}" 
                                target="_blank" 
