@@ -1096,8 +1096,8 @@ img {
     border: 1px solid #ffffff;
     text-align: center;
     font-size: 16px;
-    line-height: 26px;
-    color: #ffffff;
+    line-height: 66px;
+    color: #0069ab;
     cursor: pointer;
     z-index: 5;
     display: none;
