@@ -7,10 +7,7 @@ from apps.products.models import Product, Categories
 
 
 """ ============ All Products View ============ """
-from django.shortcuts import render
-from apps.products.models import Product, Categories
-from django.core.paginator import Paginator
-from django.db.models import Q
+
 
 def products(request):
     category_id = request.GET.get('category')

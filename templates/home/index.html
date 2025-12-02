@@ -2,6 +2,14 @@
 {% load static %}
 {% block title %}Machinery - Home Page{% endblock %}
 {% block content %}
+<style>
+img {
+    display: inline-block;
+    width: auto;
+    height: 350px;
+    max-width: 100%;
+}    
+</style>
     <div id="minimal-bootstrap-carousel" class="carousel slide carousel-fade slider-home-one" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
 
@@ -860,7 +868,7 @@
                                 {% comment %} </a> {% endcomment %}
                             </figure>
                             <div class="title-box">
-                                <h3><a href="{% url 'project_detail' project.pk %}">{{project.name}}</a></h3>
+                                <h3><a href="{% url 'projects' %}">{{project.name}}</a></h3>
                                 <span class="tag">{{project.category}}</span>
                             </div>
                         </div>

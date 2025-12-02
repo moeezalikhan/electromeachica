@@ -1,108 +1,166 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Electromechanica - Projects{% endblock %}
+
 {% block content %}
-        
-    <!--Page Title-->
-    <section class="page-title" style="background-image:url({%static 'images/background/projects-banner.jpg'%})">
-        <div class="auto-container">
-            <h1>Projects</h1>
-            <ul class="page-breadcrumb">
-                <li><a href="{% url 'home'%}">Home</a></li>
-                <li><a href="{% url 'projects' %}"></a>Projects</li>
+
+<style>
+/* Project Image */
+.project-block-four .image-box img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+}
+.project-description {
+    margin-left:6px;
+    margin-top:15px
+}
+.bolt {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000; /* black bold text */
+}
+
+
+
+
+
+
+</style>
+
+<!-- Page Title -->
+<section class="page-title" style="background-image:url({% static 'images/background/projects-banner.jpg' %})">
+    <div class="auto-container">
+        <h1>Projects</h1>
+        <ul class="page-breadcrumb">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Projects</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects-section-four">
+    <div class="auto-container">
+        <!-- Sort & Search Bar -->
+        <div class="items-sorting">
+            <div class="row clearfix">
+                <div class="results-column col-md-6 col-sm-6 col-xs-12">
+                    <h4>
+                        Showing {{ page_obj.start_index }}–{{ page_obj.end_index }} of {{ page_obj.paginator.count }} results
+                    </h4>
+                </div>
+                <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
+                    <form method="get" class="search-form">
+                        <input type="text" name="q" placeholder="Search projects..." value="{{ search_query }}" class="form-control" style="width: 50%; display:inline-block;">
+                        <select name="category" class="form-control" style="width: 30%; display:inline-block;">
+                            <option value="">All Categories</option>
+                            {% for key, value in categories %}
+                                <option value="{{ key }}" {% if category_filter == key %}selected{% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="row clearfix">
+            {% for project in projects %}
+            <div class="project-block-four col-md-4 col-sm-6 col-xs-12">
+                <div class="image-box">
+                    {% if project.main_image %}
+                        <img src="{{ project.main_image.url }}" alt="{{ project.name }}">
+                    {% endif %}
+                    <div class="overlay-box project-description">
+                        <h4>{{ project.name }}</h4>
+                        <span class="tag bolt">{{ project.get_category_display }}</span>
+
+                        <!-- Overlay Read More -->
+                        <p id="overlay-desc-{{ project.id }}">
+                            {% if project.description|length > 120 %}
+                                {{ project.description|slice:":120" }}<span id="overlay-dots-{{ project.id }}">...</span>
+                                <span id="overlay-more-{{ project.id }}" style="display:none;">{{ project.description|slice:"120:" }}</span>
+                                <a onclick="toggleDesc({{ project.id }}, 'overlay')" id="overlay-btn-{{ project.id }}">Read More</a>
+                            {% else %}
+                                {{ project.description }}
+                            {% endif %}
+                        </p>
+
+                        {% if project.main_image %}
+                            <a href="{{ project.main_image.url }}" data-fancybox="gallery-{{ project.id }}">
+                                <span class="fa fa-search-plus"></span>
+                            </a>
+                            {% for img in project.images.all %}
+                                {% if img != project.main_image %}
+                                    <a href="{{ img.image.url }}" data-fancybox="gallery-{{ project.id }}" style="display:none;"></a>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="content-box ">
+                    <h4>{{ project.name }}</h4>
+                    <span class="tag bolt">{{ project.get_category_display }}</span>
+
+                    <!-- Card Read More -->
+                    <p id="card-desc-{{ project.id }}">
+                        {% if project.description|length > 120 %}
+                            {{ project.description|slice:":120" }}<span id="card-dots-{{ project.id }}">...</span>
+                            <span id="card-more-{{ project.id }}" style="display:none;">{{ project.description|slice:"120:" }}</span>
+                            <a onclick="toggleDesc({{ project.id }}, 'card')" id="card-btn-{{ project.id }}">Read More</a>
+                        {% else %}
+                            {{ project.description }}
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if page_obj.has_other_pages %}
+        <div class="styled-pagination text-center mt-4">
+            <ul class="pagination-list">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">« Prev</a></li>
+                {% endif %}
+                {% for num in page_range_display %}
+                    {% if num == "..." %}
+                        <li><span class="dots">…</span></li>
+                    {% else %}
+                        <li><a href="?page={{ num }}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn {% if page_obj.number == num %}active{% endif %}">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}{% if category_filter %}&category={{ category_filter }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">Next »</a></li>
+                {% endif %}
             </ul>
         </div>
-    </section>
-    <!--End Page Title-->
-
-    <!-- Project Section Two -->
-    <section class="projects-section-two">
-        <div class="auto-container">
-             <!--MixitUp Galery-->
-            <div class="mixitup-gallery">
-                <div class="inner-container clearfix">
-                    <!--Filter-->
-                    <div class="filters text-center clearfix">
-                    <div class="mixitup-gallery">
-                <div class="inner-container clearfix">
-                <!-- Filter -->
-    <div class="filters text-center clearfix">
-      <ul class="filter-tabs filter-btns clearfix">
-        <li class="filter active" data-filter="all"><h5>View All</h5></li>
-        {% for key, value in categories %}
-          <li class="filter" data-filter=".{{ key }}"><h5>{{ value }}</h5></li>
-        {% endfor %}
-      </ul>
+        {% endif %}
     </div>
-  </div>
-</div>
-</div>
+</section>
 
+<script>
+function toggleDesc(id, type) {
+    var dots = document.getElementById(type + "-dots-" + id);
+    var moreText = document.getElementById(type + "-more-" + id);
+    var btnText = document.getElementById(type + "-btn-" + id);
 
-<div class="filter-list row clearfix">
-  {% for project in projects %}
-  <div class="project-block-two mix all {{ project.category }} col-md-4 col-sm-6 col-xs-12">
-    <div class="image-box">
-      {% if project.main_image %}
-        {% with first_image=project.images.first %}
-          <figure>
-            <img src="{{ project.main_image.url }}" alt="{{ project.name }}">
-          </figure>
-        {% endwith %}
-      {% endif %}
-    </div>
-    <div class="content-box">
-      <h4><a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a></h4>
-      <span class="tag">{{ project.get_category_display }}</span>
-    </div>
-  </div>
-  {% endfor %}
-</div>
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read More";
+        moreText.style.display = "none";
+    } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read Less";
+        moreText.style.display = "inline";
+    }
+}
+</script>
 
-            <!-- Styled Pagination -->
-            {% if is_paginated %}
-<div class="styled-pagination text-center">
-  <ul class="clearfix">
-
-    <!-- Previous -->
-    {% if page_obj.has_previous %}
-      <li>
-        <a class="prev" href="?page={{ page_obj.previous_page_number }}">
-          <span class="fa fa-angle-left"></span>
-        </a>
-      </li>
-    {% else %}
-      <li class="disabled">
-        <a class="prev" href="#"><span class="fa fa-angle-left"></span></a>
-      </li>
-    {% endif %}
-
-    <!-- Page Numbers -->
-    {% for num in page_obj.paginator.page_range %}
-      {% if page_obj.number == num %}
-        <li><a href="?page={{ num }}" class="active">{{ num }}</a></li>
-      {% else %}
-        <li><a href="?page={{ num }}">{{ num }}</a></li>
-      {% endif %}
-    {% endfor %}
-
-    <!-- Next -->
-    {% if page_obj.has_next %}
-      <li>
-        <a class="next" href="?page={{ page_obj.next_page_number }}">
-          <span class=""></span>
-        </a>
-      </li>
-    {% else %}
-      <li class="disabled">
-        <a class="next" href="#"><span class=""></span></a>
-      </li>
-    {% endif %}
-
-  </ul>
-</div>
-{% endif %}
-
-    </section>
-    <!-- End Project Section Two -->
 {% endblock %}
