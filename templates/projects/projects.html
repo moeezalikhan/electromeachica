@@ -23,11 +23,6 @@
     color: #000; /* black bold text */
 }
 
-
-
-
-
-
 </style>
 
 <!-- Page Title -->
@@ -66,7 +61,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Projects Grid -->
         <div class="row clearfix">
             {% for project in projects %}
@@ -78,7 +72,6 @@
                     <div class="overlay-box project-description">
                         <h4>{{ project.name }}</h4>
                         <span class="tag bolt">{{ project.get_category_display }}</span>
-
                         <!-- Overlay Read More -->
                         <p id="overlay-desc-{{ project.id }}">
                             {% if project.description|length > 120 %}
@@ -89,7 +82,6 @@
                                 {{ project.description }}
                             {% endif %}
                         </p>
-
                         {% if project.main_image %}
                             <a href="{{ project.main_image.url }}" data-fancybox="gallery-{{ project.id }}">
                                 <span class="fa fa-search-plus"></span>
@@ -102,11 +94,9 @@
                         {% endif %}
                     </div>
                 </div>
-
                 <div class="content-box ">
                     <h4>{{ project.name }}</h4>
                     <span class="tag bolt">{{ project.get_category_display }}</span>
-
                     <!-- Card Read More -->
                     <p id="card-desc-{{ project.id }}">
                         {% if project.description|length > 120 %}
