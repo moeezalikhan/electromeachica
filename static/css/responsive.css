@@ -1500,3 +1500,34 @@
         margin-left: 0;
     }
 }
+@media only screen and (max-width: 414px){
+    .resposive{
+        display: flex !important;
+        justify-content: space-between;
+        
+
+    }
+    .resposive-font-size{
+        padding:10px 5px!important;
+
+    }
+    .resposive input {
+        margin-right: 0px !important;
+        width: 40% !important;
+    }
+    .resposive-cat{
+        width: 38%!important;
+        padding: 5px 2px!important;
+
+
+    }
+    .resposive-btn{
+        padding: 7px 10px !important;
+    }
+    .resposive-product{
+        padding: 4px 15px!important;
+        margin-left: -12px!important;
+        padding-bottom: 9px!important;
+        margin-bottom: 5px!important;
+    }
+}

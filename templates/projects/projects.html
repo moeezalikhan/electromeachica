@@ -48,15 +48,15 @@
                     </h4>
                 </div>
                 <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
-                    <form method="get" class="search-form">
-                        <input type="text" name="q" placeholder="Search projects..." value="{{ search_query }}" class="form-control" style="width: 50%; display:inline-block;">
-                        <select name="category" class="form-control" style="width: 30%; display:inline-block;">
+                    <form method="get" class="search-form resposive">
+                        <input type="text" name="q" placeholder="Search projects..." value="{{ search_query }}" class="form-control resposive-font-size" style="width: 50%; display:inline-block;">
+                        <select name="category" class="form-control resposive-cat" style="width: 30%; display:inline-block;">
                             <option value="">All Categories</option>
                             {% for key, value in categories %}
                                 <option value="{{ key }}" {% if category_filter == key %}selected{% endif %}>{{ value }}</option>
                             {% endfor %}
                         </select>
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn-primary resposive-btn">Search</button>
                     </form>
                 </div>
             </div>
