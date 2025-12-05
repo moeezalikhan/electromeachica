@@ -1572,22 +1572,23 @@
     .mobile-banner h1{
         font-size: 20px !important;
     }    
-    .main-banner-content .t{
+    .main-banner-content .mobile-view-title{
         font-size: 18px!important;
         padding-top: 10px!important;
     }
-    .b-s-o{
+    .btn-small-mobile-view-one{
            
-        font-size: 10px!important;
+        font-size: 11px!important;
         line-height: 25px!important;
         padding: 5px 34px!important;
         
     }
-    .tt{
-        font-size: 10px!important;
+    .btn-small-mobile-view-two{
+        font-size: 11px!important;
         line-height: 25px!important;
         padding: 6px 53px!important;
         font-weight: 600!important;
+        margin-left: -4px!important;
 
     }
 

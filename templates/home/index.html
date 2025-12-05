@@ -14,27 +14,30 @@ img {
         <div class="carousel-inner" role="listbox">
 
             <!-- Slide 1 -->
-            <div class="item active hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-1-1.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption text-right">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Welcome to</h3>
-                                    <h1>Machinery World</h1>
-                                    <p class="text">Delivering industrial excellence with over 24 years of experience
-                                        and innovation.</p>
-                                    <a href="{% url 'textile_sector' %}" class="theme-btn btn-style-one b-s-o">Textile</a>
-                                    <a href="{% url 'chemicals' %}" class="theme-btn btn-style-two tt">Chemicals</a>
-                                </div>
-                            </div>
+{% for banner in banners %}
+    {% if banner.image %}
+    <div class="item {% if forloop.first %}active{% endif %} hero-banner"
+         style="background-image: url('{{ banner.image.url }}'); background-position: center center; background-size: cover;">
+        <div class="carousel-caption text-right">
+            <div class="container">
+                <div class="box valign-middle">
+                    <div class="content">
+                        <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
+                            <h1 class="title mobile-view-title">{{ banner.title }}</h1>
+                            <p class="text">{{ banner.description }}</p>
+                            <a href="{% url 'textile_sector' %}" class="theme-btn btn-style-one btn-small-mobile-view-one">{{ banner.category }}</a>
+                            <a href="{% url 'contact_us' %}" class="theme-btn btn-style-two btn-small-mobile-view-two">Contact Us</a>
                         </div>
-
                     </div>
                 </div>
             </div>
-            <!-- Slide 2 -->
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+
+
+            {% comment %} <!-- Slide 2 -->
             <div class="item hero-banner"
                  style="background-image: url({% static 'images/main-slider/banner-1-2.jpg' %}); background-position: center center; background-size: cover;">
                 <div class="carousel-caption">
@@ -352,7 +355,7 @@ img {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
 
         <!-- Controls -->
         <a class="left carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="prev">

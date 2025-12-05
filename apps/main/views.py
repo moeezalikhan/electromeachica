@@ -1,17 +1,21 @@
 from django.shortcuts import render
 from django.db.models import Q
 from apps.projects.models import Project
-from apps.main.models import Brochure
+from apps.main.models import Brochure, Banner
 
 # Create your views here.
 def home(request):
+
+    latest_projects = Project.objects.all().order_by('-created_at')[:6]
+    banners = Banner.objects.filter(is_active=True).order_by('-priority')
     
-    latest_projets = Project.objects.all().order_by('-created_at')[:6]
-    print(latest_projets)
+    
+
     context = {
-                "latest_projects" : latest_projets
-           }
-    return render(request, 'home/index.html',context=context)
+        "latest_projects": latest_projects,
+        "banners": banners
+    }
+    return render(request, 'home/index.html', context)
 
 
 def brochure(request):
@@ -27,3 +31,5 @@ def brochure(request):
         "search_query": search_query
     }
     return render(request, 'home/brochure.html', context=context)
+
+

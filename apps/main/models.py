@@ -22,7 +22,7 @@ class Banner(BaseModel):
         ('INDUSTRIAL_TRAINERS', 'Industrial Trainers'),
         ('OTHERS', 'Others'),
     ]
-    title = models.CharField(max_length=255)
+    title = models.TextField(max_length=255)
     description = models.TextField(max_length=300)
     image = models.ImageField(upload_to='banners/')
     category = models.CharField(max_length=255, choices=MARKET_SECTOR_CHOICES)
