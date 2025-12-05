@@ -900,7 +900,7 @@ $('.main-header .navigation li.dropdown').on('click', function() {
 
         //Initialize carousel 
         $myCarousel.carousel({
-            interval: 60000
+            interval: 6000
         });
 
         //Animate captions in first slide on page load 
