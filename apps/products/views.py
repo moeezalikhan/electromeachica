@@ -23,26 +23,18 @@ def products(request):
     if search_query:
         products_qs = products_qs.filter(
             Q(title__icontains=search_query) |
-            Q(short_description__icontains=search_query)
+            Q(description__icontains=search_query)
         )
 
-    # Pagination (9 per page)
     paginator = Paginator(products_qs, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    # Prepare compact pagination
-    total_pages = paginator.num_pages
-    current = page_obj.number
-    page_range_display = []
-
-    for num in range(1, total_pages + 1):
-        if num <= 2 or num > total_pages - 1 or (current - 1 <= num <= current + 1):
-            page_range_display.append(num)
-        elif num == 4 and current > 5:
-            page_range_display.append("...")
-        elif num == total_pages - 3 and current < total_pages - 4:
-            page_range_display.append("...")
+    page_range_display = paginator.get_elided_page_range( # pyright: ignore[reportAttributeAccessIssue]
+        number=page_obj.number,
+        on_each_side=1,
+        on_ends=2
+    )
 
     context = {
         'page_obj': page_obj,

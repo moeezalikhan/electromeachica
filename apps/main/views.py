@@ -1,17 +1,35 @@
 from django.shortcuts import render
 from django.db.models import Q
 from apps.projects.models import Project
-from apps.main.models import Brochure
+from apps.main.models import Brochure, Banner
 
-# Create your views here.
+## views.py
 def home(request):
-    
-    latest_projets = Project.objects.all().order_by('-created_at')[:6]
-    print(latest_projets)
+    banners = Banner.objects.filter(is_active=True).order_by('priority')
+    latest_projects = Project.objects.all().order_by('-created_at')[:6]
+
+    # URL mapping view ke andar
+    category_urls = {
+        'textile': 'textile_sector',
+        'chemicals': 'chemicals',
+        'FMCG': 'fmcg',
+        'Cement': 'cement',
+        'TEST_BENCH': 'testing_benches',
+        'EDUCATIONAL_TRAINERS': 'educational_trainers',
+        'INDUSTRIAL_TRAINERS': 'industrial_trainers',
+        'OTHERS': 'market_sector',
+        
+    }
+
+
+    for banner in banners:
+        banner.url = category_urls.get(banner.category, 'market_sector') # pyright: ignore[reportAttributeAccessIssue]
+
     context = {
-                "latest_projects" : latest_projets
-           }
-    return render(request, 'home/index.html',context=context)
+        "latest_projects": latest_projects,
+        "banners": banners
+    }
+    return render(request, 'home/index.html', context=context)
 
 
 def brochure(request):

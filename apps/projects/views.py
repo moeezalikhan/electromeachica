@@ -55,27 +55,3 @@ def projects(request):
 
     return render(request, 'projects/projects.html', context)
 
-
-""" ============= Single Project Detail View =============== """
-def project_detail(request, pk):
-    project = get_object_or_404(Project.objects.prefetch_related('images'), pk=pk)
-
-   
-    main_image = project.main_image # type: ignore
-
-    #  Gallery images
-    gallery_images = project.images.all() # type: ignore
-
-    #  Previous and Next projects
-    prev_project = Project.objects.filter(id__lt=project.id).order_by('-id').first() # type: ignore
-    next_project = Project.objects.filter(id__gt=project.id).order_by('id').first() # type: ignore
-
-    context = {
-        'project': project,
-        'main_image': main_image,
-        'gallery_images': gallery_images,
-        'prev_project': prev_project,
-        'next_project': next_project,
-    }
-
-    return render(request, 'projects/project_detail.html', context)

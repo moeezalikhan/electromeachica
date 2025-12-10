@@ -15,7 +15,7 @@ class Banner(BaseModel):
     MARKET_SECTOR_CHOICES = [
         ('textile', 'Textile'),
         ('chemicals', 'Chemicals'),
-        ('FMGC', 'FMGC'),
+        ('FMCG', 'FMCG'),
         ('Cement', 'Cement'),
         ('TEST_BENCH', 'Test Bench'),
         ('EDUCATIONAL_TRAINERS', 'Educational Trainers'),
@@ -28,6 +28,5 @@ class Banner(BaseModel):
     category = models.CharField(max_length=255, choices=MARKET_SECTOR_CHOICES)
     priority = models.IntegerField(default=0)
     
-
     def __str__(self):
         return self.title

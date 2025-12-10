@@ -316,8 +316,10 @@
     }
 
     .highlights .highlight-block .inner-box {
-        padding-left: 70px !important;
+        padding-left: 0px !important;
+        
     }
+    
 
     .highlights .highlight-block .icon {
         line-height: 1em;
@@ -858,7 +860,7 @@
     .highlight-carousel .owl-dots {
         top: unset !important;
         bottom: 0;
-        right: 44% !important;
+        right: 48% !important;
     }
 
     .highlights .highlight-block .inner-box:before {
@@ -1328,6 +1330,7 @@
     .main-banner-content .theme-btn {
         padding-left: 30px;
         padding-right: 30px;
+        margin-top: 0px;
     }
 
     .about-us .about-company h4 {
@@ -1344,7 +1347,7 @@
 
 @media (max-width: 375px) {
     #minimal-bootstrap-carousel.slider-home-one .carousel-inner .item {
-        min-height: 600px;
+        min-height: 270px;
     }
 
     .main-banner-content {
@@ -1509,7 +1512,16 @@
     }
     .resposive-font-size{
         padding:10px 5px!important;
-
+        
+    }
+    .banner-text-size{
+        font-size: 13px!important;
+    }
+    .banner-btn-size-one{
+            padding: 7px 39px!important;
+    }
+    .banner-btn-size-two{
+        padding: 8px 19px!important;
     }
     .resposive input {
         margin-right: 0px !important;
@@ -1530,7 +1542,38 @@
         padding-bottom: 9px!important;
         margin-bottom: 5px!important;
     }
+    .mobile-view-414{
+        text-align: center!important;
+
+    }
+    .about-company-mobile-view{
+        text-align: center!important;
+    }
+    .sec-title-mobile{
+        text-align: center!important;
+    } 
+    .icon-machinery-mobile-view{
+        margin-left: 88px!important;
+    }
+    .text-align{
+        text-align: center!important;
+    }
+    .text-center{
+        text-align: center!important;
+    }
+    .btn-center{
+        margin-left: 80px!important;
+
+    }
+    
+    
 }
+/* 
+@media (max-width: 360){
+    #minimal-bootstrap-carousel.slider-home-one .carousel-inner .mobile-item{
+        min-height: 250px!important;
+    } */
+    
 
 @media (max-width: 390px ){
     .icons{
@@ -1569,27 +1612,71 @@
     .homme-one{
         min-height: 230px!important;
     }
-    .mobile-banner h1{
-        font-size: 20px !important;
+    .mobile-banner{
+        padding-left: 12px!important;
+        padding-bottom: 42px!important;
+        padding-top: 2px!important;
     }    
-    .main-banner-content .t{
-        font-size: 18px!important;
+    .main-banner-content {
+        font-size: 16px!important;
         padding-top: 10px!important;
     }
-    .b-s-o{
+    .title-mobile-view .h1{
+        font-size: 20px!important;
+
+    }
+    .banner-style-btn-one{
            
         font-size: 10px!important;
-        line-height: 25px!important;
-        padding: 5px 34px!important;
+        line-height: 23px!important;
+        padding: 6px 31px!important;
+        
         
     }
-    .tt{
+    .btn-font-two{
         font-size: 10px!important;
         line-height: 25px!important;
         padding: 6px 53px!important;
         font-weight: 600!important;
 
     }
+    .icon-fctry-mobile-view{
+        margin-left: 33px!important;
+    }
+    .btn-style-two{
+        font-size: 12px!important;
+        line-height: 23px!important;
+        padding: 7px 23px!important;
+        font-weight: 700!important;
+        border-radius: 3px!important;
+        text-transform: capitalize!important;
+
+    }
+    .highlights .highlight-block .mobile-text {
+        display: block;
+        padding: 6px 0px !important;
+        font-size: 11px !important;
+        line-height: 30px !important;
+        margin-right: 40px!important;
+        margin-left: 71px!important;
+        color: #E8E3E3 !important;
+        font-weight: 600 !important;
+    }
+    .icon-machiry{
+        margin-left: 14px!important;
+    }
+    .btn-phone{
+        margin-left: -17px !important;
+    }
+    .slide-two-banner{
+        padding-left: 8px!important;
+        padding-top: 24px!important;
+
+    }
+    .slide-two-text{
+        font-size: 11px!important;
+    }
+    
 
     
 }

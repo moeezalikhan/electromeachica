@@ -9,891 +9,565 @@ img {
     height: 350px;
     max-width: 100%;
 }    
-</style>
-    <div id="minimal-bootstrap-carousel" class="carousel slide carousel-fade slider-home-one" data-ride="carousel">
-        <div class="carousel-inner" role="listbox">
-
-            <!-- Slide 1 -->
-            <div class="item active hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-1-1.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption text-right">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Welcome to</h3>
-                                    <h1>Machinery World</h1>
-                                    <p class="text">Delivering industrial excellence with over 24 years of experience
-                                        and innovation.</p>
-                                    <a href="{% url 'textile_sector' %}" class="theme-btn btn-style-one b-s-o">Textile</a>
-                                    <a href="{% url 'chemicals' %}" class="theme-btn btn-style-two tt">Chemicals</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-1-2.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Strong Foundation of</h3>
-                                    <h1>Industrial Growth</h1>
-                                    <p class="text">Pioneering mechanical solutions to meet the challenges of tomorrow’s
-                                        industries.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Discover More</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two mobile-banner">Our Sectors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-1-3.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Innovation Meets</h3>
-                                    <h1>Engineering</h1>
-                                    <p class="text">Our machinery is designed with precision, efficiency, and long-term
-                                        durability in mind.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Explore</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt"> Market
-                                        Sector</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-2-1.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Building the Future of</h3>
-                                    <h1>Industrial Machines</h1>
-                                    <p class="text">Our mission is to modernize the global manufacturing industry with
-                                        advanced machinery.</p>
-                                    <a href="{% url 'cement' %}" class="theme-btn btn-style-one b-s-o">Construction
-                                        Products</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">Our Markets</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 5 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-2-2.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Precision in Every</h3>
-                                    <h1>Movement</h1>
-                                    <p class="text">Empowering industries through accuracy, technology, and
-                                        reliability.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Explore More</a>
-                                     <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">Our Sectors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 6 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-2-3.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Driven by</h3>
-                                    <h1>Innovation</h1>
-                                    <p class="text">We combine creativity with engineering excellence to build
-                                        industrial solutions that last.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Learn More</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">Industries</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Slide 10 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-4-1.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Quality You Can</h3>
-                                    <h1>Trust</h1>
-                                    <p class="text">Setting new benchmarks in industrial equipment and mechanical
-                                        excellence.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Discover</a>
-                                    <a href="{% url 'chemicals' %}" class="theme-btn btn-style-two tt">RailWay
-                                        Infastruture</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 11 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-4-2.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Advanced</h3>
-                                    <h1>Engineering Solutions</h1>
-                                    <p class="text">Our technology helps industries achieve higher productivity and
-                                        precision.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Explore</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">Industries</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 12 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-4-3.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Smart Industrial</h3>
-                                    <h1>Automation</h1>
-                                    <p class="text">Bringing smart engineering and digital solutions to the industrial
-                                        world.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Read More</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">Explore</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 17 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-6-2.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Connecting</h3>
-                                    <h1>Technology & Industry</h1>
-                                    <p class="text">Where mechanical innovation meets digital transformation.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Learn More</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">View Sectors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 18 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-6-3.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption text-right">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Welcome to</h3>
-                                    <h1>Machinery World</h1>
-                                    <p class="text">Delivering industrial excellence with over 24 years of experience
-                                        and innovation.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Read More</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">Market
-                                        Sectors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 19 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-7-1.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Strong Foundation of</h3>
-                                    <h1>Industrial Growth</h1>
-                                    <p class="text">Pioneering mechanical solutions to meet the challenges of tomorrow’s
-                                        industries.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Discover More</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">Our Sectors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 20 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-7-2.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Connecting</h3>
-                                    <h1>Technology & Industry</h1>
-                                    <p class="text">Where mechanical innovation meets digital transformation.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Learn More</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">View Sectors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Slide 22 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-8-1.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Connecting</h3>
-                                    <h1>Technology & Industry</h1>
-                                    <p class="text">Where mechanical innovation meets digital transformation.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Learn More</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">View Sectors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 23 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-8-2.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Future of</h3>
-                                    <h1>Industrial Revolution</h1>
-                                    <p class="text">Empowering industries with technology, precision, and sustainable
-                                        innovation.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Get Started</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">Explore
-                                        Sectors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Slide 24 -->
-            <div class="item hero-banner"
-                 style="background-image: url({% static 'images/main-slider/banner-8-3.jpg' %}); background-position: center center; background-size: cover;">
-                <div class="carousel-caption text-right">
-                    <div class="container">
-                        <div class="box valign-middle">
-                            <div class="content">
-                                <div class="main-banner-content mobile-banner" data-animation="animated fadeInUp">
-                                    <h3 class="title t">Welcome to</h3>
-                                    <h1>Machinery World</h1>
-                                    <p class="text">Delivering industrial excellence with over 24 years of experience
-                                        and innovation.</p>
-                                    <a href="#" class="theme-btn btn-style-one b-s-o">Read More</a>
-                                    <a href="{% url 'market_sector' %}" class="theme-btn btn-style-two tt">Market
-                                        Sectors</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="next">
-            <i class="fa fa-angle-right"></i>
-            <span class="sr-only">Next</span>
-        </a>
-       </div>
-
-    <!-- Highlights -->
-    <div class="highlights highlight">
-        <div class="auto-container">
-            <div class="highlight-carousel owl-carousel owl-theme ">
-                <!-- Highlight Block -->
-                <div class="highlight-block nn-box">
-                    <div class="inner-box ">
-                        <div class="icon-box"><span class="machinery-icon-factory"></span></div>
-                        <div class="text">Registration with Pakistan <span>  Engineering Council (PEC)</span>
-                            ensuring compliance with national engineering standards.
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Highlight Block -->
-                <div class="highlight-block nn-box">
-                    <div class="inner-box ">
-                        <div class="icon-box "><span class="machinery-icon-factory"></span></div>
-                        <div class="text">Registration with <span>Karachi Chamber of Commerce & Industry (KCCI)</span>
-                            affirming our credibility and active participation.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Highlights -->
-
-    <!-- Services Section -->
-    <section class="services-section">
-        <div class="auto-container">
-            <div class="sec-title text-center">
-                <h4>Our Services</h4>
-                <h2>Our Market Sectors</h2>
-            </div>
-
-            <div class="services-carousel owl-carousel owl-theme">
-
-                <!-- Services Block -->
-                <div class="services-block">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure><img
-                                    src="{% static 'images/sectors/educational/DSCN7843.JPG' %}"
-                                    alt=""></figure>
-                            <div class="overlay-box">
-                                <div class="btn-box">
-                                    <a href="{% url 'educational_trainers' %}"><i class="icon arrow-top-right"></i>Read
-                                        More</a>
-                                </div>
-                            </div>
-                            <div class="title"><h3><a href="{% url 'educational_trainers' %}">Educational Trainers</a>
-                            </h3> <i
-                                    class="icon flaticon-reading"></i></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Services Block -->
-                <div class="services-block">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure><img
-                                    src="{% static 'images/sectors/industrial/trainer.jpg' %}"
-                                    alt=""></figure>
-                            <div class="overlay-box">
-                                <div class="btn-box">
-                                    <a href="{% url 'industrial_trainers' %}"><i class="icon arrow-top-right"></i>Read
-                                        More</a>
-                                </div>
-                            </div>
-                            <div class="title"><h3><a href="{% url 'industrial_trainers' %}">Industrial Trainers</a>
-                            </h3> <i
-                                    class="icon flaticon-engineer"></i></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Services Block -->
-                <div class="services-block">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure><img src="{% static 'images/sectors/testing benches/ALPC0804.JPG' %}" alt=""></figure>
-                            <div class="overlay-box">
-                                <div class="btn-box">
-                                    <a href="{% url 'testing_benches' %}"><i class="icon arrow-top-right"></i>Read More</a>
-                                </div>
-                            </div>
-                            <div class="title"><h3><a href="{% url 'testing_benches' %}">Testing Benches</a></h3> <i
-                                    class="icon flaticon-conveyor"></i></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Services Block -->
-                <div class="services-block">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure><img
-                                    src="{% static 'images/sectors/fabric-printing-machine-colorful-textile-designs-studio.jpg' %}"
-                                    alt=""></figure>
-                            <div class="overlay-box">
-                                <div class="btn-box">
-                                    <a href="{% url 'textile_sector' %}"><i class="icon arrow-top-right"></i>Read
-                                        More</a>
-                                </div>
-                            </div>
-                            <div class="title"><h3><a href="{% url 'textile_sector' %}">Textile Sector</a></h3> <i
-                                    class="icon flaticon-sewing-machine"></i></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Services Block -->
-                <div class="services-block">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure><img src="{% static 'images/sectors/cement/cement-factory.jpg' %}" alt=""></figure>
-                            <div class="overlay-box">
-                                <div class="btn-box">
-                                    <a href="{% url 'cement' %}"><i class="icon arrow-top-right"></i>Read More</a>
-                                </div>
-                            </div>
-                            <div class="title"><h3><a href="{% url 'cement' %}">Cement Sector</a></h3>
-                                <i class="icon flaticon-brick"></i></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Services Block -->
-                <div class="services-block">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure><img src="{% static 'images/sectors/fmcg/fmcg1.jpeg' %}" alt=""></figure>
-                            <div class="overlay-box">
-                                <div class="btn-box">
-                                    <a href="{% url 'fmcg' %}"><i class="icon arrow-top-right"></i>Read More</a>
-                                </div>
-                            </div>
-                            <div class="title"><h3><a href="{% url 'fmcg' %}">FMCG Sector</a></h3>
-                                <i class="icon flaticon-cargo"></i></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Services Block -->
-                <div class="services-block">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure><img src="{% static 'images/sectors/chemicals/chemical4.jpg' %}" alt=""></figure>
-                            <div class="overlay-box">
-                                <div class="btn-box">
-                                    <a href="{% url 'chemicals' %}"><i class="icon arrow-top-right"></i>Read More</a>
-                                </div>
-                            </div>
-                            <div class="title"><h3><a href="{% url 'chemicals' %}">Chemicals Sector</a></h3>
-                                <i class="icon flaticon-drop"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- info box -->
-            <div class="info-box">
-                <h3>Since 2007, We provide best solutions for our valuable customers.</h3>
-                <a href="mailto:elecmech.pak@gmail.com"><i class="icon flaticon-email"></i>elecmech.pak@gmail.com</a>
-            </div>
-        </div>
-    </section>
-    <!--End Services Section -->
-
-    <!-- What We Do -->
-    <section class="what-we-do">
-        <div class="auto-container">
-            <div class="row clearfix">
-                <!-- Content -->
-                <div class="content-column col-md-6 col-sm-12 col-xs-12 bt-contan">
-                    <div class="inner-column">
-                        <div class="sec-title light ">
-                            <h4>Fun facts</h4>
-                            <h2>What We Achived?</h2>
-                            <h5>Strength and growth comes only through continuous effort & struggle.</h5>
-                        </div>
-
-                        <div class="info-box clearfix fact">
-                            <span class="icon machinery-icon-worldwide"></span>
-                            <span class="count">148 <span class="plus">+</span></span>
-                            <span class="title mrg"><span>Branches Worldwide</span></span>
-                        </div>
-
-                        <div class="text">Over 148+ branches indignation & dislike men who beguiled demoralized <br> by
-                            the charms of pleasure of the moment, so blinded by desire, that they <br> cannot foresee
-                            the pain and over all trouble.
-                        </div>
-                        <a href="#" class="more-btn"><i class="machinery-icon-next"></i> Locate Our Branches</a>
-                    </div>
-                </div>
-
-                <!-- Video Column -->
-                <div class="video-column col-md-6 col-sm-12 col-xs-12">
-                    <div class="inner-column">
-                        <figure class="image">
-                            <img src="{% static 'images/resource/video-img.jpg' %}" alt="">
-                            <a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="link" data-fancybox="gallery"
-                               data-caption="">
-                                <span class="icon fa fa-play-circle"></span>
-                            </a>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End What We Do -->
-
-    <!-- About Us -->
-    <section id="about-company" class="about-us">
-        <div class="auto-container">
-            <div class="row clearfix">
-                <!-- Info Column -->
-                <div class="info-column col-md-6 col-sm-12 col-xs-12">
-                    <div class="sec-title bt-contan">
-                        <h4>Company</h4>
-                        <h2>About Our Company</h2>
-                    </div>
-                    <div class="about-company">
-                        <h4>Electromechanica is a trusted Mechanical & Electrical Engineering company, delivering precision-driven solutions since 2007.</h4>
-                        <div class="info-tabs tabs-box">
-                            <ul class="tab-buttons">
-                                <li data-tab="#info-tab-1" class="tab-btn active-btn">About Company</li>
-                                <li data-tab="#info-tab-2" class="tab-btn ">Our Mission</li>
-                                <li data-tab="#info-tab-3" class="tab-btn ">Our Vission</li>
-                            </ul>
-
-                            <div class="tabs-content bt-contan">
-                                <!--Tab / Active Tab-->
-                                <div class="tab active-tab" id="info-tab-1">
-                                    <h3>We are Reliable & Experienced manufacturing Company.</h3>
-                                    <div class="text">Built enviable reputation in consumer goods, heavy industry, high
-                                        tech, manufacturing, medical, vehicle our works sectors multi disciplinary team
-                                        of engineering & experts, who pursues desires.
-                                    </div>
-                                </div>
-
-                                <!--Tab-->
-                                <div class="tab" id="info-tab-2">
-                                    <h3>We are Reliable & Experienced manufacturing Company.</h3>
-                                    <div class="text">Built enviable reputation in consumer goods, heavy industry, high
-                                        tech, manufacturing, medical, vehicle our works sectors multi disciplinary team
-                                        of engineering & experts, who pursues desires.
-                                    </div>
-                                </div>
-
-                                <!--Tab-->
-                                <div class="tab" id="info-tab-3">
-                                    <h3>We are Reliable & Experienced manufacturing Company.</h3>
-                                    <div class="text">Built enviable reputation in consumer goods, heavy industry, high
-                                        tech, manufacturing, medical, vehicle our works sectors multi disciplinary team
-                                        of engineering & experts, who pursues desires.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- List Column -->
-                <div class="list-column col-md-6 col-sm-12 col-xs-12">
-                    <div class="inner-column">
-                        <!-- About Block -->
-                        <div class="about-block">
-                            <div class="inner-box">
-                                <span class="icon icon-gear"></span>
-                                <h4><a href="market-sector.html">Smart Technology</a></h4>
-                                <div class="text">Encounter consequences that are extremely our painful again is there
-                                    desires.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- About Block -->
-                        <div class="about-block">
-                            <div class="inner-box">
-                                <span class="icon icon-clock"></span>
-                                <h4><a href="market-sector.html">Punctual Delivery Time</a></h4>
-                                <div class="text">To take trivial example, which of us ever physical except to obtain
-                                    some advantage.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- About Block -->
-                        <div class="about-block">
-                            <div class="inner-box">
-                                <span class="icon icon-worker"></span>
-                                <h4><a href="market-sector.html">Team of Professionals</a></h4>
-                                <div class="text">Any right to find fault with a man who chooses to enjoy a pleasure
-                                    that has no annoying..
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End About Us -->
-
-    <!-- Project Section -->
-    <section class="project-section" style="background-image: url(images/background/1.jpg);">
-        <div class="auto-container">
-            <div class="sec-title light text-center">
-                <h4>Our Works</h4>
-                <h2>Latest Projects</h2>
-            </div>
-
-            <!--Carousel Box-->
-            <div class="carousel-box">
-                <div class="project-carousel owl-carousel owl-theme">
-                    <!-- Project Block -->
-                    {% for project in latest_projects %}
-                    <div class="project-block">
-                        <div class="image-box">
-                            <figure>
-
-                                {% comment %} <a href="{% url 'project_detail' project.pk %}" class="ligtbox-image"> {% endcomment %}
-                                    <img src="{{ project.main_image.url }}"  alt="{{ project.name }}">
-                                {% comment %} </a> {% endcomment %}
-                            </figure>
-                            <div class="title-box">
-                                <h3><a href="{% url 'projects' %}">{{project.name}}</a></h3>
-                                <span class="tag">{{project.category}}</span>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor%}
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Project Section -->
-    <section class="request-qoute-title-block bg-gray">
-        <div class="auto-container">
-            <div class="sec-title text-center">
-                <h4>Ask Our Expert</h4>
-                <h2>Request For Free Quote</h2>
-                <div class="text">Your details are kept strictly confidential as per our company privacy policy,
-                    Pleasure & praising <br> was we will give you a complete.
-                </div><!-- /.text -->
-            </div><!-- /.sec-title -->
-        </div><!-- /.auto-container -->
-    </section><!-- /.request-qoute-block -->
-    <!-- Contact Section -->
-    <section class="contact-section request-qoute-content-block">
-        <div class="auto-container">
-            <div class="row clearfix no-gutters">
-                <!-- Title Column -->
-                <div class="image-column col-md-4 col-sm-12 col-xs-12">
-                    <div class="inner-column fit">
-                        <img src="{% static 'images/background/contact_us.jpg' %}" style="width: 100%;"
-                             alt="Awesome Image"/>
-                        <div class="overlay-box">
-                            <div class="inner-box">
-                                <div class="content">
-                                </div><!-- /.content -->
-                            </div><!-- /.inner-box -->
-                        </div><!-- /.overlay-box -->
-                    </div>
-                </div>
-                <!-- 🌐 HOME PAGE CONTACT FORM -->
-                <div class="form-column col-md-8 col-sm-12 col-xs-12">
-                    <div class="inner-column">
-                        <div class="text">
-                            For Business: For Business inquiry fill our feedback form and Troll Free Number - (+91)
-                            00-700-6202, our team will help you within 24 hours.
-                        </div>
-
-                        <div class="contact-form">
-                            <form id="homeContactForm" method="post" action="{% url 'contact_us' %}">
-                                {% csrf_token %}
-                                <div class="row clearfix">
-                                    <div class="column col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="text" name="username" placeholder="Your Name" required/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" name="email" placeholder="Email Address" required/>
+</style><div id="minimal-bootstrap-carousel" class="carousel slide carousel-fade slider-home-one" data-ride="carousel">
+    <!-- Indicators (optional) -->
+    <ol class="carousel-indicators">
+        {% for banner in banners %}
+            <li data-target="#minimal-bootstrap-carousel" data-slide-to="{{ forloop.counter0 }}" 
+                class="{% if forloop.first %}active{% endif %}"></li>{% endfor %}</ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                {% for banner in banners %}
+                    <div class="item   {% if forloop.first %}active{% endif %} hero-banner"
+                        style="background-image: url('{{ banner.image.url }}'); background-position: center center; background-size: cover;">
+                        <div class="carousel-caption text-right">
+                            <div class="container">
+                                <div class="box valign-middle">
+                                    <div class="content">
+                                        <div class="main-banner-content mobile-banner banner-text-size" data-animation="animated fadeInUp">
+                                            {{ banner.description|safe }}
+                                            {% if banner.url %}
+                                            <a href="{% url banner.url %}" class="theme-btn btn-style-one banner-style-btn-one banner-btn-size-one">
+                                                {{ banner.get_category_display }}
+                                            </a>
+                                            {% endif %}
+                                            <a href="{% url 'contact_us'%}" class="theme-btn btn-style-two btn-font-two banner-btn-size-two">Contact Us</a>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <!-- Fallback if no banners -->
+                    <div class="item active hero-banner" style="background: #f8f9fa; height: 80vh; display: flex; align-items: center; justify-content: center;">
+                        <div class="container text-center">
+                            <h1>No banners available</h1>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Controls -->
+            {% if banners|length > 1 %}
+                <a class="left carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="prev">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#minimal-bootstrap-carousel" role="button" data-slide="next">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            {% endif %}
+            </div>
+            <!-- Highlights -->
+            <div class="highlights highlight">
+                <div class="auto-container">
+                    <div class="highlight-carousel owl-carousel owl-theme ">
+                        <!-- Highlight Block -->
+                        <div class="highlight-block nn-box">
+                            <div class="inner-box ">
+                                <div class="icon-box"><span class="machinery-icon-factory icon-fctry-mobile-view"></span></div>
+                                <div class="text mobile-text">Registration with Pakistan <span>  Engineering Council (PEC)</span>
+                                    ensuring compliance with national engineering standards.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Highlight Block -->
+                        <div class="highlight-block nn-box">
+                            <div class="inner-box ">
+                                <div class="icon-box "><span class="machinery-icon-factory icon-fctry-mobile-view"></span></div>
+                                <div class="text mobile-text">Registration with <span>Karachi Chamber of Commerce & Industry (KCCI)</span>
+                                    affirming our credibility and active participation.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Highlights -->
+            <!-- Services Section -->
+            <section class="services-section">
+                <div class="auto-container">
+                    <div class="sec-title text-center">
+                        <h4>Our Services</h4>
+                        <h2>Our Market Sectors</h2>
+                    </div>
+                    <div class="services-carousel owl-carousel owl-theme">
+                        <!-- Services Block -->
+                        <div class="services-block">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure><img
+                                            src="{% static 'images/sectors/educational/DSCN7843.JPG' %}"
+                                            alt=""></figure>
+                                    <div class="overlay-box">
+                                        <div class="btn-box">
+                                            <a href="{% url 'educational_trainers' %}"><i class="icon arrow-top-right"></i>Read
+                                                More</a>
+                                        </div>
+                                    </div>
+                                    <div class="title"><h3><a href="{% url 'educational_trainers' %}">Educational Trainers</a>
+                                    </h3> <i
+                                   class="icon flaticon-reading"></i></div>
+                                 </div>
+                              </div>
+                        </div>
+                        <!-- Services Block -->
+                        <div class="services-block">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure><img
+                                            src="{% static 'images/sectors/industrial/trainer.jpg' %}"
+                                            alt=""></figure>
+                                    <div class="overlay-box">
+                                        <div class="btn-box">
+                                            <a href="{% url 'industrial_trainers' %}"><i class="icon arrow-top-right"></i>Read
+                                            More</a>
+                                        </div>
+                                    </div>
+                                    <div class="title"><h3><a href="{% url 'industrial_trainers' %}">Industrial Trainers</a>
+                                    </h3> <i
+                                  class="icon flaticon-engineer"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Services Block -->
+                        <div class="services-block">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure><img src="{% static 'images/sectors/testing benches/ALPC0804.JPG' %}" alt=""></figure>
+                                    <div class="overlay-box">
+                                        <div class="btn-box">
+                                            <a href="{% url 'testing_benches' %}"><i class="icon arrow-top-right"></i>Read More</a>
+                                        </div>
+                                    </div>
+                                    <div class="title"><h3><a href="{% url 'testing_benches' %}">Testing Benches</a></h3> <i
+                                      class="icon flaticon-conveyor"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Services Block -->
+                        <div class="services-block">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure><img
+                                            src="{% static 'images/sectors/fabric-printing-machine-colorful-textile-designs-studio.jpg' %}"
+                                            alt=""></figure>
+                                    <div class="overlay-box">
+                                        <div class="btn-box">
+                                            <a href="{% url 'textile_sector' %}"><i class="icon arrow-top-right"></i>Read
+                                                More</a>
+                                        </div>
+                                    </div>
+                                    <div class="title"><h3><a href="{% url 'textile_sector' %}">Textile Sector</a></h3> <i
+                                      class="icon flaticon-sewing-machine"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Services Block -->
+                        <div class="services-block">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure><img src="{% static 'images/sectors/cement/cement-factory.jpg' %}" alt=""></figure>
+                                    <div class="overlay-box">
+                                        <div class="btn-box">
+                                            <a href="{% url 'cement' %}"><i class="icon arrow-top-right"></i>Read More</a>
+                                        </div>
+                                    </div>
+                                    <div class="title"><h3><a href="{% url 'cement' %}">Cement Sector</a></h3>
+                                  <i class="icon flaticon-brick"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Services Block -->
+                        <div class="services-block">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure><img src="{% static 'images/sectors/fmcg/fmcg1.jpeg' %}" alt=""></figure>
+                                    <div class="overlay-box">
+                                        <div class="btn-box">
+                                            <a href="{% url 'fmcg' %}"><i class="icon arrow-top-right"></i>Read More</a>
+                                        </div>
+                                    </div>
+                                    <div class="title"><h3><a href="{% url 'fmcg' %}">FMCG Sector</a></h3>
+                                    <i class="icon flaticon-cargo"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Services Block -->
+                        <div class="services-block">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure><img src="{% static 'images/sectors/chemicals/chemical4.jpg' %}" alt=""></figure>
+                                    <div class="overlay-box">
+                                        <div class="btn-box">
+                                            <a href="{% url 'chemicals' %}"><i class="icon arrow-top-right"></i>Read More</a>
+                                        </div>
+                                    </div>
+                                    <div class="title"><h3><a href="{% url 'chemicals' %}">Chemicals Sector</a></h3>
+                                        <i class="icon flaticon-drop"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- info box -->
+                    <div class="info-box">
+                        <h3>Since 2007, We provide best solutions for our valuable customers.</h3>
+                        <a href="mailto:elecmech.pak@gmail.com"><i class="icon flaticon-email"></i>elecmech.pak@gmail.com</a>
+                    </div>
+                </div>
+            </section>
+            <!--End Services Section -->
+            <!-- What We Do -->
+            <section class="what-we-do">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!-- Content -->
+                        <div class="content-column col-md-6 col-sm-12 col-xs-12 bt-contan">
+                            <div class="inner-column">
+                                <div class="sec-title light sec-title-mobile">
+                                    <h4>Fun facts</h4>
+                                    <h2>What We Achived?</h2>
+                                    <h5>Strength and growth comes only through continuous effort & struggle.</h5>
+                                </div>
 
-                                    <div class="column col-md-6 col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <textarea name="message" placeholder="Your Message..." required></textarea>
+                                <div class="info-box clearfix fact">
+                                    <span class="icon machinery-icon-worldwide icon-machiry icon-machinery-mobile-view"></span>
+                                    <span class="count">148 <span class="plus">+</span></span>
+                                    <span class="title mrg text-align"><span>Branches Worldwide</span></span>
+                                </div>
+
+                                <div class="text text-center">Over 148+ branches indignation & dislike men who beguiled demoralized <br> by
+                                    the charms of pleasure of the moment, so blinded by desire, that they <br> cannot foresee
+                                    the pain and over all trouble.
+                                </div>
+                                <a href="#" class="more-btn btn-phone btn-center"><i class="machinery-icon-next"></i> Locate Our Branches</a>
+                            </div>
+                        </div>
+                        <!-- Video Column -->
+                        <div class="video-column col-md-6 col-sm-12 col-xs-12">
+                            <div class="inner-column">
+                                <figure class="image">
+                                    <img src="{% static 'images/resource/video-img.jpg' %}" alt="">
+                                    <a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="link" data-fancybox="gallery"
+                                    data-caption="">
+                                        <span class="icon fa fa-play-circle"></span>
+                                    </a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End What We Do -->
+            <!-- About Us -->
+            <section id="about-company" class="about-us">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!-- Info Column -->
+                        <div class="info-column col-md-6 col-sm-12 col-xs-12">
+                            <div class="sec-title bt-contan mobile-view-414">
+                                <h4>Company</h4>
+                                <h2 class="h2">About Our Company</h2>
+                            </div>
+                            <div class="about-company about-company-mobile-view">
+                                <h4>Electromechanica is a trusted Mechanical & Electrical Engineering company, delivering precision-driven solutions since 2007.</h4>
+                                <div class="info-tabs tabs-box">
+                                    <ul class="tab-buttons">
+                                        <li data-tab="#info-tab-1" class="tab-btn active-btn">About Company</li>
+                                        <li data-tab="#info-tab-2" class="tab-btn ">Our Mission</li>
+                                        <li data-tab="#info-tab-3" class="tab-btn ">Our Vission</li>
+                                    </ul>
+
+                                    <div class="tabs-content bt-contan">
+                                        <!--Tab / Active Tab-->
+                                        <div class="tab active-tab" id="info-tab-1">
+                                            <h3>We are Reliable & Experienced manufacturing Company.</h3>
+                                            <div class="text">Built enviable reputation in consumer goods, heavy industry, high
+                                                tech, manufacturing, medical, vehicle our works sectors multi disciplinary team
+                                                of engineering & experts, who pursues desires.
+                                            </div>
                                         </div>
 
-                                        <div class="form-group" style="text-align:center;">
-                                            <button type="submit" class="theme-btn" id="homeSubmitBtn">Submit Now
-                                            </button>
+                                        <!--Tab-->
+                                        <div class="tab" id="info-tab-2">
+                                            <h3>We are Reliable & Experienced manufacturing Company.</h3>
+                                            <div class="text">Built enviable reputation in consumer goods, heavy industry, high
+                                                tech, manufacturing, medical, vehicle our works sectors multi disciplinary team
+                                                of engineering & experts, who pursues desires.
+                                            </div>
+                                        </div>
 
-                                            <!-- 🔵 Loader -->
-                                            <div id="homeLoader"
-                                                 style="display:none;
-                          margin:10px auto; 
-                          border:4px solid #f3f3f3; 
-                          border-top:4px solid #0056b3; 
-                          border-radius:50%; 
-                          width:40px; 
-                          height:40px; 
-                          animation:spin 1s linear infinite;">
+                                        <!--Tab-->
+                                        <div class="tab" id="info-tab-3">
+                                            <h3>We are Reliable & Experienced manufacturing Company.</h3>
+                                            <div class="text">Built enviable reputation in consumer goods, heavy industry, high
+                                                tech, manufacturing, medical, vehicle our works sectors multi disciplinary team
+                                                of engineering & experts, who pursues desires.
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+                        </div>
 
-                            <!--  Popup Message -->
-                            <div id="homePopupMessage"
-                                 style="display:none;
-                  text-align:center; 
-                  background:linear-gradient(135deg, #346599, #0056b3); 
-                  color:white; 
-                  padding:15px; 
-                  border-radius:8px; 
-                  margin-top:10px; 
-                  box-shadow:0 4px 10px rgba(0,0,0,0.2); 
-                  font-family:'Poppins', sans-serif;">
-                                <h2 id="homePopupTitle"></h2>
-                                <p>Your message has been sent successfully. We’ll contact you soon.</p>
+                        <!-- List Column -->
+                        <div class="list-column col-md-6 col-sm-12 col-xs-12">
+                            <div class="inner-column">
+                                <!-- About Block -->
+                                <div class="about-block">
+                                    <div class="inner-box">
+                                        <span class="icon icon-gear"></span>
+                                        <h4><a href="market-sector.html">Smart Technology</a></h4>
+                                        <div class="text">Encounter consequences that are extremely our painful again is there
+                                            desires.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- About Block -->
+                                <div class="about-block">
+                                    <div class="inner-box">
+                                        <span class="icon icon-clock"></span>
+                                        <h4><a href="market-sector.html">Punctual Delivery Time</a></h4>
+                                        <div class="text">To take trivial example, which of us ever physical except to obtain
+                                            some advantage.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- About Block -->
+                                <div class="about-block">
+                                    <div class="inner-box">
+                                        <span class="icon icon-worker"></span>
+                                        <h4><a href="market-sector.html">Team of Professionals</a></h4>
+                                        <div class="text">Any right to find fault with a man who chooses to enjoy a pleasure
+                                            that has no annoying..
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
+            <!-- End About Us -->
 
-                <!-- 🔁 Spinner Animation -->
-                <style>
-                    @keyframes spin {
-                        0% {
-                            transform: rotate(0deg);
-                        }
-                        100% {
-                            transform: rotate(360deg);
-                        }
-                    }
-                </style>
+            <!-- Project Section -->
+            <section class="project-section" style="background-image: url(images/background/1.jpg);">
+                <div class="auto-container">
+                    <div class="sec-title light text-center">
+                        <h4>Our Works</h4>
+                        <h2>Latest Projects</h2>
+                    </div>
 
-                <!--  jQuery -->
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <!--Carousel Box-->
+                    <div class="carousel-box">
+                        <div class="project-carousel owl-carousel owl-theme">
+                            <!-- Project Block -->
+                            {% for project in latest_projects %}
+                            <div class="project-block">
+                                <div class="image-box">
+                                    <figure>
 
-                <!--  AJAX Script -->
-                <script>
-                    $(document).ready(function () {
-                        console.log(" Home page AJAX contact form ready");
+                                        {% comment %} <a href="{% url 'project_detail' project.pk %}" class="ligtbox-image"> {% endcomment %}
+                                            <img src="{{ project.main_image.url }}"  alt="{{ project.name }}">
+                                        {% comment %} </a> {% endcomment %}
+                                    </figure>
+                                    <div class="title-box">
+                                        <h3><a href="{% url 'projects' %}">{{project.name}}</a></h3>
+                                        <span class="tag">{{project.category}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor%}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End Project Section -->
+            <section class="request-qoute-title-block bg-gray">
+                <div class="auto-container">
+                    <div class="sec-title text-center">
+                        <h4>Ask Our Expert</h4>
+                        <h2>Request For Free Quote</h2>
+                        <div class="text">Your details are kept strictly confidential as per our company privacy policy,
+                            Pleasure & praising <br> was we will give you a complete.
+                        </div><!-- /.text -->
+                    </div><!-- /.sec-title -->
+                </div><!-- /.auto-container -->
+            </section><!-- /.request-qoute-block -->
+            <!-- Contact Section -->
+            <section class="contact-section request-qoute-content-block">
+                <div class="auto-container">
+                    <div class="row clearfix no-gutters">
+                        <!-- Title Column -->
+                        <div class="image-column col-md-4 col-sm-12 col-xs-12">
+                            <div class="inner-column fit">
+                                <img src="{% static 'images/background/contact_us.jpg' %}" style="width: 100%;"
+                                    alt="Awesome Image"/>
+                                <div class="overlay-box">
+                                    <div class="inner-box">
+                                        <div class="content">
+                                        </div><!-- /.content -->
+                                    </div><!-- /.inner-box -->
+                                </div><!-- /.overlay-box -->
+                            </div>
+                        </div>
+                        <!-- 🌐 HOME PAGE CONTACT FORM -->
+                        <div class="form-column col-md-8 col-sm-12 col-xs-12">
+                            <div class="inner-column">
+                                <div class="text">
+                                    For Business: For Business inquiry fill our feedback form and Troll Free Number - (+91)
+                                    00-700-6202, our team will help you within 24 hours.
+                                </div>
 
-                        // Get CSRF token
-                        function getCookie(name) {
-                            let cookieValue = null;
-                            if (document.cookie && document.cookie !== "") {
-                                const cookies = document.cookie.split(";");
-                                for (let cookie of cookies) {
-                                    cookie = cookie.trim();
-                                    if (cookie.substring(0, name.length + 1) === (name + "=")) {
-                                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                                        break;
-                                    }
+                                <div class="contact-form">
+                                    <form id="homeContactForm" method="post" action="{% url 'contact_us' %}">
+                                        {% csrf_token %}
+                                        <div class="row clearfix">
+                                            <div class="column col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <input type="text" name="username" placeholder="Your Name" required/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" name="email" placeholder="Email Address" required/>
+                                                </div>
+                                            </div>
+
+                                            <div class="column col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <textarea name="message" placeholder="Your Message..." required></textarea>
+                                                </div>
+
+                                                <div class="form-group" style="text-align:center;">
+                                                    <button type="submit" class="theme-btn" id="homeSubmitBtn">Submit Now
+                                                    </button>
+
+                                                    <!-- 🔵 Loader -->
+                                                    <div id="homeLoader"
+                                                        style="display:none;
+                                margin:10px auto; 
+                                border:4px solid #f3f3f3; 
+                                border-top:4px solid #0056b3; 
+                                border-radius:50%; 
+                                width:40px; 
+                                height:40px; 
+                                animation:spin 1s linear infinite;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <!--  Popup Message -->
+                                    <div id="homePopupMessage"
+                                        style="display:none;
+                        text-align:center; 
+                        background:linear-gradient(135deg, #346599, #0056b3); 
+                        color:white; 
+                        padding:15px; 
+                        border-radius:8px; 
+                        margin-top:10px; 
+                        box-shadow:0 4px 10px rgba(0,0,0,0.2); 
+                        font-family:'Poppins', sans-serif;">
+                                        <h2 id="homePopupTitle"></h2>
+                                        <p>Your message has been sent successfully. We’ll contact you soon.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 🔁 Spinner Animation -->
+                        <style>
+                            @keyframes spin {
+                                0% {
+                                    transform: rotate(0deg);
+                                }
+                                100% {
+                                    transform: rotate(360deg);
                                 }
                             }
-                            return cookieValue;
-                        }
+                        </style>
 
-                        const csrftoken = getCookie("csrftoken");
+                        <!--  jQuery -->
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-                        $("#homeContactForm").on("submit", function (e) {
-                            e.preventDefault();
-                            e.stopPropagation();
+                        <!--  AJAX Script -->
+                        <script>
+                            $(document).ready(function () {
+                                console.log(" Home page AJAX contact form ready");
 
-                            const form = $(this);
-                            const url = form.attr("action");
-                            const formData = form.serialize();
-
-                            // Show Loader + Disable Button
-                            $("#homeLoader").show();
-                            $("#homeSubmitBtn").prop("disabled", true).text("Sending...");
-
-                            $.ajax({
-                                type: "POST",
-                                url: url,
-                                data: formData,
-                                headers: {"X-CSRFToken": csrftoken},
-                                success: function (response) {
-                                    $("#homeLoader").hide();
-                                    $("#homeSubmitBtn").prop("disabled", false).text("Submit Now");
-
-                                    if (response.status === "success") {
-                                        $("#homePopupTitle").text("Thank you, " + response.name + "!");
-                                        $("#homePopupMessage").fadeIn();
-
-                                        setTimeout(function () {
-                                            $("#homePopupMessage").fadeOut();
-                                            form.trigger("reset");
-                                        }, 3000);
-                                    } else {
-                                        alert("⚠️ Error: " + response.message);
+                                // Get CSRF token
+                                function getCookie(name) {
+                                    let cookieValue = null;
+                                    if (document.cookie && document.cookie !== "") {
+                                        const cookies = document.cookie.split(";");
+                                        for (let cookie of cookies) {
+                                            cookie = cookie.trim();
+                                            if (cookie.substring(0, name.length + 1) === (name + "=")) {
+                                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                                break;
+                                            }
+                                        }
                                     }
-                                },
-                                error: function (xhr, status, error) {
-                                    $("#homeLoader").hide();
-                                    $("#homeSubmitBtn").prop("disabled", false).text("Submit Now");
-                                    console.error("❌ AJAX error:", status, error);
-                                    alert("Something went wrong! Check console.");
+                                    return cookieValue;
                                 }
+
+                                const csrftoken = getCookie("csrftoken");
+
+                                $("#homeContactForm").on("submit", function (e) {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+
+                                    const form = $(this);
+                                    const url = form.attr("action");
+                                    const formData = form.serialize();
+
+                                    // Show Loader + Disable Button
+                                    $("#homeLoader").show();
+                                    $("#homeSubmitBtn").prop("disabled", true).text("Sending...");
+
+                                    $.ajax({
+                                        type: "POST",
+                                        url: url,
+                                        data: formData,
+                                        headers: {"X-CSRFToken": csrftoken},
+                                        success: function (response) {
+                                            $("#homeLoader").hide();
+                                            $("#homeSubmitBtn").prop("disabled", false).text("Submit Now");
+
+                                            if (response.status === "success") {
+                                                $("#homePopupTitle").text("Thank you, " + response.name + "!");
+                                                $("#homePopupMessage").fadeIn();
+
+                                                setTimeout(function () {
+                                                    $("#homePopupMessage").fadeOut();
+                                                    form.trigger("reset");
+                                                }, 3000);
+                                            } else {
+                                                alert("⚠️ Error: " + response.message);
+                                            }
+                                        },
+                                        error: function (xhr, status, error) {
+                                            $("#homeLoader").hide();
+                                            $("#homeSubmitBtn").prop("disabled", false).text("Submit Now");
+                                            console.error("❌ AJAX error:", status, error);
+                                            alert("Something went wrong! Check console.");
+                                        }
+                                    });
+                                });
                             });
-                        });
-                    });
-                </script>
-
-            </div>
-        </div>
-        </div>
-    </section>
-    <!--End Contact Section -->
-
-    <!-- News Section -->
-    <section class="news-section">
-        <div class="auto-container">
-
-
-        </div>
-    </section>
-    <!--End News Section -->
-
-{% endblock %}
+                        </script>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <!--End Contact Section -->
+            <!-- News Section -->
+            <section class="news-section">
+                <div class="auto-container">
+                </div>
+            </section>
+            <!--End News Section -->
+        {% endblock %}
