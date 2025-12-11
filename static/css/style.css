@@ -100,7 +100,8 @@ body {
 a {
     text-decoration: none;
     cursor: pointer;
-    color: #016aac;
+    color: #f7f4f7;
+    
 }
 
 a:hover,
@@ -12706,6 +12707,7 @@ li, ul, a {
 h1, h2, h3, h4, h5, h6, a, span {
     text-decoration: none !important;
     border: none !important;
+    
 }
 
 .site-logo {
@@ -13580,3 +13582,5 @@ footer {
 .brochure-results-count a:hover {
     text-decoration: underline;
 }
+
+

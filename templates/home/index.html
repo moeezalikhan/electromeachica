@@ -11,7 +11,7 @@ img {
 }    
 </style><div id="minimal-bootstrap-carousel" class="carousel slide carousel-fade slider-home-one" data-ride="carousel">
     <!-- Indicators (optional) -->
-    <ol class="carousel-indicators">
+    <ol class="">
         {% for banner in banners %}
             <li data-target="#minimal-bootstrap-carousel" data-slide-to="{{ forloop.counter0 }}" 
                 class="{% if forloop.first %}active{% endif %}"></li>{% endfor %}</ol>
@@ -352,41 +352,79 @@ img {
                 </div>
             </section>
             <!-- End About Us -->
+<!-- Project Section -->
+<section class="project-section" style="background-image: url(images/background/1.jpg);">
+    <style>
+        .project-blocks .image-box {
+            position: relative;
+            overflow: hidden;
+        }
 
-            <!-- Project Section -->
-            <section class="project-section" style="background-image: url(images/background/1.jpg);">
-                <div class="auto-container">
-                    <div class="sec-title light text-center">
-                        <h4>Our Works</h4>
-                        <h2>Latest Projects</h2>
-                    </div>
+        .project-blocks .title-boxs {
+            position: absolute;
+            bottom: -18px;
+            left: 0;
+            right: 0;
+            padding: 15px;
 
-                    <!--Carousel Box-->
-                    <div class="carousel-box">
-                        <div class="project-carousel owl-carousel owl-theme">
-                            <!-- Project Block -->
-                            {% for project in latest_projects %}
-                            <div class="project-block">
-                                <div class="image-box">
-                                    <figure>
+            
+            /* More transparent background so image shows through */
+            background: #000000c9;
+            
+            /* Soft shadow for depth */
+            box-shadow: 0 -10px 25px rgba(65, 62, 62, 0.3);
+            
+            /* Text shadow for crisp text */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+        }
 
-                                        {% comment %} <a href="{% url 'project_detail' project.pk %}" class="ligtbox-image"> {% endcomment %}
-                                            <img src="{{ project.main_image.url }}"  alt="{{ project.name }}">
-                                        {% comment %} </a> {% endcomment %}
-                                    </figure>
-                                    <div class="title-box">
-                                        <h3><a href="{% url 'projects' %}">{{project.name}}</a></h3>
-                                        <span class="tag">{{project.category}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor%}
+        .project-blocks .title-boxs h3,
+        .project-blocks .title-boxs h3 a {
+            color: white !important;
+            margin: 0 0 5px 0;
+        }
+
+        /* Tag color white */
+        .tag-color-white {
+            color: white !important;
+        }
+
+        /* Remove hover movement */
+        .project-blocks:hover .title-boxs,
+        .project-blocks .title-boxs:hover {
+            transform: none !important;
+        }
+    </style>
+
+    <div class="auto-container">
+        <div class="sec-title light text-center">
+            <h4>Our Works</h4>
+            <h2>Latest Projects</h2>
+        </div>
+
+        <!--Carousel Box-->
+        <div class="carousel-box">
+            <div class="project-carousel owl-carousel owl-theme">
+                <!-- Project Block -->
+                {% for project in latest_projects %}
+                <div class="project-blocks">
+                    <div class="image-box">
+                        <figure>
+                            <img src="{{ project.main_image.url }}"  alt="{{ project.name }}">
+                        </figure>
+                        <div class="title-boxs">
+                            <h3><a href="{% url 'projects' %}">{{project.name}}</a></h3>
+
+                            <b class="tag-color-white">{{project.get_category_display}}</b>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!--End Project Section -->
-            <section class="request-qoute-title-block bg-gray">
+                {% endfor%}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="request-qoute-title-block bg-gray">
                 <div class="auto-container">
                     <div class="sec-title text-center">
                         <h4>Ask Our Expert</h4>
