@@ -17,3 +17,6 @@ db.sqlite3
 .env
 
 launch.json
+
+# MacOS #
+.DS_Store
