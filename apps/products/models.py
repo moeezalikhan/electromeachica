@@ -3,6 +3,7 @@
 from django.db import models
 from apps.utilities.models import BaseModel
 import uuid
+from django.urls import reverse
 
 
 """ ============ categories Model ============ """
@@ -39,6 +40,9 @@ class Product(BaseModel):
 
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', args=[str(self.id)]) # pyright: ignore[reportAttributeAccessIssue]
 
 
 class ProductImage(BaseModel):

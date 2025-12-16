@@ -1,12 +1,8 @@
-
-""" ============= Imports ============="""
 from django.urls import path
-from  . import views
-""" ============== Urls ================= """
+from . import views
+
 
 urlpatterns = [
-    path('our_vision/', views.our_vision, name='our_vision'),
-    path('our_mission/', views.our_mission, name='our_mission'),
+    path('our-mission/', views.our_mission, name='our_mission'),
+    path('our-vision/', views.our_vision, name='our_vision'),
 ]
-
-

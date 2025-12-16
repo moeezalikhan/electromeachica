@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 
     # Custom apps
     'apps.main',
@@ -54,6 +56,7 @@ INSTALLED_APPS = [
     'apps.market_sector',
     'apps.contact_us',
 ]
+SITE_ID = 1
 
 """
 =====================================================

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}500 - Server Error{% endblock %}
+
+{% block content %}
+
+<style>
+.error-wrapper{
+    min-height: calc(100vh - 200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f8f8;
+}
+.error-box{
+    text-align: center;
+}
+.error-box h1{
+    font-size: 8rem;
+    margin: 0;
+    color: #016aac;
+}
+.error-box h2{
+    margin: 10px 0;
+    font-size: 2rem;
+}
+.error-box p{
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+.error-box a{
+    padding: 12px 28px;
+    background: #171818d0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+</style>
+
+<div class="error-wrapper">
+    <div class="error-box">
+        <h1>500</h1>
+        <h2>Internal Server Error</h2>
+        <p>Something went wrong on our server.</p>
+        <a href="/">Go Back Home</a>
+    </div>
+</div>
+
+{% endblock %}

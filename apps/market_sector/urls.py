@@ -2,6 +2,7 @@ from django.urls import path
 from apps.market_sector import views
 
 
+
 # urls.py
 urlpatterns = [
     path('', views.market_sector, name='market_sector'),

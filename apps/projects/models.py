@@ -1,6 +1,7 @@
 """ ============= Imports =============== """
 from django.db import models
 from apps.utilities.models import BaseModel
+from django.urls import reverse
 
 
 """ ============= Project Model =============== """
@@ -21,7 +22,8 @@ class Project(BaseModel):
 
     def __str__(self):
         return self.name
-
+    def get_absolute_url(self):
+        return reverse('project_detail', args=[str(self.id)]) # type: ignore
 
 """ ============= Project Image Model =============== """
 class ProjectImage(BaseModel):
