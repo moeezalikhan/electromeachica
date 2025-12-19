@@ -13,6 +13,8 @@ media/
 db.sqlite3
 .idea
 
+.vscode
+
 # Environment Variables #
 .env
 
