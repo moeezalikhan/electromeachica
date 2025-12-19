@@ -5113,12 +5113,12 @@ img {
 
 .project-block-four:hover .image-box .overlay-box:before {
     opacity: .90;
-    bottom: 95px;
+    bottom: 35%;
     top: auto;
     visibility: visible;
 }
 
-.project-block-four .overlay-box a {
+.project-block-four .overlay-box .view-image-btn {
     position: absolute;
     left: 46%;
     top: 39%;
@@ -5140,11 +5140,11 @@ img {
     transition: all 300ms ease;
 }
 
-.project-block-four .overlay-box a:hover {
+.project-block-four .overlay-box .view-image-btn:hover {
     color: #ffffff;
 }
 
-.project-block-four:hover .overlay-box a {
+.project-block-four:hover .overlay-box .view-image-btn {
     opacity: 1;
     visibility: visible;
     -webkit-transition-delay: 300ms;

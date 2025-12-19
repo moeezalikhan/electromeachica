@@ -23,6 +23,21 @@
     color: #000; /* black bold text */
 }
 
+.project-block-four:hover .overlay-box.project-description {
+    background: white;
+    padding-left: 10px;
+}
+
+span.tag.bolt {
+    color: #016aac;
+}
+
+.read-more-btn {
+    color: #016aac;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+}
 </style>
 
 <!-- Page Title -->
@@ -70,20 +85,20 @@
                         <img src="{{ project.main_image.url }}" alt="{{ project.name }}">
                     {% endif %}
                     <div class="overlay-box project-description">
-                        <h4>{{ project.name }}</h4>
+                        <h4>{{ project.name|capfirst }}</h4>
                         <span class="tag bolt">{{ project.get_category_display }}</span>
                         <!-- Overlay Read More -->
                         <p id="overlay-desc-{{ project.id }}">
                             {% if project.description|length > 120 %}
-                                {{ project.description|slice:":120" }}<span id="overlay-dots-{{ project.id }}">...</span>
-                                <span id="overlay-more-{{ project.id }}" style="display:none;">{{ project.description|slice:"120:" }}</span>
-                                <a onclick="toggleDesc({{ project.id }}, 'overlay')" id="overlay-btn-{{ project.id }}">Read More</a>
+                                {{ project.description|slice:":120" }}<span class="overlay-dots" style="display:none;">...</span>
+                                <span class="overlay-more-text" style="display:none;">{{ project.description|slice:"120:" }}</span>
+                                <a class="read-more-btn">Read More</a>
                             {% else %}
                                 {{ project.description }}
                             {% endif %}
                         </p>
                         {% if project.main_image %}
-                            <a href="{{ project.main_image.url }}" data-fancybox="gallery-{{ project.id }}">
+                            <a class="view-image-btn" href="{{ project.main_image.url }}" data-fancybox="gallery-{{ project.id }}">
                                 <span class="fa fa-search-plus"></span>
                             </a>
                             {% for img in project.images.all %}
@@ -93,20 +108,6 @@
                             {% endfor %}
                         {% endif %}
                     </div>
-                </div>
-                <div class="content-box ">
-                    <h4>{{ project.name }}</h4>
-                    <span class="tag bolt">{{ project.get_category_display }}</span>
-                    <!-- Card Read More -->
-                    <p id="card-desc-{{ project.id }}">
-                        {% if project.description|length > 120 %}
-                            {{ project.description|slice:":120" }}<span id="card-dots-{{ project.id }}">...</span>
-                            <span id="card-more-{{ project.id }}" style="display:none;">{{ project.description|slice:"120:" }}</span>
-                            <a onclick="toggleDesc({{ project.id }}, 'card')" id="card-btn-{{ project.id }}">Read More</a>
-                        {% else %}
-                            {{ project.description }}
-                        {% endif %}
-                    </p>
                 </div>
             </div>
             {% endfor %}
@@ -136,21 +137,25 @@
 </section>
 
 <script>
-function toggleDesc(id, type) {
-    var dots = document.getElementById(type + "-dots-" + id);
-    var moreText = document.getElementById(type + "-more-" + id);
-    var btnText = document.getElementById(type + "-btn-" + id);
-
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read More";
-        moreText.style.display = "none";
-    } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read Less";
-        moreText.style.display = "inline";
-    }
-}
+// Using javascript to toggle the read more button
+document.addEventListener('DOMContentLoaded', function() {
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const overlayDesc = this.closest('.overlay-box').querySelector('.overlay-more-text');
+            const overlayDots = this.closest('.overlay-box').querySelector('.overlay-dots');
+            if (overlayDesc.style.display === 'none') {
+                overlayDesc.style.display = 'block';
+                btn.textContent = 'Read Less';
+                overlayDots.style.display = 'none';
+            } else {
+                overlayDesc.style.display = 'none';
+                btn.textContent = 'Read More';
+                overlayDots.style.display = 'inline';
+            }
+        });
+    });
+});
 </script>
 
 {% endblock %}
