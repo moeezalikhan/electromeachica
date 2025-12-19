@@ -5100,7 +5100,7 @@ img {
     bottom: 95px;
     height: 100%;
     width: 100%;
-    background-color: #181818;
+    background-color: #18181852;
     content: "";
     opacity: 0;
     visibility: hidden;
@@ -5120,15 +5120,15 @@ img {
 
 .project-block-four .overlay-box a {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 46%;
+    top: 39%;
     margin-top: -55px;
     margin-left: -15px;
     display: inline-block;
     height: 30px;
     width: 30px;
-    font-size: 20px;
-    color: #016aac;
+    font-size: 25px;
+    color: #fdfdfd;
     line-height: 30px;
     opacity: 0;
     visibility: hidden;
