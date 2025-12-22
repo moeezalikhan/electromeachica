@@ -15,11 +15,18 @@
     height: 300px;
     object-fit: cover;
     display: block;
+    
 }
+.image-box a {
+    position: relative; 
 
+}
+ .fancybox-selection{
+    z-index: 2;
+ }
 .fancybox-trigger-icon {
     position: absolute;
-    top: 33%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 55px;
@@ -34,7 +41,9 @@
     opacity: 0;
     transition: 0.3s ease;
     z-index: 2;
+    pointer-events: auto;
 }
+
 
 .image-box:hover .fancybox-trigger-icon {
     opacity: 1;
@@ -56,7 +65,7 @@ span.tag.bolt {
 
 .read-more-btn {
     color: #016aac;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -115,7 +124,7 @@ span.tag.bolt {
 
                     {% with project.images.first as image %}
                         {% if image %}
-                            <a href="{{ image.image.url }}"
+                            <a class="fancybox-selection" href="{{ image.image.url }}"
                                data-fancybox="gallery-{{ project.id }}">
                                 <img src="{{ image.image.url }}" alt="{{ project.name }}">
                                 <span class="fancybox-trigger-icon">

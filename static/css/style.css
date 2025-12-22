@@ -5100,7 +5100,6 @@ img {
     bottom: 95px;
     height: 100%;
     width: 100%;
-    
     content: "";
     opacity: 0;
     visibility: hidden;
@@ -5116,6 +5115,7 @@ img {
     bottom: 44%;
     top: auto;
     visibility: visible;
+    
 }
 
 .project-block-four .overlay-box .view-image-btn {
