@@ -5100,7 +5100,7 @@ img {
     bottom: 95px;
     height: 100%;
     width: 100%;
-    background-color: #18181852;
+    
     content: "";
     opacity: 0;
     visibility: hidden;
@@ -5113,7 +5113,7 @@ img {
 
 .project-block-four:hover .image-box .overlay-box:before {
     opacity: .90;
-    bottom: 35%;
+    bottom: 44%;
     top: auto;
     visibility: visible;
 }
