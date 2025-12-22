@@ -241,7 +241,7 @@ img {
                                     the charms of pleasure of the moment, so blinded by desire, that they <br> cannot foresee
                                     the pain and over all trouble.
                                 </div>
-                                <a href="#" class="more-btn btn-phone btn-center"><i class="machinery-icon-next"></i> Locate Our Branches</a>
+                               
                             </div>
                         </div>
                         <!-- Video Column -->
@@ -366,15 +366,8 @@ img {
             left: 0;
             right: 0;
             padding: 15px;
-
-            
-            /* More transparent background so image shows through */
             background: #000000c9;
-            
-            /* Soft shadow for depth */
             box-shadow: 0 -10px 25px rgba(65, 62, 62, 0.3);
-            
-            /* Text shadow for crisp text */
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
         }
 
@@ -384,15 +377,48 @@ img {
             margin: 0 0 5px 0;
         }
 
-        /* Tag color white */
         .tag-color-white {
             color: white !important;
         }
 
-        /* Remove hover movement */
         .project-blocks:hover .title-boxs,
         .project-blocks .title-boxs:hover {
             transform: none !important;
+        }
+
+        /* Fancybox hover icon */
+        .fancybox-trigger-wrap {
+            position: relative;
+            display: block;
+        }
+
+        .fancybox-trigger-wrap img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .fancybox-trigger-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.65);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            opacity: 0;
+            transition: 0.3s ease;
+            z-index: 2;
+        }
+
+        .fancybox-trigger-wrap:hover .fancybox-trigger-icon {
+            opacity: 1;
         }
     </style>
 
@@ -405,25 +431,51 @@ img {
         <!--Carousel Box-->
         <div class="carousel-box">
             <div class="project-carousel owl-carousel owl-theme">
-                <!-- Project Block -->
+                
                 {% for project in latest_projects %}
                 <div class="project-blocks">
                     <div class="image-box">
-                        <figure>
-                            <img src="{{ project.main_image.url }}"  alt="{{ project.name }}">
-                        </figure>
-                        <div class="title-boxs">
-                            <h3><a href="{% url 'projects' %}">{{project.name}}</a></h3>
 
-                            <b class="tag-color-white">{{project.get_category_display}}</b>
+                        {% with project.images.first as image %}
+                            {% if image %}
+                                <!-- IMAGE + ICON CLICKABLE -->
+                                <a href="{{ image.image.url }}"
+                                   data-fancybox="gallery-{{ project.id }}"
+                                   class="fancybox-trigger-wrap">
+
+                                    <!-- PROJECT IMAGE -->
+                                    <img src="{{ image.image.url }}" alt="{{ project.name }}">
+
+                                    <!-- SEARCH ICON -->
+                                    <span class="fancybox-trigger-icon">
+                                        <i class="fa fa-search-plus"></i>
+                                    </span>
+                                </a>
+                            {% endif %}
+                        {% endwith %}
+
+                        <!-- Hidden images for gallery -->
+                        {% for img in project.images.all %}
+                            {% if not forloop.first %}
+                                <a href="{{ img.image.url }}" data-fancybox="gallery-{{ project.id }}" style="display:none;"></a>
+                            {% endif %}
+                        {% endfor %}
+
+                        <!-- Title and category -->
+                        <div class="title-boxs">
+                            <h3><a href="{% url 'projects' %}">{{ project.name|capfirst }}</a></h3>
+                            <b class="tag-color-white">{{ project.get_category_display }}</b>
                         </div>
+
                     </div>
                 </div>
-                {% endfor%}
+                {% endfor %}
+
             </div>
         </div>
     </div>
 </section>
+
 <section class="request-qoute-title-block bg-gray">
                 <div class="auto-container">
                     <div class="sec-title text-center">
