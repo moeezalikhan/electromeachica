@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.conf import settings
+from .models import ContactUs
 # Create your views here.
 
 def contact_us(request):
@@ -12,6 +13,13 @@ def contact_us(request):
 
         if not user_name or not user_email or not message:
             return JsonResponse({"status": "error", "message": "All fields are required."})
+
+        try:
+            ContactUs.objects.create(name=user_name, email=user_email, message=message)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)})
+        
+
 
         subject = f"New message from {user_name}"
         full_message = f"""
@@ -26,7 +34,7 @@ Message:
 
         try:
             # Send to admin
-            send_mail(subject, full_message, settings.DEFAULT_FROM_EMAIL, ["nomandev769@gmail.com"])
+            send_mail(subject, full_message, settings.DEFAULT_FROM_EMAIL, [settings.EMAIL_HOST_USER])
 
             # Send confirmation to user
             send_mail(

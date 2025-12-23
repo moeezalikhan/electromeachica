@@ -13583,4 +13583,13 @@ footer {
     text-decoration: underline;
 }
 
+.contact-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+}
 
+
+form#homeContactForm input, form#homeContactForm textarea {
+    background: #e5d8d866;
+}
