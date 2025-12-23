@@ -8,14 +8,22 @@ class StaticViewSitemap(Sitemap):
 
     def items(self):
         return [
-            'main:home',           
-            'main:brochure',      
-            'about_us:our_mission',
-            'about_us:our_vision',
-            'contact_us:contact_us',
-            'contact_us:faqs',
-            'contact_us:privacy_policy',
-            'contact_us:term_of_use',
+            'home',           
+            'brochure',      
+            'our_mission',
+            'our_vision',
+            'contact_us',
+            'faqs',
+            'privacy_policy',
+            'term_of_use',
+            'teams',
+            'market_sector',
+            'textile_sector',
+            'educational_trainers',
+            'industrial_trainers',
+            'testing_benches',
+            'cement',
+            'chemicals',
         ]
 
     def location(self, item):
