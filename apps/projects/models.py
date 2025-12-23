@@ -16,14 +16,13 @@ class Project(BaseModel):
     ]
 
     name = models.CharField(max_length=255)
-    description = models.TextField(max_length=250)
+    description = models.CharField(max_length=250)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
-    main_image = models.ImageField(upload_to='main_image/', default='default.jpg')
+    
 
     def __str__(self):
         return self.name
-    def get_absolute_url(self):
-        return reverse('project_detail', args=[str(self.id)]) # type: ignore
+   
 
 """ ============= Project Image Model =============== """
 class ProjectImage(BaseModel):

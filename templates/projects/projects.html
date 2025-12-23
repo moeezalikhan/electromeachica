@@ -5,27 +5,95 @@
 {% block content %}
 
 <style>
-/* Project Image */
+.project-block-four .image-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-block-four .image-box a.fancybox-selection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateY(-100%);
+    transition: transform 0.9s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project-block-four:hover .image-box a.fancybox-selection::before {
+    transform: translateY(0);
+}
+
 .project-block-four .image-box img {
-    display: block;
     width: 100%;
     height: 300px;
     object-fit: cover;
+    display: block;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.project-block-four:hover .image-box img {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.image-box a {
+    position: relative; 
 
 }
-.project-description {
-    margin-left:6px;
-    margin-top:15px
+ .fancybox-selection{
+    z-index: 2;
+ }
+.fancybox-trigger-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: rgba(0,0,0,0.65);
+    font-size: 25px;
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 2;
+    pointer-events: auto;
 }
+
+
+.image-box:hover .fancybox-trigger-icon {
+    opacity: 1;
+}
+
+.project-description {
+    margin-top: 15px;
+}
+
 .bolt {
     font-weight: bold;
     font-size: 16px;
-    color: #000; /* black bold text */
+    color: #000;
 }
 
+span.tag.bolt {
+    color: #016aac;
+}
+
+.read-more-btn {
+    color: #016aac;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
 </style>
 
-<!-- Page Title -->
 <section class="page-title" style="background-image:url({% static 'images/background/projects-banner.jpg' %})">
     <div class="auto-container">
         <h1>Projects</h1>
@@ -36,83 +104,84 @@
     </div>
 </section>
 
-<!-- Projects Section -->
 <section class="projects-section-four">
     <div class="auto-container">
-        <!-- Sort & Search Bar -->
-        <div class="items-sorting">
+        <div class="items-sorting" style="margin-bottom:30px;">
             <div class="row clearfix">
                 <div class="results-column col-md-6 col-sm-6 col-xs-12">
                     <h4>
-                        Showing {{ page_obj.start_index }}–{{ page_obj.end_index }} of {{ page_obj.paginator.count }} results
+                        Showing {{ page_obj.start_index }}–{{ page_obj.end_index }}
+                        of {{ page_obj.paginator.count }} results
                     </h4>
                 </div>
-                <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
-                    <form method="get" class="search-form resposive">
-                        <input type="text" name="q" placeholder="Search projects..." value="{{ search_query }}" class="form-control resposive-font-size" style="width: 50%; display:inline-block;">
-                        <select name="category" class="form-control resposive-cat" style="width: 30%; display:inline-block;">
+                <div class="select-column col-md-6 col-sm-6 col-xs-12">
+                    <form method="get" class="search-form" style="text-align:right;">
+                        <input type="text"
+                               name="q"
+                               placeholder="Search projects..."
+                               value="{{ search_query }}"
+                               class="form-control"
+                               style="width:45%;display:inline-block;">
+                        <select name="category"
+                                class="form-control"
+                                style="width:35%;display:inline-block;">
                             <option value="">All Categories</option>
                             {% for key, value in categories %}
-                                <option value="{{ key }}" {% if category_filter == key %}selected{% endif %}>{{ value }}</option>
+                                <option value="{{ key }}" {% if category_filter == key %}selected{% endif %}>
+                                    {{ value }}
+                                </option>
                             {% endfor %}
                         </select>
-                        <button type="submit" class="btn btn-primary resposive-btn">Search</button>
+                        <button type="submit" class="btn btn-primary">
+                            Search
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
-        <!-- Projects Grid -->
         <div class="row clearfix">
             {% for project in projects %}
             <div class="project-block-four col-md-4 col-sm-6 col-xs-12">
                 <div class="image-box">
-                    {% if project.main_image %}
-                        <img src="{{ project.main_image.url }}" alt="{{ project.name }}">
-                    {% endif %}
+
+                    {% with project.images.first as image %}
+                        {% if image %}
+                            <a class="fancybox-selection" href="{{ image.image.url }}"
+                               data-fancybox="gallery-{{ project.id }}">
+                                <img src="{{ image.image.url }}" alt="{{ project.name }}">
+                                <span class="fancybox-trigger-icon">
+                                    <i class="fa fa-search-plus"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                    {% endwith %}
+                    {% for img in project.images.all %}
+                        {% if not forloop.first %}
+                            <a href="{{ img.image.url }}"
+                               data-fancybox="gallery-{{ project.id }}"
+                               style="display:none;"></a>
+                        {% endif %}
+                    {% endfor %}
                     <div class="overlay-box project-description">
-                        <h4>{{ project.name }}</h4>
+                        <h4>{{ project.name|capfirst }}</h4>
                         <span class="tag bolt">{{ project.get_category_display }}</span>
-                        <!-- Overlay Read More -->
-                        <p id="overlay-desc-{{ project.id }}">
+                        <p>
                             {% if project.description|length > 120 %}
-                                {{ project.description|slice:":120" }}<span id="overlay-dots-{{ project.id }}">...</span>
-                                <span id="overlay-more-{{ project.id }}" style="display:none;">{{ project.description|slice:"120:" }}</span>
-                                <a onclick="toggleDesc({{ project.id }}, 'overlay')" id="overlay-btn-{{ project.id }}">Read More</a>
+                                {{ project.description|slice:":120" }}
+                                <span class="overlay-dots">...</span>
+                                <span class="overlay-more-text" style="display:none;">
+                                    {{ project.description|slice:"120:" }}
+                                </span>
+                                <a href="#" class="read-more-btn">Read More</a>
                             {% else %}
                                 {{ project.description }}
                             {% endif %}
                         </p>
-                        {% if project.main_image %}
-                            <a href="{{ project.main_image.url }}" data-fancybox="gallery-{{ project.id }}">
-                                <span class="fa fa-search-plus"></span>
-                            </a>
-                            {% for img in project.images.all %}
-                                {% if img != project.main_image %}
-                                    <a href="{{ img.image.url }}" data-fancybox="gallery-{{ project.id }}" style="display:none;"></a>
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
                     </div>
-                </div>
-                <div class="content-box ">
-                    <h4>{{ project.name }}</h4>
-                    <span class="tag bolt">{{ project.get_category_display }}</span>
-                    <!-- Card Read More -->
-                    <p id="card-desc-{{ project.id }}">
-                        {% if project.description|length > 120 %}
-                            {{ project.description|slice:":120" }}<span id="card-dots-{{ project.id }}">...</span>
-                            <span id="card-more-{{ project.id }}" style="display:none;">{{ project.description|slice:"120:" }}</span>
-                            <a onclick="toggleDesc({{ project.id }}, 'card')" id="card-btn-{{ project.id }}">Read More</a>
-                        {% else %}
-                            {{ project.description }}
-                        {% endif %}
-                    </p>
                 </div>
             </div>
             {% endfor %}
         </div>
-
-        <!-- Pagination -->
         {% if page_obj.has_other_pages %}
         <div class="styled-pagination text-center mt-4">
             <ul class="pagination-list">
@@ -134,23 +203,25 @@
         {% endif %}
     </div>
 </section>
-
 <script>
-function toggleDesc(id, type) {
-    var dots = document.getElementById(type + "-dots-" + id);
-    var moreText = document.getElementById(type + "-more-" + id);
-    var btnText = document.getElementById(type + "-btn-" + id);
-
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Read More";
-        moreText.style.display = "none";
-    } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Read Less";
-        moreText.style.display = "inline";
-    }
-}
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.read-more-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const box = this.closest('.overlay-box');
+            const more = box.querySelector('.overlay-more-text');
+            const dots = box.querySelector('.overlay-dots');
+            if (more.style.display === 'none') {
+                more.style.display = 'inline';
+                dots.style.display = 'none';
+                this.textContent = 'Read Less';
+            } else {
+                more.style.display = 'none';
+                dots.style.display = 'inline';
+                this.textContent = 'Read More';
+            }
+        });
+    });
+});
 </script>
-
 {% endblock %}
