@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.main.models import Brochure, Banner
+from apps.main.models import Brochure, Banner, OurClient
 
 @admin.register(Brochure)
 class BrochureAdmin(admin.ModelAdmin):
@@ -13,4 +13,11 @@ class BrochureAdmin(admin.ModelAdmin):
 class BannerAdmin(admin.ModelAdmin):
     list_display = ('title', 'description', 'category', 'priority', 'is_active')
     search_fields = ('title', 'description', 'category')
+    list_filter = ('is_active', 'created_at', 'updated_at')
+
+
+@admin.register(OurClient)
+class OurClientAdmin(admin.ModelAdmin):
+    list_display = ('name', 'image', 'priority', 'is_active')
+    search_fields = ('name', 'image', 'priority', 'is_active')
     list_filter = ('is_active', 'created_at', 'updated_at')

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from apps.projects.models import Project
-from apps.main.models import Brochure, Banner
+from apps.main.models import Brochure, Banner, OurClient
 
 ## views.py
 def home(request):
@@ -21,13 +21,16 @@ def home(request):
         
     }
 
+    our_clients = OurClient.objects.filter(is_active=True).order_by('priority')
+
 
     for banner in banners:
         banner.url = category_urls.get(banner.category, 'market_sector') # pyright: ignore[reportAttributeAccessIssue]
 
     context = {
         "latest_projects": latest_projects,
-        "banners": banners
+        "banners": banners,
+        "clients": our_clients
     }
     return render(request, 'home/index.html', context=context)
 

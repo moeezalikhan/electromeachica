@@ -30,3 +30,17 @@ class Banner(BaseModel):
     
     def __str__(self):
         return self.title
+
+
+class OurClient(BaseModel):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='our_clients/')
+    priority = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Our Client"
+        verbose_name_plural = "Our Clients"
+        ordering = ['priority']

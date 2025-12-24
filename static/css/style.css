@@ -10051,7 +10051,6 @@ a.ui-button:active,
 
 .shop-item .inner-box {
     position: relative;
-    padding-top: 10px;
     transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
