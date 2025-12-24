@@ -2044,6 +2044,10 @@ img {
     margin-right: auto;
     margin-bottom: 10px;
 }
+.text.text-center{
+    font-size: 18px !important;
+    color: #ffffff !important;
+}
 
 .main-banner-content-two h1 {
     animation-delay: 1s;
@@ -6680,7 +6684,6 @@ img {
     display: block;
     max-width: 100%;
     width: auto;
-    opacity: .3;
     margin: 0 auto;
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
@@ -13591,4 +13594,29 @@ footer {
 
 form#homeContactForm input, form#homeContactForm textarea {
     background: #e5d8d866;
+}
+
+.client-title{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.client-title h2{
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 650px) {
+    .highlights .highlight-block .text {
+        margin-left: 12%;
+    }
+
+    .content-column.col-md-6.col-sm-12.col-xs-12.bt-contan{
+        text-align: center;
+    }
+
+    .inner-column .info-box.clearfix.fact{
+        margin-left: 20%;
+    }
+
 }

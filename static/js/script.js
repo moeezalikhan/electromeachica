@@ -389,27 +389,40 @@ $('.main-header .navigation li.dropdown').on('click', function() {
     if ($('.clients-carousel').length) {
         $('.clients-carousel').owlCarousel({
             loop: true,
-            margin: 30,
+            margin: 10,
             nav: false,
             dots: false,
             smartSpeed: 700,
-            autoplay: 5000,
+            autoplay: true,
+            autoplayTimeout: 3000,
             navText: ['<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>'],
             responsive: {
                 0: {
-                    items: 1
-                },
-                480: {
                     items: 2
                 },
-                800: {
+                480: {
                     items: 3
                 },
-                1024: {
+                600: {
                     items: 4
                 },
+                800: {
+                    items: 5
+                },
+                1024: {
+                    items: 6
+                },
                 1200: {
-                    items: 4
+                    items: 7
+                },
+                1400: {
+                    items: 8
+                },
+                1600: {
+                    items: 9
+                },
+                1800: {
+                    items: 10
                 }
             }
         });

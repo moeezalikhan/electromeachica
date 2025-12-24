@@ -8,7 +8,116 @@ img {
     width: auto;
     height: 350px;
     max-width: 100%;
-}    
+}
+
+/* Video Hover Styles */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.video-container .hover-video {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.video-container:hover .hover-video {
+    transform: scale(1.05);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease, background 0.3s ease;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.video-container:hover .video-overlay {
+    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.video-container.playing:hover .video-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.video-overlay .icon {
+    font-size: 80px;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.video-container:hover .video-overlay .icon {
+    transform: scale(1.2);
+}
+
+/* Play video on hover */
+.video-container:hover .hover-video {
+    cursor: pointer;
+}
+
+.video-container {
+    cursor: pointer;
+}
+
+.video-container.playing .video-overlay .play-icon {
+    display: none;
+}
+
+.video-container.playing .video-overlay .pause-icon {
+    display: block !important;
+}
+
+.video-container:not(.playing) .video-overlay .play-icon {
+    display: block;
+}
+
+.video-container:not(.playing) .video-overlay .pause-icon {
+    display: none !important;
+}
+
+/* Clients Section Custom Styles */
+.clients-section {
+    background-color: #000000 !important;
+    padding: 25px 0;
+}
+
+.clients-section .sec-title h2,
+.clients-section .sec-title h4 {
+    color: #ffffff;
+}
+
+.clients-section .clients-block .image-box {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+}
+
+.clients-section .clients-block .image-box img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    padding: 5px;
+}
 </style><div id="minimal-bootstrap-carousel" class="carousel slide carousel-fade slider-home-one" data-ride="carousel">
     <!-- Indicators (optional) -->
     <ol class="">
@@ -89,8 +198,7 @@ img {
             <!-- Our Clients -->
                 <section class="clients-section">
                     <div class="auto-container">
-                        <div class="sec-title text-center">
-                            <h4>Our Clients</h4>
+                        <div class="client-title text-center">
                             <h2>Our Clients</h2>
                         </div>
                     </div>
@@ -246,20 +354,19 @@ img {
                         <div class="content-column col-md-6 col-sm-12 col-xs-12 bt-contan">
                             <div class="inner-column">
                                 <div class="sec-title light sec-title-mobile">
-                                    <h4>Fun facts</h4>
-                                    <h2>What We Achived?</h2>
+                                    <h4>Our Achievements</h4>
+                                    <h2>What We Have Accomplished?</h2>
                                     <h5>Strength and growth comes only through continuous effort & struggle.</h5>
                                 </div>
 
                                 <div class="info-box clearfix fact">
-                                    <span class="icon machinery-icon-worldwide icon-machiry icon-machinery-mobile-view"></span>
-                                    <span class="count">148 <span class="plus">+</span></span>
-                                    <span class="title mrg text-align"><span>Branches Worldwide</span></span>
+                                    <span class="icon machinery-icon-factory icon-machiry icon-machinery-mobile-view"></span>
+                                    <span class="count">100 <span class="plus">+</span></span>
+                                    <span class="title mrg text-align"><span>Projects Completed</span></span>
                                 </div>
 
-                                <div class="text text-center">Over 148+ branches indignation & dislike men who beguiled demoralized <br> by
-                                    the charms of pleasure of the moment, so blinded by desire, that they <br> cannot foresee
-                                    the pain and over all trouble.
+                                <div class="text text-center">Over 100+ projects completed successfully, with a focus on quality and customer satisfaction.
+                                    Our team of experts is dedicated to delivering the best possible results for our clients.
                                 </div>
                                
                             </div>
@@ -267,12 +374,14 @@ img {
                         <!-- Video Column -->
                         <div class="video-column col-md-6 col-sm-12 col-xs-12">
                             <div class="inner-column">
-                                <figure class="image">
-                                    <img src="{% static 'images/resource/video-img.jpg' %}" alt="">
-                                    <a href="https://www.youtube.com/watch?v=Fvae8nxzVz4" class="link" data-fancybox="gallery"
-                                    data-caption="">
-                                        <span class="icon fa fa-play-circle"></span>
-                                    </a>
+                                <figure class="image video-container">
+                                    <video class="hover-video" width="100%" height="400" style="object-fit: cover; border-radius: 10px;" loop>
+                                        <source src="{% static 'video/Electromechanica.mp4' %}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="video-overlay">
+                                        <span class="icon fa fa-play-circle play-icon"></span>
+                                    </div>
                                 </figure>
                             </div>
                         </div>
@@ -606,7 +715,6 @@ img {
                         <!--  AJAX Script -->
                         <script>
                             $(document).ready(function () {
-                                console.log(" Home page AJAX contact form ready");
 
                                 // Get CSRF token
                                 function getCookie(name) {
@@ -680,4 +788,49 @@ img {
                 </div>
             </section>
             <!--End News Section -->
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoContainer = document.querySelector('.video-container');
+            const video = document.querySelector('.hover-video');
+            
+            if (videoContainer && video) {
+                // Function to update play/pause icon
+                function updateIcon() {
+                    if (video.paused) {
+                        videoContainer.classList.remove('playing');
+                    } else {
+                        videoContainer.classList.add('playing');
+                    }
+                }
+                
+                // Click to play/pause
+                videoContainer.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (video.paused) {
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                    updateIcon();
+                });
+                
+                // Update icon when video state changes
+                video.addEventListener('play', function() {
+                    updateIcon();
+                });
+                
+                video.addEventListener('pause', function() {
+                    updateIcon();
+                });
+                
+                // Update icon on video end
+                video.addEventListener('ended', function() {
+                    updateIcon();
+                });
+                
+                // Initial icon state
+                updateIcon();
+            }
+        });
+        </script>
         {% endblock %}
