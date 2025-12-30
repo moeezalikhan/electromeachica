@@ -13620,3 +13620,27 @@ form#homeContactForm input, form#homeContactForm textarea {
     }
 
 }
+
+ul.header-text li{
+    list-style: disc;
+}
+
+.larger-text{
+    font-size: xxx-large !important;
+}
+
+.medium-text{
+    font-size: xx-large !important;
+}
+
+.small-text{
+    font-size: x-large !important;
+}
+
+.tiny-text{
+    font-size: large !important;
+}
+
+.micro-text{
+    font-size: medium !important;
+}
