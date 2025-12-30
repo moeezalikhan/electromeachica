@@ -5987,8 +5987,8 @@ img {
     width: 100%;
     background-color: #181818c4;
     content: "";
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0.5;
+    visibility: visible;
     -webkit-transform: scale(0.5) rotateY(180deg);
     -moz-transform: scale(0.5) rotateY(180deg);
     -ms-transform: scale(0.5) rotateY(180deg);
