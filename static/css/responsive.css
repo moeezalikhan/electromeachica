@@ -445,10 +445,6 @@
 }
 
 @media only screen and (max-width: 767px) {
-    .main-banner-content h1 {
-        font-size: 35px !important;
-    }
-
     .main-header .btn-outer {
         border: 0 none;
         right: auto;
@@ -1264,14 +1260,6 @@
         top: 0;
     }
 
-    .main-banner-content h1 {
-        font-size: 74px;
-    }
-
-    .main-banner-content .text {
-        font-size: 16px;
-    }
-
     .main-header .header-top .top-left ul li {
         display: inline-block;
         vertical-align: middle;
@@ -1355,9 +1343,6 @@
         border-left: 0;
     }
 
-    .main-banner-content h1 {
-        font-size: 58px;
-    }
 
     .main-banner-content-two h1 {
         font-size: 45px;

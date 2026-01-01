@@ -13644,3 +13644,39 @@ ul.header-text li{
 .micro-text{
     font-size: medium !important;
 }
+
+
+@media (max-width: 767px) {
+    .larger-text{
+        font-size: medium !important;
+    }
+    .medium-text{
+        font-size: small !important;
+    }
+    .small-text{
+        font-size: x-small !important;
+    }
+    .tiny-text{
+        font-size: xx-small !important;
+    }
+    .micro-text{
+        font-size: xxx-small !important;
+    }
+
+    .header-text li{
+        font-size: smaller ;
+    }
+    .banner-btn-size-one{
+        font-size: smaller !important;
+    }
+    .banner-btn-size-two{
+        font-size: smaller !important;
+    }
+    .text.mobile-text{
+        font-size: smaller !important;
+    }
+
+    .main-header{
+        margin-bottom: -3%;
+    }
+}
