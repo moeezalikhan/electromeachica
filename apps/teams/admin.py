@@ -9,9 +9,9 @@ from apps.teams.models import Team
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('image_preview', 'full_name', 'desination', 'active', 'priority')
+    list_display = ('image_preview', 'full_name', 'designation', 'active', 'priority')
     list_editable = ('active', 'priority')
-    list_filter = ('desination', 'active')
+    list_filter = ('designation', 'active')
     search_fields = ('full_name',)
     ordering = ('priority',)
 
