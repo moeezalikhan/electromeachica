@@ -179,8 +179,9 @@
               </div>
             </div>
             <!-- Related / Category Products -->
+            {% if related_products %}
             <div class="related-products mt-5">
-             <h2>{% if category %}Related Products{% else %}Related Products{% endif %}</h2>
+             <h2>Related Products</h2>
               <div class="row clearfix">
                 {% for related in related_products %}
                 <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -208,7 +209,7 @@
                 {% endfor %}
               </div>
             </div>
-
+            {% endif %}
           </div>
         </div>
       </div>
