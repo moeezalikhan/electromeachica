@@ -40,7 +40,7 @@ class OurClient(BaseModel):
     def __str__(self):
         return self.name
 
-    class Meta:
+    class Meta: # type: ignore
         verbose_name = "Our Client"
         verbose_name_plural = "Our Clients"
         ordering = ['priority']
