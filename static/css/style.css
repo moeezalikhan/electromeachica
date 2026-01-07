@@ -5987,8 +5987,8 @@ img {
     width: 100%;
     background-color: #181818c4;
     content: "";
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0.5;
+    visibility: visible;
     -webkit-transform: scale(0.5) rotateY(180deg);
     -moz-transform: scale(0.5) rotateY(180deg);
     -ms-transform: scale(0.5) rotateY(180deg);
@@ -13619,4 +13619,64 @@ form#homeContactForm input, form#homeContactForm textarea {
         margin-left: 20%;
     }
 
+}
+
+ul.header-text li{
+    list-style: disc;
+}
+
+.larger-text{
+    font-size: xxx-large !important;
+}
+
+.medium-text{
+    font-size: xx-large !important;
+}
+
+.small-text{
+    font-size: x-large !important;
+}
+
+.tiny-text{
+    font-size: large !important;
+}
+
+.micro-text{
+    font-size: medium !important;
+}
+
+
+@media (max-width: 767px) {
+    .larger-text{
+        font-size: medium !important;
+    }
+    .medium-text{
+        font-size: small !important;
+    }
+    .small-text{
+        font-size: x-small !important;
+    }
+    .tiny-text{
+        font-size: xx-small !important;
+    }
+    .micro-text{
+        font-size: xxx-small !important;
+    }
+
+    .header-text li{
+        font-size: smaller ;
+    }
+    .banner-btn-size-one{
+        font-size: smaller !important;
+    }
+    .banner-btn-size-two{
+        font-size: smaller !important;
+    }
+    .text.mobile-text{
+        font-size: smaller !important;
+    }
+
+    .main-header{
+        margin-bottom: -3%;
+    }
 }

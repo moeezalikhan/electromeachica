@@ -6,23 +6,20 @@ from django.urls import reverse
 
 """ ============= Project Model =============== """
 class Project(BaseModel):
-    """ Defining choices for categories """
-    CATEGORY_CHOICES = [
-        ('business_growth', 'Business Growth'),
-        ('consulting', 'Consulting'),
-        ('management', 'Management'),
-        ('customer_insights', 'Customer Insights'),
-        ('organization', 'Organization'),
-    ]
 
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=250)
-    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
-    
+    category = models.ForeignKey('ProjectCategory', on_delete=models.CASCADE, related_name='projects')
 
     def __str__(self):
         return self.name
-   
+
+class ProjectCategory(BaseModel):
+    name = models.CharField(max_length=255, unique=True)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
 
 """ ============= Project Image Model =============== """
 class ProjectImage(BaseModel):
