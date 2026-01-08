@@ -1,16 +1,19 @@
 """ ============= Imports =============== """
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from apps.projects.models import Project
+from apps.projects.models import Project, ProjectCategory, ProjectImage
 
 
 """ ============= All Projects View =============== """
 def projects(request):
-    categories = Project.CATEGORY_CHOICES
+    
 
     # Get search values
     search_query = request.GET.get('q', '').strip()
     category_filter = request.GET.get('category', '').strip()
+
+    # Get all categories
+    categories = ProjectCategory.objects.filter(is_active=True)
 
     # Base queryset
     qs = Project.objects.prefetch_related('images').filter(is_active=True)

@@ -122,13 +122,11 @@ span.tag.bolt {
                                value="{{ search_query }}"
                                class="form-control"
                                style="width:45%;display:inline-block;">
-                        <select name="category"
-                                class="form-control"
-                                style="width:35%;display:inline-block;">
+                      <select name="category" class="form-control" style="width:35%;display:inline-block;">
                             <option value="">All Categories</option>
-                            {% for key, value in categories %}
-                                <option value="{{ key }}" {% if category_filter == key %}selected{% endif %}>
-                                    {{ value }}
+                            {% for category in categories %}
+                                <option value="{{ category.id }}" {% if category_filter|add:'' == category.id|stringformat:"s" %}selected{% endif %}>
+                                    {{ category.name }}
                                 </option>
                             {% endfor %}
                         </select>
