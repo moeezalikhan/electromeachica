@@ -46,7 +46,7 @@ def brochure(request):
     else:
         brochures_qs = Brochure.objects.filter(is_active=True)
 
-    paginator = Paginator(brochures_qs, 1)
+    paginator = Paginator(brochures_qs, 15)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)    
 
