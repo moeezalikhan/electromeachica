@@ -2,6 +2,31 @@
 {% load static %}
 {% block title %}Machenary - Products{% endblock %}
 {% block content %}
+
+<style>
+.product-box-img {
+    display: block;
+    width: 240px;
+    height: 230px;
+}
+.image-box-img {
+    display: inline-block!important;
+    width: auto!important;
+    height: 104%!important;
+    max-width: 115%!important;
+}
+.title-align h4 {
+    text-align: left!important;
+    color: black;
+}
+
+.color {
+    color: #000000ad!important;
+}
+.color:hover {
+    color: #0d61c0ff!important;
+}
+</style>
 <section class="page-title" style="background-image:url({% static 'images/background/product.jpg'%})">
     <div class="auto-container">
         <h1>Products</h1>
@@ -15,11 +40,9 @@
 <div class="sidebar-page-container">
     <div class="auto-container">
         <div class="row clearfix">
-
             <!-- Content Side -->
             <div class="content-side pull-right col-lg-9 col-md-8 col-sm-12 col-xs-12">
                 <div class="shop-section">
-
                     <!-- Sort & Search Bar -->
                     <div class="items-sorting">
                         <div class="row clearfix">
@@ -29,48 +52,41 @@
                                     of {{ page_obj.paginator.count }} results
                                 </h4>
                             </div>
-
                             <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
                                 <form method="get" class="search-form">
                                     <input type="text" name="q" placeholder="Search products..."
                                            value="{{ search_query }}" class="form-control"
                                            style="width: 70%; display:inline-block;">
-
                                     {% if category %}
                                         <input type="hidden" name="category" value="{{ category }}">
                                     {% endif %}
-
                                     <button type="submit" class="btn btn-primary resposive-product">Search</button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <!-- Products Grid -->
+                   <!-- Products Grid -->
                     <div class="row clearfix">
                         {% for product in page_obj.object_list %}
-                            <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                <div class="inner-box">
-
-                                    <div class="image-box">
-                                        <a href="{% url 'product_detail' product.pk %}">
-                                            {% with first_image=product.images.all|first %}
-                                                {% if first_image %}
-                                                    <img src="{{ first_image.image.url }}" alt="{{ product.title }}">
-                                                {% else %}
-                                                    <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
-                                                {% endif %}
-                                            {% endwith %}
-                                        </a>
+                            <div class="project-block-four col-md-4 col-sm-6 col-xs-12">
+                                <div class="product-box-img">
+                                    <a href="{% url 'product_detail' product.pk %}">
+                                        <img class="image-box-img"
+                                             src="{{ product.images.first.image.url }}"
+                                             alt="{{ product.title }}">
+                                    </a>
+                                    <!-- Hidden images for Fancybox gallery -->
+                                    {% for img in product.images.all %}
+                                        {% if not forloop.first %}
+                                            <a href="{{ img.image.url }}" data-fancybox="gallery-{{ product.id }}" style="display:none;"></a>
+                                        {% endif %}
+                                    {% endfor %}
+                                    <div class="product-info">
+                                        <div class="title-align color">
+                                            <h4 class="color" href="{% url 'product_detail' product.pk %}">{{ product.title|capfirst }}</h4>
+                                            <span class="designation">{{ product.category }}</span>
+                                        </div>
                                     </div>
-
-                                    <div class="lower-content">
-                                        <h4>
-                                            <a href="{% url 'product_detail' product.pk %}">
-                                                {{ product.title|truncatewords:5 }}
-                                            </a>
-                                        </h4>
-                                    </div>
-
                                 </div>
                             </div>
                         {% empty %}
@@ -83,13 +99,11 @@
             {% if page_obj.has_other_pages %}
             <div class="styled-pagination text-center mt-4">
                 <ul class="pagination-list">
-
                     {% if page_obj.has_previous %}
                         <li>
                             <a href="?page={{ page_obj.previous_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">« Prev</a>
                         </li>
                     {% endif %}
-
                     {% for num in page_range_display %}
                         {% if num == "..." %}
                             <li><span class="dots">…</span></li>
@@ -102,13 +116,11 @@
                             </li>
                         {% endif %}
                     {% endfor %}
-
                     {% if page_obj.has_next %}
                         <li>
                             <a href="?page={{ page_obj.next_page_number }}{% if category %}&category={{ category }}{% endif %}{% if search_query %}&q={{ search_query }}{% endif %}" class="page-btn">Next »</a>
                         </li>
                     {% endif %}
-
                 </ul>
             </div>
             {% endif %}
@@ -117,14 +129,12 @@
             <!-- Sidebar -->
             <div class="sidebar-side col-lg-3 col-md-4 col-sm-12 col-xs-12">
                 <aside class="sidebar shop-sidebar">
-
                     <!-- Category Filter -->
                     <div class="sidebar-widget sidebar-blog-category">
                         <div class="sidebar-title">
                             <h2>Categories</h2>
                         </div>
                         <ul class="blog-cat">
-
                             <!-- All -->
                             <li>
                                 <a href="{% url 'products' %}"
@@ -132,7 +142,6 @@
                                     All
                                 </a>
                             </li>
-
                             <!-- Dynamic Categories -->
                             {% for cat in categories %}
                                 <li>
@@ -142,15 +151,13 @@
                                     </a>
                                 </li>
                             {% endfor %}
-
                         </ul>
                     </div>
-
                 </aside>
             </div>
-
         </div>
     </div>
 </div>
-
 {% endblock %}
+
+
