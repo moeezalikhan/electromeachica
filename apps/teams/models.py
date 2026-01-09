@@ -9,8 +9,6 @@ class Team(BaseModel):
     
     image = models.ImageField(upload_to='teams/')
     full_name = models.CharField(max_length=255)
-    facebook = models.URLField(max_length=255, blank=True, null=True)
-    linkedin = models.URLField(max_length=255, blank=True, null=True)
     designation = models.ForeignKey('Designation', on_delete=models.CASCADE, related_name='teams')
     active = models.BooleanField(default=True)
     priority = models.PositiveIntegerField(default=0)

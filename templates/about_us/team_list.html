@@ -37,22 +37,13 @@
                         </figure>
 
                         <!-- Overlay -->
-                        <div class="overlay-box">
-                            <ul class="social-links">
-                                {% if member.facebook %}
-                                    <li><a href="{{ member.facebook }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                {% endif %}
-                                {% if member.linkedin %}
-                                    <li><a href="{{ member.linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                {% endif %}
-                            </ul>
-                        </div>
+                       
                     </div>
 
                     <!-- Lower Content -->
                     <div class="lower-content">
-                        <h3 class="name">{{ member.full_name }}</h3>
-                        <span class="designation">{{ member.get_desination_display }}</span>
+                        <h3 class="name">{{ member.full_name|capfirst }}</h3>
+                        <span class="designation">{{ member.designation }}</span>
                     </div>
 
                 </div>
