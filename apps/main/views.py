@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.db.models import Q
 from apps.projects.models import Project
 from apps.main.models import Brochure, Banner, OurClient
+from django.core.paginator import Paginator
+
 
 ## views.py
 def home(request):
@@ -38,13 +40,26 @@ def home(request):
 def brochure(request):
     search_query = request.GET.get('q', '').strip()
     if search_query:
-        brochures = Brochure.objects.filter(
+        brochures_qs = Brochure.objects.filter(
             (Q(title__icontains=search_query) | Q(description__icontains=search_query)) & Q(is_active=True)
         )
     else:
-        brochures = Brochure.objects.filter(is_active=True)
+        brochures_qs = Brochure.objects.filter(is_active=True)
+
+    paginator = Paginator(brochures_qs, 1)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)    
+
+    page_range_display = paginator.get_elided_page_range( # pyright: ignore[reportAttributeAccessIssue]
+        number=page_obj.number,
+        on_each_side=1, 
+        on_ends=2
+    )
     context = {
-        "brochures": brochures,
-        "search_query": search_query
+        
+        "brochures": page_obj,
+        "page_obj": page_obj,  
+        "search_query": search_query,
+        "page_range_display": page_range_display,
     }
     return render(request, 'home/brochure.html', context=context)

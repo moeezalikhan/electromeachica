@@ -204,49 +204,44 @@
             {% endfor %}
         </div>
 
-                <!-- Styled Pagination -->
-                {% if is_paginated %}
-                <div class="styled-pagination text-center">
-                    <ul class="clearfix">
+{% if page_obj.has_other_pages %}
+<div class="styled-pagination text-center mt-4">
+    <ul class="pagination-list">
 
-                        <!-- Previous -->
-                        {% if page_obj.has_previous %}
-                        <li>
-                            <a class="prev" href="?page={{ page_obj.previous_page_number }}">
-                                <span class="fa fa-angle-left"></span>
-                            </a>
-                        </li>
-                        {% else %}
-                        <li class="disabled">
-                            <a class="prev" href="#"><span class="fa fa-angle-left"></span></a>
-                        </li>
-                        {% endif %}
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}"
+               class="page-btn">
+                « Prev
+            </a>
+        </li>
+        {% endif %}
 
-                        <!-- Page Numbers -->
-                        {% for num in page_obj.paginator.page_range %}
-                        {% if page_obj.number == num %}
-                        <li><a href="?page={{ num }}" class="active">{{ num }}</a></li>
-                        {% else %}
-                        <li><a href="?page={{ num }}">{{ num }}</a></li>
-                        {% endif %}
-                        {% endfor %}
+        {% for num in page_range_display %}
+            {% if num == "..." %}
+                <li><span class="dots">…</span></li>
+            {% else %}
+                <li>
+                    <a href="?page={{ num }}{% if search_query %}&q={{ search_query }}{% endif %}"
+                       class="page-btn {% if page_obj.number == num %}active{% endif %}">
+                        {{ num }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
 
-                        <!-- Next -->
-                        {% if page_obj.has_next %}
-                        <li>
-                            <a class="next" href="?page={{ page_obj.next_page_number }}">
-                                <span class=""></span>
-                            </a>
-                        </li>
-                        {% else %}
-                        <li class="disabled">
-                            <a class="next" href="#"><span class=""></span></a>
-                        </li>
-                        {% endif %}
+        {% if page_obj.has_next %}
+        <li>
+            <a href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}"
+               class="page-btn">
+                Next »
+            </a>
+        </li>
+        {% endif %}
 
-                    </ul>
-                </div>
-                {% endif %}
+    </ul>
+</div>
+{% endif %}
 
 </section>
 <!-- End Project Section Two -->

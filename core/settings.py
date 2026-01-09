@@ -164,3 +164,9 @@ WHATSAPP_DEFAULT_MESSAGE = os.getenv(
     'Hello, I would like to know more about {product}.'
 )
 
+# =====================================================
+# BROCHURE FILE SETTINGS
+# =====================================================
+BROCHURE_ALLOWED_EXTENSIONS = os.getenv('BROCHURE_ALLOWED_EXTENSIONS', 'pdf,txt,doc').split(',')
+# Max brochure file size in MB (convert string to int)
+BROCHURE_MAX_FILE_SIZE_MB = int(os.getenv('BROCHURE_MAX_FILE_SIZE_MB', 10))
