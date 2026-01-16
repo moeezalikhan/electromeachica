@@ -443,6 +443,11 @@
     }
 
 }
+@media only screen and (min-width: 767px) {
+    .new-box {
+        display: none!important;
+    }
+}
 
 @media only screen and (max-width: 767px) {
     .main-header .btn-outer {
@@ -500,6 +505,9 @@
     .main-header .header-upper .upper-right {
         padding-top: 20px !important;
         width: 100% !important;
+    }
+    .new-box{
+        display: block;
     }
 
     .main-menu .navigation > li > ul > li:hover:before,
@@ -1400,6 +1408,15 @@
     .blog-style-two .more-btn-box .next-btn {
         margin-left: 20px;
     }
+    .text-bar{
+        text-align: left!important;
+        width: 300px!important;
+    }
+    .cat-wigth{
+        display: inline-block!important;
+        width: 50%!important;
+    }
+
 }
 
 @media (max-width: 320px) {
