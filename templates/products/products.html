@@ -9,15 +9,12 @@
     width: 240px;
     height: 230px;
 }
-.image-box-img {
-    display: inline-block!important;
-    width: auto!important;
-    height: 104%!important;
-    max-width: 115%!important;
-}
+
+
 .title-align h4 {
     text-align: left!important;
-    color: black;
+    font-weight: 400!important;
+    color: rgb(75, 73, 73)!important;
 }
 
 .color {
@@ -26,7 +23,16 @@
 .color:hover {
     color: #0d61c0ff!important;
 }
+.text-bolt {
+    font-weight: 800!important;
+    color: #0f0f0f!important;
+    font-size: large;
+}
+.text-bolt:hover {
+    color: #0d61c0ff!important;
+}
 </style>
+<!-- Page Title -->
 <section class="page-title" style="background-image:url({% static 'images/background/product.jpg'%})">
     <div class="auto-container">
         <h1>Products</h1>
@@ -69,11 +75,11 @@
                     <div class="row clearfix">
                         {% for product in page_obj.object_list %}
                             <div class="project-block-four col-md-4 col-sm-6 col-xs-12">
-                                <div class="product-box-img">
+                                <div class="mobile-box-img large-mobile-box-img product-box-img">
                                     <a href="{% url 'product_detail' product.pk %}">
-                                        <img class="image-box-img"
+                                        <img class="mobile-box-img large-mobile-box-img image-box-img"
                                              src="{{ product.images.first.image.url }}"
-                                             alt="{{ product.title }}">
+                                             alt="  href{{ product.title }}">
                                     </a>
                                     <!-- Hidden images for Fancybox gallery -->
                                     {% for img in product.images.all %}
@@ -84,7 +90,7 @@
                                     <div class="product-info">
                                         <div class="title-align color">
                                             <h4 class="color" href="{% url 'product_detail' product.pk %}">{{ product.title|capfirst }}</h4>
-                                            <span class="designation">{{ product.category }}</span>
+                                            <span class="designation text-bolt">{{ product.category }}</span>
                                         </div>
                                     </div>
                                 </div>

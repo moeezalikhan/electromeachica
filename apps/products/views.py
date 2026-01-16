@@ -26,7 +26,7 @@ def products(request):
             Q(description__icontains=search_query)
         )
 
-    paginator = Paginator(products_qs, 1)
+    paginator = Paginator(products_qs, 9)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

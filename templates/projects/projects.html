@@ -120,9 +120,9 @@ span.tag.bolt {
                                name="q"
                                placeholder="Search projects..."
                                value="{{ search_query }}"
-                               class="form-control"
+                               class="form-control search-button pro-search"
                                style="width:45%;display:inline-block;">
-                      <select name="category" class="form-control" style="width:35%;display:inline-block;">
+                      <select name="category" class="form-control cat-button pro-cat" style="width:35%;display:inline-block;">
                             <option value="">All Categories</option>
                             {% for category in categories %}
                                 <option value="{{ category.id }}" {% if category_filter|add:'' == category.id|stringformat:"s" %}selected{% endif %}>
@@ -130,7 +130,7 @@ span.tag.bolt {
                                 </option>
                             {% endfor %}
                         </select>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="project-submit-btn project-submit-btn-1 btn btn-primary">
                             Search
                         </button>
                     </form>
