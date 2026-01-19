@@ -2,36 +2,55 @@
 {% load static %}
 {% block title %}Machenary - Products{% endblock %}
 {% block content %}
-
 <style>
+/* Product Card */
+.product-card {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px) !important;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+
+/* Disable hover effect */
+.product-card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Image box */
 .product-box-img {
-    display: block;
-    width: 240px;
+    width: 100%;
     height: 230px;
+    overflow: hidden;
 }
 
+.product-box-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+/* Text */
 .title-align h4 {
-    text-align: left!important;
-    font-weight: 400!important;
-    color: rgb(75, 73, 73)!important;
+    text-align: left !important;
+    font-weight: 400 !important;
+    color: rgb(75, 73, 73) !important;
 }
 
-.color {
-    color: #000000ad!important;
+
+.text-bolt{
+    font-weight: 600 !important;
+    color: #080808 !important;
+    font-size: medium;
 }
-.color:hover {
-    color: #0d61c0ff!important;
-}
-.text-bolt {
-    font-weight: 800!important;
-    color: #0f0f0f!important;
-    font-size: large;
-}
-.text-bolt:hover {
-    color: #0d61c0ff!important;
+
+/* Remove link underline */
+a {
+    text-decoration: none !important;
 }
 </style>
+
 <!-- Page Title -->
 <section class="page-title" style="background-image:url({% static 'images/background/product.jpg'%})">
     <div class="auto-container">
@@ -73,33 +92,32 @@
                     </div>
                    <!-- Products Grid -->
                     <div class="row clearfix">
-                        {% for product in page_obj.object_list %}
-                            <div class="project-block-four col-md-4 col-sm-6 col-xs-12">
-                                <div class="mobile-box-img large-mobile-box-img product-box-img">
+                    {% for product in page_obj.object_list %}
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="product-card">
+                                <div class="product-box-img">
                                     <a href="{% url 'product_detail' product.pk %}">
-                                        <img class="mobile-box-img large-mobile-box-img image-box-img"
-                                             src="{{ product.images.first.image.url }}"
-                                             alt="  href{{ product.title }}">
-                                    </a>
-                                    <!-- Hidden images for Fancybox gallery -->
-                                    {% for img in product.images.all %}
-                                        {% if not forloop.first %}
-                                            <a href="{{ img.image.url }}" data-fancybox="gallery-{{ product.id }}" style="display:none;"></a>
-                                        {% endif %}
-                                    {% endfor %}
-                                    <div class="product-info">
-                                        <div class="title-align color">
-                                            <h4 class="color" href="{% url 'product_detail' product.pk %}">{{ product.title|capfirst }}</h4>
-                                            <span class="designation text-bolt">{{ product.category }}</span>
+                                        <img src="{{ product.images.first.image.url }}"
+                                            alt="{{ product.title }}">
                                         </div>
+                                    <div class="product-info mt-2" style="padding:8px;">
+                                    <div class="title-align">
+                                        <h4 class="color">
+                                            {{ product.title|capfirst }}
+                                        </h4>
+                                        <span class="designation text-bolt">
+                                            {{ product.category|truncatechars:24 }}
+                                        </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        {% empty %}
-                            <div class="col-12 text-center">
-                                <p>No products available.</p>
-                            </div>
-                        {% endfor %}
+                        </div>
+                    {% empty %}
+                        <div class="col-12 text-center">
+                            <p>No products available.</p>
+                        </div>
+                    {% endfor %}
                     </div>
             <!-- Pagination -->
             {% if page_obj.has_other_pages %}

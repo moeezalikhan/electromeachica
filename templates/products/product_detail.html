@@ -107,6 +107,79 @@
     justify-content: center;
     font-size: 45px;
 }
+.related-products-title {
+    position: relative;
+    font-weight: 400;
+    margin: 0px;
+    background: rgba(255, 255, 255, 0);
+    color: black;
+    line-height: 1.6em;
+    font-family: 'Roboto', sans-serif;
+  }
+  .related-products-category {
+    position: relative;
+    font-weight: 600;
+    margin: 0px;
+    background: rgba(255, 255, 255, 0);
+    color: black;
+    line-height: 1.6em;
+    font-family: 'Roboto', sans-serif;
+  }
+  .related-products-title:hover {
+    color: #0d61c0ff!important;
+  }
+  .related-products-category:hover {
+    color: #0d61c0ff!important;
+  }
+
+  /* ===== PRODUCT CARD (Reusable) ===== */
+.product-card {
+    box-shadow: 0 4px 12px!important;
+    transform: translateY(-5px) !important;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+
+/* Disable hover effect */
+.product-card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Image */
+.product-card-img {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.product-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text */
+.product-card-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #444;
+    margin-top: 10px;
+}
+
+.product-card-category {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* Disable link hover */
+.product-card a,
+.product-card a:hover {
+    text-decoration: none !important;
+    color: inherit !important;
+}
 
 </style>
 
@@ -205,24 +278,30 @@
              <h2>Related Products</h2>
               <div class="row clearfix">
                 {% for related in related_products %}
-                <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div class="inner-box">
+               <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="product-card">
                     <a href="{% url 'product_detail' related.id %}">
-                      <div class="image-box">
-                        {% with first_image=related.images.all|first %}
-                          {% if first_image %}
-                          <img src="{{ first_image.image.url }}" alt="{{ related.title }}" style="width:100%; height:250px; object-fit:cover; border-radius:8px;">
-                          {% else %}
-                          <img src="{% static 'images/no-image.jpg' %}" alt="No Image" style="width:100%; height:250px; object-fit:cover; border-radius:8px;">
-                          {% endif %}
-                        {% endwith %}
-                      </div>
-                      <div class="lower-content text-center">
-                        <h4>{{ related.title|truncatewords:8 }}</h4>
-                      </div>
+                        <div class="product-card-img">
+                            {% with first_image=related.images.all|first %}
+                                {% if first_image %}
+                                    <img src="{{ first_image.image.url }}" alt="{{ related.title }}">
+                                   {% else %}
+                                     <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
+                                  {% endif %}
+                                   {% endwith %}
+                                      </div>
+                                      </a>
+                                     <a href="{% url 'product_detail' related.id %}">
+                                    <h4 class="product-card-title" style="padding: 8px;">
+                                  {{ related.title|truncatewords:8 }}
+                              </h4>
+                            
+                          <span class="product-card-category " style="padding:8px">
+                        {{ related.category.name }}
+                    </span>
                     </a>
+                   </div>
                   </div>
-                </div>
                 {% empty %}
                 <div class="col-12 text-center">
                   <p>No products found.</p>

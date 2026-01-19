@@ -13685,6 +13685,7 @@ ul.header-text li{
     width: auto!important;
     height: 104%!important;
     max-width: 115%!important;
+    padding-top: 40px!important
 }
 
 @media (min-width: 321px) and (max-width: 376px){

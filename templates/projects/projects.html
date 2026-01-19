@@ -48,7 +48,7 @@
  }
 .fancybox-trigger-icon {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 55px;
@@ -58,9 +58,9 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0, 0, 0, 0.384);
     font-size: 25px;
-    opacity: 0;
+    opacity: 1;
     transition: 0.3s ease;
     z-index: 2;
     pointer-events: auto;
@@ -85,13 +85,84 @@ span.tag.bolt {
     color: #016aac;
 }
 
-.read-more-btn {
-    color: #016aac;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
+
+/* ===== PROJECT CARD ===== */
+.project-card {
+    box-shadow: 0 4px 12px!important;
+    transform: translateY(-5px) !important;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    margin-bottom: 25px;
 }
+.project-card:hover {
+    box-shadow:none !important;
+    transform: none !important;
+}
+
+/* Image */
+.project-card-img {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.project-card-img img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background-color: #24222248!important;
+    display: block;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+ .project-card-img img     {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+ }
+/* Text */
+.project-card-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #444;
+    margin-top: 10px;
+    padding: 8px;
+}
+
+.project-card-category {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* Description / Read More */
+.project-card-description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+    padding:8px;
+}
+
+.overlay-dots {
+    display: inline;
+}
+
+.overlay-more-text {
+    display: none;
+}
+
+.read-more-btn {
+    color: #016aac!important;
+    font-size: 14px!important;
+    font-weight: 600!important;
+    cursor: pointer!important;
+}
+
+/* Disable link hover */
+/* .project-card a,
+.project-card a:hover {
+    text-decoration: ;
+    color: inherit !important;
+} */
+
 </style>
 
 <section class="page-title" style="background-image:url({% static 'images/background/projects-banner.jpg' %})">
@@ -137,49 +208,49 @@ span.tag.bolt {
                 </div>
             </div>
         </div>
-        <div class="row clearfix">
-            {% for project in projects %}
-            <div class="project-block-four col-md-4 col-sm-6 col-xs-12">
-                <div class="image-box">
+     <div class="row clearfix">
+    {% for project in projects %}
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="project-card">
 
-                    {% with project.images.first as image %}
-                        {% if image %}
-                            <a class="fancybox-selection" href="{{ image.image.url }}"
-                               data-fancybox="gallery-{{ project.id }}">
-                                <img src="{{ image.image.url }}" alt="{{ project.name }}">
-                                <span class="fancybox-trigger-icon">
-                                    <i class="fa fa-search-plus"></i>
-                                </span>
-                            </a>
-                        {% endif %}
-                    {% endwith %}
-                    {% for img in project.images.all %}
-                        {% if not forloop.first %}
-                            <a href="{{ img.image.url }}"
-                               data-fancybox="gallery-{{ project.id }}"
-                               style="display:none;"></a>
-                        {% endif %}
-                    {% endfor %}
-                    <div class="overlay-box project-description">
-                        <h4>{{ project.name|capfirst }}</h4>
-                        <span class="tag bolt">{{ project.get_category_display }}</span>
-                        <p>
-                            {% if project.description|length > 120 %}
-                                {{ project.description|slice:":120" }}
-                                <span class="overlay-dots">...</span>
-                                <span class="overlay-more-text" style="display:none;">
-                                    {{ project.description|slice:"120:" }}
-                                </span>
-                                <a href="#" class="read-more-btn">Read More</a>
-                            {% else %}
-                                {{ project.description }}
-                            {% endif %}
-                        </p>
-                    </div>
+                <!-- Project Image -->
+                {% with project.images.first as image %}
+                <div class="project-card-img">
+                    {% if image %}
+                        <a href="{{ image.image.url }}" data-fancybox="gallery-{{ project.id }}">
+                            <img src="{{ image.image.url }}" alt="{{ project.name }}">
+                            <span class="fancybox-trigger-icon"> 
+                                <i class="fa fa-search-plus"></i>
+                            </span>
+                        </a>
+                    {% else %}
+                        <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
+                    {% endif %}
                 </div>
+                {% endwith %}
+
+                <!-- Project Info -->
+                <h4 class="project-card-title">{{ project.name|capfirst }}</h4>
+                <span class="project-card-category">{{ project.get_category_display }}</span>
+
+                <!-- Project Description with Read More -->
+                <p class="project-card-description">
+                    {% if project.description|length > 120 %}
+                        {{ project.description|slice:":120" }}
+                        <span class="overlay-dots">...</span>
+                        <span class="overlay-more-text">{{ project.description|slice:"120:" }}</span>
+                        <a href="#" class="read-more-btn">Read More</a>
+                    {% else %}
+                        {{ project.description }}
+                    {% endif %}
+                </p>
+
             </div>
-            {% endfor %}
         </div>
+    {% endfor %}
+</div>
+
+        
         {% if page_obj.has_other_pages %}
         <div class="styled-pagination text-center mt-4">
             <ul class="pagination-list">
@@ -206,20 +277,21 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.read-more-btn').forEach(btn => {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
-            const box = this.closest('.overlay-box');
+            const box = this.closest('.project-card-description, .project-card');
             const more = box.querySelector('.overlay-more-text');
             const dots = box.querySelector('.overlay-dots');
-            if (more.style.display === 'none') {
+            if (more.style.display === 'none' || more.style.display === '') {
                 more.style.display = 'inline';
-                dots.style.display = 'none';
+                if(dots) dots.style.display = 'none';
                 this.textContent = 'Read Less';
             } else {
                 more.style.display = 'none';
-                dots.style.display = 'inline';
+                if(dots) dots.style.display = 'inline';
                 this.textContent = 'Read More';
             }
         });
     });
 });
 </script>
+
 {% endblock %}
