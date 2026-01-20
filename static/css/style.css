@@ -13722,6 +13722,27 @@ ul.header-text li{
         max-width: 100% !important;
 
     }
+    .brochure-mobile-view{
+    width: 92%!important;
+    display: inline-block!important;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+    }
+    .brochure-search-button{
+    padding: 9px 5px!important;
+    background: #016aac;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    }    
 
 
 }
@@ -13756,6 +13777,9 @@ ul.header-text li{
         height: 105% !important;
         max-width: 100% !important;
 
+    }
+    .color-brochure-search-btn{
+        background-color: #016aac!important;
     }
     
 }

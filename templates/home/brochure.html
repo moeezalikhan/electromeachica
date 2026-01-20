@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="select-column pull-right col-md-6 col-sm-6 col-xs-12">
-                    <form method="get" action="{% url 'brochure' %}" class="search-form">
+                    <form method="get" action="{% url 'brochure' %}" class="search-form brochure-mobile-view">
                         <input 
                             type="text" 
                             name="q" 
@@ -118,7 +118,7 @@
                             value="{{ search_query }}" 
                             class="form-control"
                         >
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="color-brochure-search-btn btn btn-primar brochure-search-button">Search</button>
                     </form>
                 </div>
             </div>

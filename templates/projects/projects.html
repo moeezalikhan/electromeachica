@@ -212,27 +212,34 @@ span.tag.bolt {
     {% for project in projects %}
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="project-card">
-
                 <!-- Project Image -->
                 {% with project.images.first as image %}
-                <div class="project-card-img">
-                    {% if image %}
-                        <a href="{{ image.image.url }}" data-fancybox="gallery-{{ project.id }}">
-                            <img src="{{ image.image.url }}" alt="{{ project.name }}">
-                            <span class="fancybox-trigger-icon"> 
-                                <i class="fa fa-search-plus"></i>
-                            </span>
-                        </a>
-                    {% else %}
-                        <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
-                    {% endif %}
-                </div>
+               <div class="project-card-img">
+                {% if project.images.all %}    
+                    {% for img in project.images.all %}
+                        {% if forloop.first %}
+                            <!-- FIRST IMAGE (VISIBLE) -->
+                            <a href="{{ img.image.url }}" data-fancybox="gallery-{{ project.id }}">
+                                <img src="{{ img.image.url }}" alt="{{ project.name }}">
+                                <span class="fancybox-trigger-icon">
+                                    <i class="fa fa-search-plus"></i>
+                                </span>
+                            </a>
+                        {% else %}
+                            <!-- OTHER IMAGES (HIDDEN BUT PART OF GALLERY) -->
+                            <a href="{{ img.image.url }}"
+                            data-fancybox="gallery-{{ project.id }}"
+                            style="display:none;"></a>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
+                {% endif %}
+            </div>
                 {% endwith %}
-
                 <!-- Project Info -->
                 <h4 class="project-card-title">{{ project.name|capfirst }}</h4>
                 <span class="project-card-category">{{ project.get_category_display }}</span>
-
                 <!-- Project Description with Read More -->
                 <p class="project-card-description">
                     {% if project.description|length > 120 %}
@@ -248,9 +255,7 @@ span.tag.bolt {
             </div>
         </div>
     {% endfor %}
-</div>
-
-        
+    </div>       
         {% if page_obj.has_other_pages %}
         <div class="styled-pagination text-center mt-4">
             <ul class="pagination-list">
