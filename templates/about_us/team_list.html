@@ -2,6 +2,63 @@
 {% load static %}
 {% block title %}Electromechanica - Our team{% endblock %}
 {% block content %}
+
+<style>
+    /* ===== TEAM CARD ===== */
+.team-card {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    transform: translateY(-5px) !important;
+
+}
+
+.team-card:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Image */
+.team-card-img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #f2f2f2;
+}
+
+.team-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-card-img img {
+    transform: scale(1.01);
+}
+
+/* Content */
+.team-card-content {
+    padding: 18px;
+    
+}
+
+.team-card-name {
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.team-card-designation {
+    font-size: 14px;
+    font-weight: 500;
+    color: #0a0a0a;
+}
+
+</style>
   <section class="page-title" style="background-image: url({% static 'images/background/team.jpg' %})">
     <div class="auto-container">
          <h1>Meet Our Team</h1>
@@ -21,38 +78,34 @@
         </div>
 
         <div class="row clearfix">
-            {% for member in teams %}
-            <!-- Team Block -->
-            <div class="team-block col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box">
+    {% for member in teams %}
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="team-card">
 
-                    <!-- Image Box -->
-                    <div class="image-box">
-                        <figure class="image">
-                            {% if member.image %}
-                                <img src="{{ member.image.url }}" alt="{{ member.full_name }}">
-                            {% else %}
-                                <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
-                            {% endif %}
-                        </figure>
-
-                        <!-- Overlay -->
-                       
-                    </div>
-
-                    <!-- Lower Content -->
-                    <div class="lower-content">
-                        <h3 class="name">{{ member.full_name|capfirst }}</h3>
-                        <span class="designation">{{ member.designation }}</span>
-                    </div>
-
-                </div>
+            <!-- Image -->
+            <div class="team-card-img">
+                {% if member.image %}
+                    <img src="{{ member.image.url }}" alt="{{ member.full_name }}">
+                {% else %}
+                    <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
+                {% endif %}
             </div>
-            {% empty %}
-            <div class="col-12 text-center">
-                <p>No active team members found.</p>
+
+            <!-- Content -->
+            <div class="team-card-content">
+                <h3 class="team-card-name">{{ member.full_name|capfirst }}</h3>
+                <span class="team-card-designation">{{ member.designation }}</span>
             </div>
-            {% endfor %}
+
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12 text-center">
+        <p>No active team members found.</p>
+    </div>
+    {% endfor %}
+</div>
+
         </div>
     </div>
 </section>

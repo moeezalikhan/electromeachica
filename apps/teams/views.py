@@ -7,7 +7,7 @@ from apps.teams.models import Team
  
 def teams(request):
     """Fetch only active team members, ordered by priority"""
-    teams = Team.objects.filter(active=True).order_by('priority')
+    teams = Team.objects.filter(active=True).order_by('-priority')
 
     context = {
         'teams': teams
