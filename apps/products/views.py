@@ -13,7 +13,7 @@ def products(request):
     category_id = request.GET.get('category')
     search_query = request.GET.get('q', '')
 
-    products_qs = Product.objects.prefetch_related('images').filter(category__is_active=True)
+    products_qs = Product.objects.prefetch_related('images').filter(category__is_active=True).filter(is_active=True)
 
     # Category filter
     if category_id:
